@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de HQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+    <link href="./assets/style/cadastroUsuario.css" rel="stylesheet"  />
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header>
+        <span src="">Logo</span>
+        <nav>
+            <img class="crtl_user"src="assets/imagens/hamburguer.png"/>
+            <img class="crtl_user"src="assets/imagens/profile.png"/>
+        </nav>
+    </header>
+    <!-- FIM CABEÇALHO -->
+
+    <!-- CORPO -->
+    <main>
+        <form action="#" method="POST">
+            <div class="formulario">
+                <div class="dados">
+                    <label for="nome">Digite seu nome</label>
+                    <input type="text" name="nome" id="nome"><br>
+                    <label for="email">Digite seu email</label>
+                    <input type="email" name="email" id="email"><br>
+                    <label for="telefone">Digite seu telefone</label>
+                    <input type="tel" name="telefone" id="telefone"><br>
+                    <label for="senha">Crie uma senha</label>
+                    <input type="password" name="senha" id="senha"><br>
+                    <label for="confirmaSenha">Confirme sua senha</label>
+                    <input type="password" name="confirmaSenha" id="confirmaSenha"><br>
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" name="nascimento" id="nascimento">
+                </div>
+                <div class="preferencias">
+                    <label>Selecione abaixo as suas preferências</label><br>
+                    <ul class="titulos">
+                        <li><input type="checkbox" name="preferencias" value="preferencia1" id="pr1"><label for="pr1"> Preferencia 1</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia2" id="pr2"><label for="pr2"> Preferencia 2</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia3" id="pr3"><label for="pr3"> Preferencia 3</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia4" id="pr4"><label for="pr4"> Preferencia 4</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia5" id="pr5"><label for="pr5"> Preferencia 5</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia6" id="pr6"><label for="pr6"> Preferencia 6</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia7" id="pr7"><label for="pr7"> Preferencia 7</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia8" id="pr8"><label for="pr8"> Preferencia 8</label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="botoes">
+                <button class="botao" type="reset">Limpar</button>
+                <button class="botao" type="submit">Enviar</button>
+            </div>
+        </form>
+        
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <!-- Logo e Redes Sociais-->
+        <section class="redes-sociais">
+            <span>LOGO</span>
+            <div>
+                <img src="./assets/imagens/facebook.png" alt="logo facebook">
+                <img src="./assets/imagens/twitter.png" alt="logo twitter">
+                <img src="./assets/imagens/instagram.png" alt="logo instagram">
+            </div>
+        </section>
+        <!-- Fim logo e Redes Sociais-->
+
+        <div class="capsula">
+            <!-- Links -->
+            <section class="links">
+                <div>
+                    <h4>A Empresa</h4>
+                    <ul>
+                        <li>link</li>
+                        <li>link</li>
+                        <li>link</li>
+                        <li>link</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Comunidade</h4>
+                    <ul>
+                        <li>link</li>
+                        <li>link</li>
+                        <li>link</li>
+                        <li>link</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Úteis</h4>
+                    <ul>
+                        <li>link</li>
+                        <li>link</li>
+                        <li>link</li>
+                        <li>link</li>
+                    </ul>
+                </div>
+            </section>
+            <!-- Fim links -->
+            
+            <!-- Newsletter -->
+            <section class="newsletter">
+                <form>
+                    <label for="email">Receba Nossa newsletter: </label>
+                    <input type="email" name="email" id="email"/>
+                    <button type="submit">enviar</button>
+                </form>
+            </section>
+            <!-- Fim newsletter -->
+        </div>
+    </footer> 
+    <!-- FIM FOOTER -->   
+</body>
+</html>

@@ -7,7 +7,7 @@
 }
 
 /* -- BODY ----------------------------------------------------------------------------------------- */
-html, body, .capa {
+html, body {
     height: 100%;
     overflow: auto;
 }
@@ -57,150 +57,77 @@ header nav {
 /*-- FIM HEADER --------------------------------------------------------------------------------------*/
 
 /* -- MAIN -------------------------------------------------------------------------------------------*/
-
-/*-- Apresentação --*/
-main .merchandizing {
-    width: auto;
-    height: 80vh;
-    margin: 10px 0px;
+main {
+    font-family: 'Knewave';
+    font-size: 12px;
+    display: flex;
 }
 
-.convite {
-    width: 100%;
-}
-
-main button {
-    width: 200px;
-    height: 30px;
-    background-color: #47525E;
-    margin-left: 50px;
-}
-/*-- Fim apresentação --*/
-
-/*-- Chamada --*/
-.chamada {
-    width: auto;
-    height: 100px;
-    margin-top: 50px;
+/*.formulario{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
+}*/
 
-.chamada .logo-herois {
-    width: 80%;
-    margin: 5px;
+.dados {
     display: flex;
-    justify-content: space-around;
-}
-
-.simbolo-heroi {
-    width: 32px;
-    height: 32px;
-}
-/*-- Fim chamada --*/
-
-/*-- Conteúdo 1 --*/
-.container {
-    background-color: #CACED2 ;
-    width: auto;
-    height: 100vh;
+    flex-direction: column;
+    align-items: center;
     margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
 }
 
-.quadrinhos {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.dados input{
+    border-radius: 20px;
+    padding: 0px 5px 0px 5px;
+    width: 270px;
 }
 
-.capa-gibi {
-    border: 1px solid black;
-    width: 40%;
-    height: 45%;
-    margin: 10px;
+#nascimento{
+    width: 150px;
+}
+
+.preferencias{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    
+    padding-top: 25px;
 }
 
-.capa-gibi img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+.titulos {
+    margin-left: 45px;
 }
 
-.descricao {
-    width: 50%;
-    padding: 10px;
-}
+.titulos li { 
+    border: 1px transparent solid; 
+    display:inline-block;
+    width:12em;
+  }
 
-h2 {
-    text-align: center;
-    font-size: 40px;
-    font-weight: 900;
-    margin-bottom: 40px;
-}
-
-h3 {
-    font-size: 30px;
-    font-weight: 900;
-    margin-bottom: 10px; 
-}
-
-p {
-    font-size: 15px;
-    margin-bottom: 20px;
-}
-/*-- Fim conteúdo 1 --*/
-
-/*-- Conteúdo 2 --*/
-.recursos {
-    width: auto;
-    height: 80vh;
-    margin: 10px 0px;
+.botoes {
     display: flex;
-    justify-content: space-around;
-}
-/*-- Fim conteúdo 2 --*/
-
-/*-- Imprensa --*/
-.imprensa {
-    background-color: #CACED2;
-    width: auto;
-    height: 100px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 15px;
     justify-content: center;
-    align-items: center;
 }
 
-.imprensa div {
-    width: 80%;
-    margin: 5px;
-    display: flex;
-    justify-content: space-around;
+.botao {
+    font-family: 'Knewave';
+    font-size: 12px;
+    width: 70px;
+    height: 25px;
+    margin: 0px 30px 0px 10px;
+    background-color: #FFF;
+    border-radius: 20px;
 }
 
-.imprensa div img {
-    width: 40px;
-    height: 40px;
-}
-/*-- Fim imprensa --*/
 
 /* -- FIM MAIN ---------------------------------------------------------------------------------------*/
 
 /* -- FOOTER -----------------------------------------------------------------------------------------*/
 
 footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
     background-color: #212121;
     color: #FFF;
     margin-top: 10px;
