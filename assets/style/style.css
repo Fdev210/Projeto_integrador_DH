@@ -202,7 +202,7 @@ a:hover,a.active{
         flex: 1 1 300px;
     }
 }
-/*SLIDSHOW*/
+/*SLIDESHOW*/
 .container2{
     background:#0F2027;
     border-bottom: black solid 0.4rem;
@@ -287,3 +287,63 @@ a:hover,a.active{
 #i3:checked ~ .nav #dot3{
     background: #fff;
 }
+/*FIM SLIDESHOW*/
+
+footer {
+    background-color: #212121;
+    color: #FFF;
+    margin-top: 10px;
+    padding: 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*-- Logo e Redes sociais --*/
+.redes-sociais {
+    display: flex;
+    justify-content: space-between;
+}
+
+.redes-sociais div {
+    margin: 0px 0px 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.redes-sociais div img {
+    width: 50px;
+}
+/*-- Fim Logo e Redes Sociais --*/
+
+.capsula {
+    display: flex;
+    justify-content: space-around;
+}
+/*-- Links --*/
+.capsula .links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*-- Fim links --*/
+
+/*-- Newsletter --*/
+.capsula .newsletter {
+    align-self: center;
+}
+
+.capsula .newsletter input {
+    width: 300px;
+    height: 20px;
+}
+
+.capsula .newsletter button {
+    width: 50px;
+    height: 20px;
+    background-color: #F95F62;
+}
+/*-- Fim newsletter --*/
+
+/* -- FIM FOOTER -------------------------------------------------------------------------------------*/
+
