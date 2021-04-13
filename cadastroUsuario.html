@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de HQ</title>
     <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
-    <link href="./assets/style/telaAdmin.css" rel="stylesheet"  />
+    <link href="./assets/style/cadastroUsuario.css" rel="stylesheet"  />
 </head>
 <body>
     <!-- CABEÇALHO -->
@@ -23,30 +23,33 @@
     <main>
         <form class="formulario" action="#" method="POST">
             <div class="dados">
-                <label for="nome">Nome</label>
+                <label for="nome">Digite seu nome</label>
                 <input type="text" name="nome" id="nome">
-                 <label for="autor">Autor</label>
-                <input type="text" name="autor" id="autor">
-                <div class="bloco1">
-                    <label for="ano">Ano</label>
-                    <input type="number" name="ano" id="ano">
-                    <label for="tag1">Tag 1</label>
-                    <input type="text" name="tag1" id="tag1">
-                </div>
-                <div class="bloco2">
-                    <label for="tag2">Tag 2</label>
-                    <input type="text" name="tag2" id="tag2">
-                    <label for="tag3">Tag 3</label>
-                    <input type="text" name="tag3" id="tag3">
-                </div>
+                <label for="email">Digite seu email</label>
+                <input type="email" name="email" id="email">
+                <label for="telefone">Digite seu telefone</label>
+                <input type="tel" name="telefone" id="telefone">
+                <label for="senha">Crie uma senha</label>
+                <input type="password" name="senha" id="senha">
+                <label for="confirmaSenha">Confirme sua senha</label>
+                <input type="password" name="confirmaSenha" id="confirmaSenha">
+                <label for="nascimento">Data de nascimento</label>
+                <input type="date" name="nascimento" id="nascimento">
             </div>
             <div class="desktop">
-                <div class="sinopse">
-                    <label for="sinopse">Sinopse</label>
-                    <textarea name="sinopse" id="sinopse"></textarea>
+                <div class="preferencias">
+                    <label>Selecione abaixo as suas preferências</label>
+                    <ul class="titulos">
+                        <li><input type="checkbox" name="preferencias" value="preferencia1" id="pr1"><label for="pr1"> Preferencia 1</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia2" id="pr2"><label for="pr2"> Preferencia 2</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia3" id="pr3"><label for="pr3"> Preferencia 3</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia4" id="pr4"><label for="pr4"> Preferencia 4</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia5" id="pr5"><label for="pr5"> Preferencia 5</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia6" id="pr6"><label for="pr6"> Preferencia 6</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia7" id="pr7"><label for="pr7"> Preferencia 7</label></li>
+                        <li><input type="checkbox" name="preferencias" value="preferencia8" id="pr8"><label for="pr8"> Preferencia 8</label></li>
+                    </ul>
                 </div>
-                <label for="arquivo" class="arquivo">Selecione o arquivo &#187</label>
-                <input type="file" id="arquivo" name="arquivo" accept=".pdf">
                 <div class="botoes">
                     <button class="botao" type="reset">Limpar</button>
                     <button class="botao" type="submit">Enviar</button>
