@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style/style.css">
-
-    <title>dh-project</title>
-</head>
-<body>
-    <!--MENU-->
-    <header class="menu-bg">
-
-        <div class="menu">
-            <div class="menu-logo">
-                <h1 class="logo">dh-project</h1>
-            </div>
-            <nav>
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class='fas fa-bars'></i>
-                </label>
-                <ul>
-                    <li><a class="active" href="#login">login</a></li>
-                    <li><a href="#cadastro">cadastro</a></li>
-                    <li><a href="#acervo">acervo</a></li>
-                    <li><a href="#forum">forum</a></li>
-                </ul>
-            </nav>
-        </div>
-        
-    </header>
-    <!--FIM MENU-->
+<%- include('./views/global/header.ejs') %>
     <main>
         <!--ABERTURA-->
 <section class="container1">
@@ -84,6 +51,7 @@
     </div>
 </section>
 <!--FIM SLIDESHOW--> 
+
 <footer>
     <!-- Logo e Redes Sociais-->
     <section class="redes-sociais">
