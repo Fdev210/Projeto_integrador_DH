@@ -1,216 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site de HQ</title>
+<%- include('./global/header.ejs') %>
 
-    <link href="stylesheets/landingpage.css" rel="stylesheet"  />
-</head>
-<body>
-    <!-- CABEÇALHO -->
-    <header>
-        <span src="">Logo</span>
-        <nav>
-            <img class="crtl_user"src="images/hamburguer.png"/>
-            <img class="crtl_user"src="images/profile.png"/>
-        </nav>
-    </header>
-    <!-- FIM CABEÇALHO -->
-
-    <!-- CORPO -->
-    <main>
-        <!-- CAPA -->
-        <div class="capa"></div>
-        <!-- FIM CAPA -->
-
-        <!-- APRESENTAÇÃO -->
-        <div class="merchandizing">
-            <img class="convite" src="images/convite.png" />
+<main>
+    <!--ABERTURA-->
+<section class="container1">
+    <div class="titulo">
+        <h1>ultimos lançamentos</h1>
+    </div>
+    <div class="galeria">
+        <img src="images/capa1.webp" alt="" class="foto">
+        <img src="images/capa2.jpg" alt="" class="foto">
+        <img src="images/capa3.jpg" alt="" class="foto">
+        <img src="images/capa4.webp" alt="" class="foto">
+        <img src="images/capa5.jpg" alt="" class="foto">
+        <img src="images/capa6.jpg" alt="" class="foto">
+    </div>
+    </section>
+    <!--FIM ABERTURA-->
+    <!--SLIDESHOW-->
+    <section class="container2">
+        <div class="titulo">
+            <h1>os mais lidos...</h1>
         </div>
-
-        <button>Cadastre-se</button>
-        <!-- FIM APRESENTAÇÃO -->
-
-        <!-- CHAMADA -->
-        <div class="chamada">
-            <span>O melhor dos quadrinhos em um só lugar !</span>
-            <div class="logo-herois">
-                <img class="simbolo-heroi" src="images/naruto.png"/>
-                <img class="simbolo-heroi" src="images/Dragonball.png"/>
-                <img class="simbolo-heroi" src="images/DoctorStrange.png"/>
-                <img class="simbolo-heroi" src="images/JL.png"/></li>
-                <img class="simbolo-heroi" src="images/super-homem.png"/>
-                <img class="simbolo-heroi" src="images/batman.png"/>
-                <img class="simbolo-heroi" src="images/avengers.png"/>
-                <img class="simbolo-heroi" src="images/x-men.png"/>
-            </div>
-        </div>
-        <!-- FIM CHAMADA -->
-
-
-        <!-- CONTEÚDO1 -->
-        <section class="container">
-            <!-- Quadrinhos--> 
-            <div class="quadrinhos">
-                <div class="capa-gibi">
-                    <img src="images/avengers.png" alt="capa do gibi">
-                </div>
-
-                <div class="capa-gibi">
-                    <img src="images/flash.png" alt="capa do gibi">
-                </div>
-
-                <div class="capa-gibi">
-                    <img src="images/Dragonball.png" alt="capa do gibi">
-                </div>
-
-                <div class="capa-gibi">
-                    <img src="images/naruto.png" alt="capa do gibi">
-                </div>
-            </div>
-            <!-- Fim quadrinhos -->
-
-            <!-- Descrição 1-->
-            <div class="descricao">
-                <h2>O que o (nome da página) tem ?</h2>
-
-                <h3>Milhares de gibis Online</h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo ipsam dicta voluptates 
-                provident rem quaerat nemo explicabo labore minus, nobis, consequuntur doloribus quam delectus? 
-                Natus eum corrupti ex labore.
-                </p>
-
-                <h3>Fórum de discussão</h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo ipsam dicta voluptates 
-                provident rem quaerat nemo explicabo labore minus, nobis, consequuntur doloribus quam delectus? 
-                Natus eum corrupti ex labore.
-                </p>
-
-                <h3>Lançamentos</h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo ipsam dicta voluptates 
-                provident rem quaerat nemo explicabo labore minus, nobis, consequuntur doloribus quam delectus? 
-                Natus eum corrupti ex labore.
-                </p>
-                <!-- Fim descrição 1-->
-            </div>
-        </section>  
-        <!-- FIM CONTEÚDO1 -->
+    <div class="container_slide">
         
-        <!-- CONTEÚDO 2 -->
-        <section class="container recursos">
-            <!-- Descrição 2 -->
-            <div class="descricao">
-                <h2>E mais...</h2>
+    <input type="radio" name="images" id="i1" checked>
+    <input type="radio" name="images" id="i2">
+    <input type="radio" name="images" id="i3">
 
-                <h3>Já sabe o que quer ?</h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo ipsam dicta voluptates 
-                provident rem quaerat nemo explicabo labore minus, nobis, consequuntur doloribus quam delectus? 
-                Natus eum corrupti ex labore.
-                </p>
+    <div class="slide_img" id="img1">
+        <img src="images/slide1.jpg" alt="">
+        <label for="i3" class="pre"></label>
+        <label for="i2" class="nxt"></label>
+    </div>
+    <div class="slide_img" id="img2">
+        <img src="images/slide2.jpg" alt="">
+        <label for="i1" class="pre"></label>
+        <label for="i3" class="nxt"></label>
 
-                <h3>Em alta </h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo ipsam dicta voluptates 
-                provident rem quaerat nemo explicabo labore minus, nobis, consequuntur doloribus quam delectus? 
-                Natus eum corrupti ex labore.
-                </p>
+    </div>
+    <div class="slide_img" id="img3">
+        <img src="images/slide3.jpg" alt="">
+        <label for="i2" class="pre"></label>
+        <label for="i1" class="nxt"></label>
+    </div>
+    <div class="nav">
+        <label class="dots" id="dot1" for="i1"></label>
+        <label class="dots" id="dot2" for="i2"></label>
+        <label class="dots" id="dot3" for="i3"></label>
+    </div>
+    </div>
+</section>
+<!--FIM SLIDESHOW-->
 
-                <h3>Títulos semelhantes</h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo ipsam dicta voluptates 
-                provident rem quaerat nemo explicabo labore minus, nobis, consequuntur doloribus quam delectus? 
-                Natus eum corrupti ex labore. 
-                </p>
-            </div>
-            <!-- Fim descrição 2-->
-
-            <div class="quadrinhos">
-                <div class="capa-gibi">
-                    <img src="images/avengers.png" alt="capa do gibi">
-                </div>
-            </div>
-        </section>
-        <!-- FIM CONTEUDO 2 -->
-
-        <!-- IMPRENSA -->
-        <section class="imprensa">
-            <span>O que estão dizendo sobre nós ?</span>
-            <div>
-                <img src="images/magazine1.png"/>
-                <img src="images/magazine2.png"/>
-                <img src="images/magazine3.png"/>
-                <img src="images/magazine1.png"/>
-                <img src="images/magazine2.png"/>
-                <img src="images/magazine3.png"/>
-                <img src="images/magazine1.png"/>
-            </div>
-        </section>
-        <!-- FIM IMPRENSA -->
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <!-- Logo e Redes Sociais-->
-        <section class="redes-sociais">
-            <span>LOGO</span>
-            <div>
-                <img src="images/facebook.png" alt="logo facebook">
-                <img src="images/twitter.png" alt="logo twitter">
-                <img src="images/instagram.png" alt="logo instagram">
-            </div>
-        </section>
-        <!-- Fim logo e Redes Sociais-->
-
-        <div class="capsula">
-            <!-- Links -->
-            <section class="links">
-                <div>
-                    <h4>A Empresa</h4>
-                    <ul>
-                        <li>link</li>
-                        <li>link</li>
-                        <li>link</li>
-                        <li>link</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Comunidade</h4>
-                    <ul>
-                        <li>link</li>
-                        <li>link</li>
-                        <li>link</li>
-                        <li>link</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Úteis</h4>
-                    <ul>
-                        <li>link</li>
-                        <li>link</li>
-                        <li>link</li>
-                        <li>link</li>
-                    </ul>
-                </div>
-            </section>
-            <!-- Fim links -->
-            
-            <!-- Newsletter -->
-            <section class="newsletter">
-                <form>
-                    <label for="email">Receba Nossa newsletter: </label>
-                    <input type="email" name="email" id="email" required/>
-                    <button type="submit">enviar</button>
-                </form>
-            </section>
-            <!-- Fim newsletter -->
-        </div>
-    </footer> 
-    <!-- FIM FOOTER -->   
-</body>
-</html>
+<%- include('./global/footer.ejs') %>
