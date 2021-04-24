@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%- include('./global/header.ejs') %>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,19 +11,18 @@
     <link href="stylesheets/usersPage.css" type="text/css" rel="stylesheet" /> 
 </head>
 
-<body>
+<body> -->
     <!-- CABEÇALHO -->
-    <header>
+    <!-- <header>
         <span src="">Logo</span>
         <nav>
             <img class="crtl_user"src="images/hamburguer.png"  ./>
             <img class="crtl_user"src="images/profile.png"  ./>
         </nav>
-    </header>
+    </header> -->
     <!-- FIM CABEÇALHO -->
 
     <!-- CORPO -->
-
     <!-- Categorias -->
     <main>
         <div class="categorias">
@@ -188,43 +189,8 @@
     </main>
     <!-- FIM CORPO -->
 
-    <!-- RODAPÉ -->
-    <footer>
-        <!-- Logo -->
-        <div class="logo">
-            <span>LOGO</span>
-        </div>
-        <!-- Fim logo -->
-
-        <!-- Copyright-->
-        <div class="copyright">
-            <img src="images/copyright.png"  alt="copyright"../>
-            <span>Copyright</span>
-        </div>
-        <!-- Fim copyright-->
-
-        <!-- Botão voltar -->
-        <div class="voltar">
-            <img src="images/voltar.png"  />
-        </div>
-        <!-- Fim botão voltar -->
-    </footer> 
-    <!-- FIM RODAPÉ -->
+    <%- include('./global/footer2.ejs') %>
 
 
-    <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-        <!-- Botão colapsar -->
-        <script type="text/javascript">
 
-            $(document).ready(function(){
-                $('.menu-toggle').click(function(){
-                    $('nav').toggleClass('active');
-                })
-            })	
-        </script>
-    <!-- Fim botão colapsar -->
-
-</body>
-</html
