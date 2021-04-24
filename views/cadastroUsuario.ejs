@@ -1,6 +1,4 @@
-<%- include('./global/header.ejs') %>
-
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -10,18 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
     <link href="stylesheets/cadastroUsuario.css" rel="stylesheet"  />
 </head>
-<body> -->
-    <!-- CABEÇALHO -->
-    <!-- <header>
-        <span src="">Logo</span>
-        <nav>
-            <img class="crtl_user"src="/images/hamburguer.png"/>
-            <img class="crtl_user"src="/images/profile.png"/>
-        </nav>
-    </header> -->
-    <!-- FIM CABEÇALHO --> 
-
-    <!-- CORPO -->
+<body>
+    <header>
+        <%- include('./global/header.ejs') %>
+    </header>
     <main>
         <form class="formulario" action="#" method="POST">
             <div class="dados">
@@ -59,5 +49,8 @@
             </div>
         </form>
     </main>
+    <footer>
+        <%- include('./global/footer.ejs') %> 
+    </footer>
 
-    <%- include('./global/footer.ejs') %>   
+      

@@ -1,5 +1,3 @@
-<%- include('./global/header.ejs') %>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,17 +9,9 @@
     <link href="stylesheets/telaAdmin.css" rel="stylesheet"  />
 </head>
 <body>
-    <!-- CABEÇALHO -->
-    <!-- <header>
-        <span src="">Logo</span>
-        <nav>
-            <img class="crtl_user"src="images/hamburguer.png"/>
-            <img class="crtl_user"src="images/profile.png"/>
-        </nav>
-    </header> -->
-    <!-- FIM CABEÇALHO -->
-
-    <!-- CORPO -->
+    <header>
+        <%- include('./global/header.ejs') %>
+    </header>
     <main>
         <form class="formulario" action="#" method="POST">
             <div class="dados">
@@ -56,6 +46,9 @@
             </div>
         </form>
     </main>
+    <footer>
+        <%- include('./global/footer.ejs') %>
+    </footer>
 
-<%- include('./global/footer.ejs') %>
+
     
