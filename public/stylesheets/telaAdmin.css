@@ -26,38 +26,6 @@ body {
 /* -- FIM BODY -------------------------------------------------------------------------------------- */
 
 
-/* -- HEADER -----------------------------------------------------------------------------------------*/
-header {
-    width: 100%;
-    height: 60px;
-    background-color:#969FAA;
-    display: flex;
-    justify-content: space-between;
-}
-
-header span {
-    align-self: center;
-    margin-left: 10px;
-}
-
-header nav {
-    height: 100%;
-    width: 100px;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    align-self: center;
-}
-
-.crtl_user {
-    width: 50%;
-    height: 60%px;
-    
-}
-/*-- FIM HEADER --------------------------------------------------------------------------------------*/
-
 /* -- MAIN -------------------------------------------------------------------------------------------*/
 main {
     font-family: 'Knewave';
@@ -176,68 +144,6 @@ label.arquivo {
 
 /* -- FIM MAIN ---------------------------------------------------------------------------------------*/
 
-/* -- FOOTER -----------------------------------------------------------------------------------------*/
-
-footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    background-color: #212121;
-    color: #FFF;
-    margin-top: 10px;
-    padding: 10px 20px 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/*-- Logo e Redes sociais --*/
-.redes-sociais {
-    display: flex;
-    justify-content: space-between;
-}
-
-.redes-sociais div {
-    margin: 0px 0px 50px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.redes-sociais div img {
-    width: 50px;
-}
-/*-- Fim Logo e Redes Sociais --*/
-
-.capsula {
-    display: flex;
-    justify-content: space-around;
-}
-/*-- Links --*/
-.capsula .links {
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-}
-
-/*-- Fim links --*/
-
-/*-- Newsletter --*/
-.capsula .newsletter {
-    align-self: center;
-}
-
-.capsula .newsletter input {
-    /*-- width: 300px; --*/
-    height: 20px;
-}
-
-.capsula .newsletter button {
-    width: 50px;
-    height: 20px;
-    background-color: #F95F62;
-}
-/*-- Fim newsletter --*/
-
-/* -- FIM FOOTER -------------------------------------------------------------------------------------*/
 
 @media (min-width: 768px) {
 
