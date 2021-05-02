@@ -2,20 +2,8 @@ const CadastroModel = require('../models/CadastroModel');
 const { v4: uuidv4 } = require('uuid');
 
 const CadastroService = {
-    listaUsuarios: () => {
-        const teste = new CadastroModel(
-            1, 
-            'testenome', 
-            'teste@email.com',
-            '9999-9999',
-            'senha',
-            'senha',
-            '01-jan-2000');    
-                  
-        return [teste];
-    },
-    listaDadoUsuario: (nomeUsuario) => {
-        const listaUsuario = CadatroService.listaUsuarios(); 
+    listaDeUsuarios: (nomeUsuario) => {
+        const listaUsuario = CadastroService.listaUsuarios(); 
         let usuario = listaUsuario.find(item => item.nome === nomeUsuario);
 
         if (!usuario) {
@@ -24,6 +12,7 @@ const CadastroService = {
 
         return usuario;
     },
+    
     criaUsuario: (
         nome,
         email,
@@ -41,6 +30,7 @@ const CadastroService = {
             confirmaSenha,
             nascimento 
             );
+
         return novoUsuario;
     }
 }

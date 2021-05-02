@@ -1,0 +1,12 @@
+[
+  {
+    "id": "090683b8-6060-4c52-94a9-b9c732493f59",
+    "nome": "teste",
+    "email": "teste@teste.com",
+    "telefone": "0000-0000",
+    "senha": "1234567",
+    "confirmaSenha": "1234567",
+    "nascimento": "01-01-1992",
+    "name": "teste"
+  }
+]
