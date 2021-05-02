@@ -1,7 +1,7 @@
 const { check, body, validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
-const listaDeCadastro = path.join(__dirname, '../listaDeCadastro.json')  
+const listaDeCadastro = path.join(__dirname, '../listaDeCadastro.json')
 
 const validador = [
     check('nome', 'insira seu nome').notEmpty(),
@@ -13,13 +13,14 @@ const validador = [
         let arrayCadastro = JSON.parse(fs.readFileSync(listaDeCadastro));
 
         for (let usuario of arrayCadastro) {
-            if(usuario.email != email) true;
+            if(usuario.email == email) false;
         }
 
     }).withMessage('Usuario já cadastrado'),
     (req, res, next) => {
         let errors = validationResult(req);
-        if(!errors.isEmpty()) return res.status(400).json(errors);
+        if(!errors.isEmpty()) res.status(400).json(errors);
+
         next();
     } 
 ]

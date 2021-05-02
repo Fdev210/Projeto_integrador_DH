@@ -33,8 +33,12 @@ const CadastroController = {
                 confirmaSenha,
                 nascimento
             )
-    
+            
+            // usuario.senha = bcryptjs.hashSync(senha, 10)
+            
             let arrayCadastro = JSON.parse(cadastroJson);
+
+
             arrayCadastro.push(usuario);
 
             const insereUsuario = JSON.stringify(arrayCadastro, null, 2)

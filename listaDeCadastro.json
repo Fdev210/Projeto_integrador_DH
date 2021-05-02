@@ -1,29 +1,3 @@
 [
-  {
-    "id": "090683b8-6060-4c52-94a9-b9c732493f59",
-    "nome": "teste",
-    "email": "teste@teste.com",
-    "telefone": "0000-0000",
-    "senha": "1234567",
-    "confirmaSenha": "1234567",
-    "nascimento": "01-01-1992"
-  },
-  {
-    "id": "05c95ecf-1f29-4a9e-b55f-1a3314bfe014",
-    "nome": "teste",
-    "email": "teste2@teste.com",
-    "telefone": "0000-0000",
-    "senha": "000000",
-    "confirmaSenha": "000000",
-    "nascimento": "01-01-2021"
-  },
-  {
-    "id": "da4e75bd-7898-4e77-8e43-d1dce8b05b49",
-    "nome": "joão da silva",
-    "email": "joão@teste.com",
-    "telefone": "0000-0000",
-    "senha": "000000",
-    "confirmaSenha": "000000",
-    "nascimento": "01-01-2021"
-  }
+    
 ]
