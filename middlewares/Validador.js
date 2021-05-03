@@ -9,14 +9,14 @@ const validador = [
     check('email', 'insira seu email').notEmpty(),
     check('senha', 'insira sua senha').notEmpty(),
     check('confirmaSenha', 'confirme sua senha').notEmpty(),
-    body('email').custom( email => {
-        let arrayCadastro = JSON.parse(fs.readFileSync(listaDeCadastro));
+    // body('email').custom( email => {
+    //     let arrayCadastro = JSON.parse(fs.readFileSync(listaDeCadastro));
 
-        for (let usuario of arrayCadastro) {
-            if(usuario.email == email) false;
-        }
+    //     for (let usuario of arrayCadastro) {
+    //         if(usuario.email == email) false;
+    //     }
 
-    }).withMessage('Usuario já cadastrado'),
+    // }).withMessage('Usuario já cadastrado'),
     (req, res, next) => {
         let errors = validationResult(req);
         if(!errors.isEmpty()) res.status(400).json(errors);

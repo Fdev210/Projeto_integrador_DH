@@ -34,7 +34,7 @@ const CadastroController = {
                 nascimento
             )
             
-            // usuario.senha = bcryptjs.hashSync(senha, 10)
+            usuario.senha = bcryptjs.hashSync(senha, 10)
             
             let arrayCadastro = JSON.parse(cadastroJson);
 
