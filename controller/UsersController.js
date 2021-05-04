@@ -23,10 +23,10 @@ const UsersController = {
             let indexEmail = arrayCadastro.findIndex( usuario => usuario.email == email)
             let indexSenha = arrayCadastro.findIndex(usuario => bcryptjs.compareSync(senha, usuario.senha));
                
-            if(indexEmail == -1) res.send('Usuario invalido!');
-            if(indexSenha == -1) res.status(401).json('não autorizado');
+            if(indexEmail == -1) return res.send('Usuario invalido!');
+            if(indexSenha == -1) return res.status(401).send('não autorizado');
             
-            res.send('ok')
+            return res.send('ok')
         })
 
 
