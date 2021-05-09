@@ -34,5 +34,14 @@
     "senha": "$2a$10$1XH5AfZTvpoWITv3.wwF1eCJQnx3ugYSHIt3yEAY0AC.hz76PCzXO",
     "confirmaSenha": "000000",
     "nascimento": "01-01-2022"
+  },
+  {
+    "id": "38ffc73e-00a9-4355-af81-74db23e7afed",
+    "nome": "Daniel Sam",
+    "email": "sam.daniel@teste.com",
+    "telefone": "0000-0000",
+    "senha": "$2a$10$I2FmrBkRdC61nXteuuYv5ePmGQgCtQWGUc.dtyiCXesv4t2VIbD42",
+    "confirmaSenha": "abcdefg",
+    "nascimento": "01-01-1971"
   }
 ]

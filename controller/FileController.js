@@ -2,10 +2,10 @@ const Filecontroller = {
     storeFile: (req, res) => {
         const {filename} = req.file;
 
-        FileService.storeFile(filename);
+        // FileService.storeFile(filename);
         
         res.json({
-            url: `http://localhost:3000/uploads/${filename}`
+            url: `localhost:3000/uploads/${filename}`
         });
     }
 }
