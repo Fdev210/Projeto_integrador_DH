@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0
+}
+
+/* -- BODY ----------------------------------------------------------------------------------------- */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: auto;
+    
+}
+
+body {
+    background: rgba(140, 188, 224, 0.3); /*url("../imagens/superherois.png"),
+                                              url("../imagens/fundo-ruidoso.png"),
+                                              linear-gradient(60deg, rgb(177, 173, 173), #eee7e7);*/
+    overflow-x: hidden;
+                   
+}
+
+/* -- FIM BODY -------------------------------------------------------------------------------------- */
+
+
+/* -- HEADER -----------------------------------------------------------------------------------------*/
+header {
+    width: 100%;
+    height: 60px;
+    background-color:#969FAA;
+    display: flex;
+    justify-content: space-between;
+}
+
+header span {
+    align-self: center;
+    margin-left: 10px;
+}
+
+header nav {
+    height: 100%;
+    width: 100px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+}
+
+.crtl_user {
+    width: 50%;
+    height: 60%px;
+    
+}
+/*-- FIM HEADER --------------------------------------------------------------------------------------*/
+
+/* -- MAIN -------------------------------------------------------------------------------------------*/
+main {
+    font-family: 'Knewave';
+    font-size: 12px;
+    display: flex;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.dados input{
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 0px 5px 0px 5px;
+    width: 270px;
+}
+
+#nascimento{
+    width: 150px;
+    background: #FFFFFF;
+}
+
+.preferencias{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.titulos {
+    margin-left: 55px;
+    margin-top: 10px;
+}
+
+.titulos li { 
+    border: 1px transparent solid; 
+    display:inline-block;
+    width:12em;
+  }
+
+.botoes {
+    display: flex;
+    margin-top: 35px;
+    justify-content: center;
+}
+
+.botao {
+    font-family: 'Knewave';
+    font-size: 12px;
+    width: 70px;
+    height: 25px;
+    margin: 0px 15px 0px 15px;
+    background-color: #FFF;
+    border-radius: 20px;
+}
+
+
+/* -- FIM MAIN ---------------------------------------------------------------------------------------*/
+
+/* -- FOOTER -----------------------------------------------------------------------------------------*/
+
+footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background-color: #212121;
+    color: #FFF;
+    margin-top: 10px;
+    padding: 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*-- Logo e Redes sociais --*/
+.redes-sociais {
+    display: flex;
+    justify-content: space-between;
+}
+
+.redes-sociais div {
+    margin: 0px 0px 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.redes-sociais div img {
+    width: 50px;
+}
+/*-- Fim Logo e Redes Sociais --*/
+
+.capsula {
+    display: flex;
+    justify-content: space-around;
+}
+/*-- Links --*/
+.capsula .links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*-- Fim links --*/
+
+/*-- Newsletter --*/
+.capsula .newsletter {
+    align-self: center;
+}
+
+.capsula .newsletter input {
+    /*-- width: 300px; --*/
+    height: 20px;
+}
+
+.capsula .newsletter button {
+    width: 50px;
+    height: 20px;
+    background-color: #F95F62;
+}
+/*-- Fim newsletter --*/
+
+/* -- FIM FOOTER -------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) {
+
+.formulario{
+    display: flex;
+    flex-direction: row;
+}
+
+.dados{
+    margin-left: 75px;
+}
+
+.desktop{
+    margin-left: 60px;
+    margin-right: 30px;
+}
+
+.botoes {
+    margin-top: 100px;
+}
+
+.dados input{
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 0px 5px 0px 5px;
+    width: 270px;
+}
+
+.titulos li { 
+    width:16em;
+  }
+
+}
+
+
