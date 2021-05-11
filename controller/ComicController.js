@@ -1,6 +1,6 @@
 const ComicController = {
     index: (req, res) =>{
-        res.render('comicPage')
+        res.render('comicPage', {usuario: req.session.usuario})
     }
 }
 

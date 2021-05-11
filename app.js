@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 // const session = require('express-session')
 
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const cadastroRouter = require('./routes/cadastro');
@@ -12,6 +13,12 @@ const comicRouter = require('./routes/comic');
 const adminRouter = require('./routes/admin');
 
 const app = express();
+
+app.use(session({
+  secret: "usuario_id",
+  resave: false,
+  saveUninitialized: true
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
