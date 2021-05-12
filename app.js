@@ -14,12 +14,6 @@ const adminRouter = require('./routes/admin');
 
 const app = express();
 
-app.use(session({
-  secret: "usuario_id",
-  resave: false,
-  saveUninitialized: true
-}));
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
