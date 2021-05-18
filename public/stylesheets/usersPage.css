@@ -7,7 +7,7 @@
 }
 
 /* -- BODY ----------------------------------------------------------------------------------------- */
-html, body, .capa {
+html, body {
     height: 100%;
     overflow: auto;
 }
@@ -23,15 +23,12 @@ body {
 
 
 /* -- HEADER -----------------------------------------------------------------------------------------*/
-header {
+/* header {
     width: 100%;
-    height: 60px;
-    background-color:#969FAA;
-    display: flex;
-    justify-content: space-between;
-}
+    margin-top: -8;
+} 
 
-header span {
+   header span {
     align-self: center;
     margin-left: 10px;
 }
@@ -50,7 +47,7 @@ header nav {
     width: 50%;
     height: 60%px;
     
-}
+} */
 /*-- FIM HEADER --------------------------------------------------------------------------------------*/
 
 /* -- MAIN -------------------------------------------------------------------------------------------*/
