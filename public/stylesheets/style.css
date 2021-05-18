@@ -27,9 +27,7 @@ a,p{font-family: var(--font-secundary);}
 
 /*MENU*/
 .menu-bg{
-    
     background: #203A43;
-    
 }
 
 nav{
@@ -163,7 +161,7 @@ a:hover,a.active{
 }
 
 
-.foto:nth-child(1){}
+/* .foto:nth-child(1){} */
 .foto:nth-child(2){animation-delay: 3s;}
 .foto:nth-child(3){animation-delay: 6s;}
 .foto:nth-child(4){animation-delay: 9s;}

@@ -8,15 +8,8 @@
 
 /* -- BODY ----------------------------------------------------------------------------------------- */
 html, body {
-    height: 100%;
+    width: 100%;
     overflow: auto;
-}
-
-body {
-    background: rgba(140, 188, 224, 0.3); /*url("../imagens/superherois.png"),
-                                              url("../imagens/fundo-ruidoso.png"),
-                                              linear-gradient(60deg, rgb(177, 173, 173), #eee7e7);*/
-    overflow-x: hidden;           
 }
 
 /* -- FIM BODY -------------------------------------------------------------------------------------- */
