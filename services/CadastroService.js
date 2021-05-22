@@ -1,6 +1,8 @@
 const CadastroModel = require('../models/CadastroModel');
 const { v4: uuidv4 } = require('uuid');
 
+const database = require('../database/models/index')
+
 const CadastroService = {
     listaDeUsuarios: (nomeUsuario) => {
         const listaUsuario = CadastroService.listaUsuarios(); 
@@ -13,7 +15,7 @@ const CadastroService = {
         return usuario;
     },
     
-    criaUsuario: (
+    criaUsuario: ( 
         nome,
         email,
         telefone,
@@ -32,6 +34,27 @@ const CadastroService = {
             );
 
         return novoUsuario;
+    },
+
+    buscaClientesLista: async () => {
+        const resultados = await database.Cliente.findAll()
+        return resultados        
+    },
+    buscaClienteNome: async (id) => {
+        const resultado = await database.Cliente.findAll({
+            where: {
+                nome: id
+            }
+        })
+        return resultado
+    },
+    buscaPagina: async (pagina) => {
+        const resultado = await database.Cliente.findAll({
+            offset: (pagina - 1) * 3,
+            limit: 3
+        })
+        return resultado
+
     }
 }
 
