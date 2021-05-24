@@ -1,6 +1,8 @@
 const ComicController = {
     index: (req, res) =>{
-        res.render('comicPage', {usuario: req.session.usuario})
+        // const hq = comicService.gethq (req.params.id)
+
+        res.render('comicPage')
     }
 }
 
