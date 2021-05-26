@@ -34,10 +34,9 @@ const ComicController = {
 
     index: (req, res) =>{
         const { id } = req.params;
-
         const comic = ComicService.getComic(id);
-        return res.json(comic);
-        // res.render('comicPage', { comic : comic })
+        // return res.json(comic);
+        return res.render('comicpage', {comic : comic })
     }
 }
 
