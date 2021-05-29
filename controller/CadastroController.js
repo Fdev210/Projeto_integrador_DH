@@ -38,7 +38,6 @@ const CadastroController = {
             
             let arrayCadastro = JSON.parse(cadastroJson);
 
-
             arrayCadastro.push(usuario);
 
             const insereUsuario = JSON.stringify(arrayCadastro, null, 2)

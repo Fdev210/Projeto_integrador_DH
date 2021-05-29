@@ -1,11 +1,11 @@
 <%- include('./global/header.ejs') %>
-    <link href="stylesheets/comicpage.css" rel="stylesheet"/>
+    <link href="/stylesheets/comicpage.css" rel="stylesheet"/>
     <!-- CABEÇALHO -->
     <header>
         <!-- <span src="">Logo</span>
         <nav>
-            <img id="hamburguer" class="crtl_user"src="images/hamburguer.png"/>
-            <img id="profile" class="crtl_user"src="images/profile.png"/>
+            <img id="hamburguer" class="crtl_user"src="/images/hamburguer.png"/>
+            <img id="profile" class="crtl_user"src="/images/profile.png"/>
         </nav> -->
     </header>
      <!-- FIM CABEÇALHO -->
@@ -14,9 +14,9 @@
     <main>
         <!-- Capa da HQ e botões de ação -->
         <div class="exibicao">
-            <img src="images/hq.png"/>
-            <img src="images/hq.png"/>
-            <img src="images/hq.png"/>
+            <img src="/uploads/<%= comic.nome %>"/>
+            <img src="/uploads/<%= comic.nome %>"/>
+            <img src="/uploads/<%= comic.nome %>"/>
         </div>
         <button class="interagir" type="button" >Ler</button>
         <button class="interagir" type="button">Download</button>
@@ -69,9 +69,9 @@
         <section class="antevisao">
             <h2>Antevisão</h2>
             <div>
-                <img src="images/hq.png"/>
-                <img src="images/hq.png"/>
-                <img src="images/hq.png"/>
+                <img src="/images/hq.png"/>
+                <img src="/images/hq.png"/>
+                <img src="/images/hq.png"/>
             </div>
         </section>
         <!-- Fim antevisão-->
@@ -80,10 +80,10 @@
         <section class="titulos-semelhantes">
             <h2>Títulos semelhantes</h2>
             <div>
-                <img src="images/hq.png"/>
-                <img src="images/hq.png"/>
-                <img src="images/hq.png"/>
-                <img src="images/hq.png"/>
+                <img src="/images/hq.png"/>
+                <img src="/images/hq.png"/>
+                <img src="/images/hq.png"/>
+                <img src="/images/hq.png"/>
             </div>
         </section>
         <!-- Fim títulos semelhantes -->
