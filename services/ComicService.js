@@ -12,9 +12,9 @@ const ComicService = {
         comicList = JSON.parse(comicList)
 
         comicList.push(newComic)
-        const insertComic = JSON.stringify(comicList, null, 2)
+        comicList = JSON.stringify(comicList, null, 2)
 
-        fs.writeFileSync(comicsdb, insertComic, {encoding : 'utf-8'})
+        fs.writeFileSync(comicsdb, comicList, {encoding : 'utf-8'})
 
         return newComic
     },
@@ -25,7 +25,42 @@ const ComicService = {
 
         const comicData = comicList.find(elem => elem.id === id)
         return comicData 
-    } 
+    }, 
+
+    updateValues: (id, nome) => {
+        let comicList = fs.readFileSync(comicsdb, {encoding : 'utf-8'})
+        comicList = JSON.parse(comicList)
+
+        const comicIndex = comicList.findIndex(elem => elem.id == id)
+        if(comicIndex == -1) return comicIndex;
+
+        let updatedComic = new ComicModel(id, nome)
+        comicList[comicIndex] = updatedComic
+
+
+        comicList = JSON.stringify(comicList, null, 2)
+        fs.writeFileSync(comicsdb, comicList, {encoding : 'utf-8'})
+
+        return updatedComic
+
+    },
+
+    comicDestroyer: (id) => {
+        let comicList = fs.readFileSync(comicsdb, {encoding : 'utf-8'})
+        comicList = JSON.parse(comicList)
+
+        const comicIndex = comicList.findIndex(elem => elem.id == id)
+        if(comicIndex == -1) return comicIndex
+                
+        const newComicList = comicList.filter(elem => elem.id != id)
+        comicList = JSON.stringify(newComicList, null, 2)
+
+        fs.writeFileSync(comicsdb, comicList, {encoding : 'utf-8'})
+
+        return newComicList
+        
+        
+    }
 }
 
 module.exports = ComicService;

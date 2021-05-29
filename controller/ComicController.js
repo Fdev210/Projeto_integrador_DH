@@ -18,11 +18,38 @@ const ComicController = {
         
     },
 
-    index: (req, res) =>{
+    readComic: (req, res) =>{
         const { id } = req.params;
         const comic = ComicService.getComic(id);
         // return res.json(comic);
         return res.render('comicpage', {comic : comic })
+    },
+
+    updateComic:(req, res) => {
+        const { id } = req.params
+
+        const { nome } = req.body
+
+        const comic = ComicService.updateValues(id, nome)
+
+        if(comic == -1) return res.status(400).render('not-found')
+
+        res.json({
+            url: `localhost:3000/uploads/${nome}`
+        })
+
+    },
+
+    deleteComic: (req, res) => {
+
+        const { id } = req.params
+
+        const comic = ComicService.comicDestroyer(id)
+
+        if(comic == -1) return res.status(400).render('not-found');
+
+        return res.json(comic)
+
     }
 }
 

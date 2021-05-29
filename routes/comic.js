@@ -5,7 +5,9 @@ const ComicController = require('../controller/ComicController');
 
 /* GET home page. */
 // router.get('/', ComicController.index)
-router.get('/:id', ComicController.index)
+router.get('/:id', ComicController.readComic)
+router.put('/:id', ComicController.updateComic)
+router.delete('/:id', ComicController.deleteComic)
 
 
 module.exports = router;
