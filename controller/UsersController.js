@@ -47,22 +47,44 @@ const UsersController = {
 
 
     },
-    create: (req, res) => {
+    create: async (req, res) => {
         const {
-            nome,
-            email,  
-            senha,
-            confirmaSenha,
-            nascimento
+            NOME,
+            EMAIL,  
+            TELEFONE,
+            SENHA,
+            DATA_NASCIMENTO
         } = req.body
-        const cliente = CadastroService.criaUsuario (
-            nome,
-            email,
-            senha,
-            confirmaSenha,
-            nascimento
+        const cliente = await CadastroService.criaUsuario(
+            NOME,
+            EMAIL,  
+            TELEFONE,
+            SENHA,
+            DATA_NASCIMENTO
         )
         return res.json(cliente)
+    },
+    update: async (req, res) => {
+        const { id } = req.params
+        const {
+            NOME,
+            EMAIL,  
+            TELEFONE,
+            SENHA,
+            DATA_NASCIMENTO
+        } = req.body
+
+        const clienteAlterado = await CadastroService.alteraCliente(
+            id,
+            NOME,
+            EMAIL,  
+            TELEFONE,
+            SENHA,
+            DATA_NASCIMENTO
+        ) 
+        
+        res.json(clienteAlterado)
+
     }
 }
 

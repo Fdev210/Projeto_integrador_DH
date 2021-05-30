@@ -15,25 +15,46 @@ const CadastroService = {
         return usuario;
     },
     
-    criaUsuario: ( 
-        nome,
-        email,
-        telefone,
-        senha,
-        confirmaSenha,
-        nascimento
-        ) => {             
-        const novoUsuario = new CadastroModel(
-            uuidv4(),
-            nome,
-            email,
-            telefone,
-            senha,
-            confirmaSenha,
-            nascimento 
-            );
+    criaUsuario: async ( 
+        NOME,
+        EMAIL,  
+        TELEFONE,
+        SENHA,
+        DATA_NASCIMENTO
+        ) => {
+        const novoCliente = await database.Cliente.create({
+            NOME,
+            EMAIL,  
+            TELEFONE,
+            SENHA,
+            DATA_NASCIMENTO
+        })
+        return novoCliente        
+    },
 
-        return novoUsuario;
+    alteraCliente: async (
+        id,
+        NOME,
+        EMAIL,  
+        TELEFONE,
+        SENHA,
+        DATA_NASCIMENTO) => {
+
+        const clienteAlterado = await database.Cliente.update({
+            NOME,
+            EMAIL,  
+            TELEFONE,
+            SENHA,
+            DATA_NASCIMENTO
+        }, {
+            where: {
+                id
+            },
+            returning: true,
+            plain: true
+        })
+        return clienteAlterado 
+        
     },
 
     buscaClientesLista: async () => {
