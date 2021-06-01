@@ -4,6 +4,8 @@ const comicsdb = path.join(__dirname, '../comicdb.json');
 const ComicModel= require('../models/ComicModel');
 const { v4: uuidv4 } = require('uuid');
 
+const database = require('../database/models/index')
+
 const ComicService = {
     createComic: (filename) => {
         const newComic  = new ComicModel(uuidv4(), filename);
@@ -60,6 +62,13 @@ const ComicService = {
         return newComicList
         
         
+    },
+
+    relateTables: async (id) => {
+        const joinTables = await database.Comic.findByPk(id, {
+            include: [{ model: database.Preferencia}]
+        });
+        return joinTables
     }
 }
 
