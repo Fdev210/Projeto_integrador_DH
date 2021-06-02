@@ -9,6 +9,7 @@ const CadastroController = {
        res.render('cadastroUsuario');
 
     },
+  
     indexAll: async (req, res) => {
         const lista = await CadastroService.buscaClientesLista()
         return res.json(lista)
