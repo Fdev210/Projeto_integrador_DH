@@ -1,27 +1,27 @@
 module.exports = (sequelize, DataTypes) => sequelize.define("Cliente", 
     {
-        ID: {
+        id: {
             type: DataTypes.INTEGER,
-            autoIncremetn: true,
+            autoIncrement: true,
             primaryKey: true
         },
-        NOME: {
+        nome: {
             type: DataTypes.STRING(50),
             allowNull: false
         },
-        EMAIL: {
+        email: {
             type: DataTypes.STRING(50),
             allowNull: false
         },
-        TELEFONE: {
+        telefone: {
             type: DataTypes.STRING(12),
             allowNull: false
         },
-        SENHA: {
+        senha: {
             type: DataTypes.STRING(20),
             allowNull: false
         },
-        DATA_NASCIMENTO: {
+        data_nascimento: {
             type: DataTypes.DATE,
             allowNull: false
         }
