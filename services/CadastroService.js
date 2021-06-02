@@ -2,7 +2,7 @@ const CadastroModel = require('../models/CadastroModel');
 const { v4: uuidv4 } = require('uuid');
 
 const database = require('../database/models/index')
-
+ 
 const CadastroService = {
     listaDeUsuarios: (nomeUsuario) => {
         const listaUsuario = CadastroService.listaUsuarios(); 
@@ -15,25 +15,53 @@ const CadastroService = {
         return usuario;
     },
     
-    criaUsuario: ( 
+    criaUsuario: async ( 
         nome,
-        email,
+        email,  
         telefone,
         senha,
-        confirmaSenha,
-        nascimento
-        ) => {             
-        const novoUsuario = new CadastroModel(
-            uuidv4(),
+        data_nascimento
+        ) => {
+        const novoCliente = await database.Cliente.create({
             nome,
-            email,
+            email,  
             telefone,
             senha,
-            confirmaSenha,
-            nascimento 
-            );
+            data_nascimento
+        })
+        return novoCliente        
+    },
 
-        return novoUsuario;
+    alteraCliente: async (
+        id,
+        nome,
+        email,  
+        telefone,
+        senha,
+        data_nascimento) => {
+
+        const clienteAlterado = await database.Cliente.update({
+            nome,
+            email,  
+            telefone,
+            senha,
+            data_nascimento
+        }, {
+            where: {
+                id
+            }
+        })
+        return clienteAlterado 
+        
+    },
+    apagaCliente: async (id) => {
+        await database.Cliente.destroy({
+            where: {
+                id
+            }
+        })
+        return id
+
     },
 
     buscaClientesLista: async () => {
