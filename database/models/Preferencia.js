@@ -11,7 +11,6 @@ module.exports = (sequelize, Datatypes) => {
         },   
     }, {
         tableName: 'preferencias',
-        timestamps: false
     });
 
     Preferencia.associate = function(models) {
