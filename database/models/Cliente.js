@@ -29,6 +29,5 @@ module.exports = (sequelize, DataTypes) => sequelize.define("Cliente",
     },
     {
         tableName: 'clientes',
-        timestamps: false
     }
 )
