@@ -5,7 +5,7 @@ const bcryptjs = require('bcryptjs');
 
 const UsersController = {
     index: (req, res) =>{ 
-        res.render('usersPage')
+        res.render('usersPage', { usuario: req.session.usuario })
     },
     
     login: (req, res) => {
@@ -18,16 +18,20 @@ const UsersController = {
         fs.readFile(listaDeCadastro, 'utf-8', (err, cadastroJson) => {
             if(err) throw err;
             
-            arrayCadastro = JSON.parse(cadastroJson);
+            arrayUsuario = JSON.parse(cadastroJson);
             
-            let indexEmail = arrayCadastro.findIndex( usuario => usuario.email == email)
-            let indexSenha = arrayCadastro.findIndex(usuario => bcryptjs.compareSync(senha, usuario.senha));
+            let indexEmail = arrayUsuario.findIndex( usuario => usuario.email == email)
+            let indexSenha = arrayUsuario.findIndex(usuario => bcryptjs.compareSync(senha, usuario.senha));
                
             if(indexEmail == -1) return res.send('Usuario invalido!');
             if(indexSenha == -1) return res.status(401).send('não autorizado');
             
-            return res.send('ok')
-        })
+            // return res.send('ok')
+            req.session.usuario = arrayUsuario[indexEmail]
+            return res.redirect("/users")
+        });
+
+
 
 
     }    
