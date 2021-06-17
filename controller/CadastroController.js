@@ -36,11 +36,13 @@ const CadastroController = {
             data_nascimento
         } = req.body
 
+        const senha_hash = bcryptjs.hashSync(senha, 12) 
+
         const cliente = await CadastroService.criaUsuario(
             nome,
             email,  
             telefone,
-            senha,
+            senha_hash,
             data_nascimento
         )
         return res.json(cliente)
@@ -55,13 +57,15 @@ const CadastroController = {
             senha,
             data_nascimento
         } = req.body
+
+        const senha_hash = bcryptjs.hashSync(senha, 12)
    
         const clienteAlterado = await CadastroService.alteraCliente(
             id,
             nome,
             email,  
             telefone,
-            senha,
+            senha_hash,
             data_nascimento
         ) 
         

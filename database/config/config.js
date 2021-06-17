@@ -4,6 +4,8 @@ module.exports = {
     "password": null,
     "database": "dh_pi",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "sequelize_data"
   }
 }
