@@ -16,11 +16,11 @@ const UsersController = {
     logon: async (req, res) => {
         let { email, senha } = req.body;
 
-        const userByEmail = await UserService.getEmail(email);
-        
-        if(userByEmail === null) return res.send('Usuário inválido')
-        console.log(userByEmail.senha);
-        const checkSenha = await bcryptjs.compare(senha, userByEmail.senha)
+        const cliente = await UserService.getEmail(email);
+        console.log(cliente)
+        if(cliente === null) return res.send('Usuário inválido')
+        console.log(cliente.senha);
+        const checkSenha = await bcryptjs.compare(senha, cliente.senha_hash)
         console.log(checkSenha);
 
         if(!checkSenha) return res.send('Senha inválida')
@@ -38,7 +38,7 @@ const UsersController = {
         //     if(indexSenha == -1) return res.status(401).send('não autorizado');
             
             // return res.send('ok')
-            req.session.usuario = userByEmail
+            req.session.usuario = cliente
             return res.redirect("/users")
         }
 }
