@@ -1,5 +1,6 @@
 const CadastroModel = require('../models/CadastroModel');
 const { v4: uuidv4 } = require('uuid');
+const bcryptjs = require('bcryptjs');
 
 const database = require('../database/models/index')
  
@@ -22,11 +23,14 @@ const CadastroService = {
         senha,
         data_nascimento
         ) => {
+
+        const senha_hash = await bcryptjs.hash(senha, 12)
+
         const novoCliente = await database.Cliente.create({
             nome,
             email,  
             telefone,
-            senha,
+            senha: senha_hash,
             data_nascimento
         })
         return novoCliente        
