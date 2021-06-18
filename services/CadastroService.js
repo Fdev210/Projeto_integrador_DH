@@ -24,13 +24,11 @@ const CadastroService = {
         data_nascimento
         ) => {
 
-        const senha_hash = await bcryptjs.hash(senha, 12)
-
         const novoCliente = await database.Cliente.create({
             nome,
             email,  
             telefone,
-            senha: senha_hash,
+            senha,
             data_nascimento
         })
         return novoCliente        
@@ -69,7 +67,9 @@ const CadastroService = {
     },
 
     buscaClientesLista: async () => {
-        const resultados = await database.Cliente.findAll()
+        const resultados = await database.Cliente.findAll({
+            attributes: ['id','nome', 'email', 'data_nascimento', 'createdAt','updatedAt']
+        })
         return resultados        
     },
     buscaClienteNome: async (id) => {

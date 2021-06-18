@@ -43,7 +43,11 @@ const CadastroController = {
             senha,
             data_nascimento
         )
-        return res.json(cliente)
+        return res.json({
+            nome: cliente.nome, 
+            email: cliente.email,
+            data_nascimento: cliente.data_nascimento
+        })
     },
     
     update: async (req, res) => {

@@ -9,19 +9,19 @@ module.exports = {
         primaryKey: true
       },
       nome: {
-          type: Sequelize.STRING(50),
+          type: Sequelize.STRING(100),
           allowNull: false
       },
       email: {
-          type: Sequelize.STRING(50),
+          type: Sequelize.STRING(100),
           allowNull: false
       },
       telefone: {
           type: Sequelize.STRING(12),
           allowNull: false
       },
-      senha: {
-          type: Sequelize.STRING(20),
+      senha_hash: {
+          type: Sequelize.STRING(100),
           allowNull: false
       },
       data_nascimento: {

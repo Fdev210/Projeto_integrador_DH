@@ -10,11 +10,11 @@ module.exports = {
         primaryKey: true
     },
       TITULO: {
-          type: Sequelize.STRING(50),
+          type: Sequelize.STRING(100),
           allowNull: false
       },
       AUTOR: {
-          type: Sequelize.STRING(50),
+          type: Sequelize.STRING(100),
           allowNull: false
       },
       ANO: {
@@ -22,7 +22,7 @@ module.exports = {
           allowNull: false
       },
       SINOPSE: {
-          type: Sequelize.STRING(100),
+          type: Sequelize.STRING,
           allowNull: false
       },
       createdAt: {
