@@ -20,7 +20,7 @@ module.exports = (sequelize, Datatypes) => {
     ComicPreferencia.associate = function(models) {
         ComicPreferencia.belongsTo(models.Preferencia, {
             as: 'Preferencia',
-            foreignKey: 'PREFERENCIAS_ID'
+            foreignKey: 'PREFERENCIA_ID'
         })
     }
 

@@ -29,7 +29,7 @@ module.exports = (sequelize, Datatypes) => {
         Comic.belongsToMany(models.Preferencia, {
             through: models.ComicPreferencia,
             foreignKey: 'COMICS_ID',
-            otherKey: 'PREFERENCIAS_ID'
+            otherKey: 'PREFERENCIA_ID'
          });
     }
     return Comic;

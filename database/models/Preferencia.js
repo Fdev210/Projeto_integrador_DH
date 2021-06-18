@@ -16,10 +16,11 @@ module.exports = (sequelize, Datatypes) => {
     Preferencia.associate = function(models) {
         Preferencia.belongsToMany(models.Comic, {
             through: models.ComicPreferencia,
-            foreignKey: 'PREFERENCIAS_ID',
+            foreignKey: 'PREFERENCIA_ID',
             otherKey: 'COMICS_ID'
          });
     }
+
     return Preferencia;
 
 }
