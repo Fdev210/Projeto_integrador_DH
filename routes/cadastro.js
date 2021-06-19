@@ -6,20 +6,17 @@ const validador = require('../middlewares/Validador');
 const CadastroController = require('../controller/CadastroController');
 
 /* GET home page. */
-// router.get('/', CadastroController.index)
 //router.post('/', validador, CadastroController.create)
-router.post('/', CadastroController.create)
 router.get('/', CadastroController.index)
+router.post('/', CadastroController.create)
 //router.put('/:id', validador, CadastroController.update)
-router.put('/:id', CadastroController.update)
-router.delete('/:id',  CadastroController.delete)
-router.get('/login', CadastroController.logged)
 router.get('/all', CadastroController.indexAll)
 router.get('/:id', CadastroController.buscaPorNome)
 router.get('/pagina/:pagina', CadastroController.buscaPagina)
+router.put('/:id', CadastroController.update)
+router.delete('/:id',  CadastroController.delete)
 
 
-//router.post('/', UsersController.create)
-//router.put('/:id', UsersController.update)
+//router.get('/login', CadastroController.logged)
 
 module.exports = router;

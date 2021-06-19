@@ -44,8 +44,9 @@ app.use('/admin', adminRouter);
 app.post('/files', uploadsFile.single('file'), ComicController.storeComic);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function(req, res) {
+  res.status(404).render('not-found');
+  // next(createError(404));
 });
 
 // error handler
