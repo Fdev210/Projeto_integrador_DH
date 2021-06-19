@@ -72,12 +72,8 @@ const CadastroService = {
         })
         return resultados        
     },
-    buscaClienteNome: async (id) => {
-        const resultado = await database.Cliente.findAll({
-            where: {
-                nome: id
-            }
-        })
+    buscaClienteId: async (id) => { 
+        const resultado = await database.Cliente.findByPk(id)
         return resultado
     },
     buscaPagina: async (pagina) => {

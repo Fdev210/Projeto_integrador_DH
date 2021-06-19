@@ -15,9 +15,9 @@ const CadastroController = {
         return res.json(lista)
     },
 
-    buscaPorNome: async (req, res) => {
+    buscaPorId: async (req, res) => { 
         const {id} = req.params
-        const cliente = await CadastroService.buscaClienteNome(id)
+        const cliente = await CadastroService.buscaClienteId(id)
         return res.json(cliente)
     },
 

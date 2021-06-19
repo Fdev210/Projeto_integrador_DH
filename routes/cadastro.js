@@ -15,7 +15,7 @@ router.put('/:id', CadastroController.update)
 router.delete('/:id',  CadastroController.delete)
 router.get('/login', CadastroController.logged)
 router.get('/all', CadastroController.indexAll)
-router.get('/:id', CadastroController.buscaPorNome)
+router.get('/:id', CadastroController.buscaPorId) 
 router.get('/pagina/:pagina', CadastroController.buscaPagina)
 
 
