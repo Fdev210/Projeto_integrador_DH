@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     const Cliente = sequelize.define("Cliente", 
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.INTEGER, 
                 autoIncrement: true,
                 primaryKey: true
             },
@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
             },
             email: {
                 type: DataTypes.STRING(100),
-                allowNull: false
+                allowNull: false,
+                unique: true,
             },
             telefone: {
                 type: DataTypes.STRING(12),
@@ -30,13 +31,28 @@ module.exports = (sequelize, DataTypes) => {
             data_nascimento: {
                 type: DataTypes.DATE,
                 allowNull: false
+            },
+            createdAt: {
+              type: DataTypes.DATE,
+              allowNull: false,
+            },
+            updatedAt: {
+              type: DataTypes.DATE,
+              allowNull: false,
             }
 
         },
         {
             tableName: 'clientes',
         }
-    );
+    ); 
+     
+    Cliente.associate = function(models) {
+        Cliente.belongsToMany(models.Preferencia, {
+            through: models.ClientePreferencia,
+            foreignKey: 'clientes_id',
+        });
+    }
 
     Cliente.addHook('beforeSave', async cliente => {
         if(cliente.senha) {

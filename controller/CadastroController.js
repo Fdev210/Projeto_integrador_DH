@@ -21,6 +21,12 @@ const CadastroController = {
         return res.json(cliente)
     },
 
+    buscaPreferencias: async (req, res) => {
+        const {id} = req.params
+        const cliente = await CadastroService.buscaPreferencia(id)
+        return res.json(cliente)
+    },
+
     buscaPagina: async (req, res) => {
         const {pagina} = req.params
         const resultadoPagina = await CadastroService.buscaPagina(pagina)

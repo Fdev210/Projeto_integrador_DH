@@ -1,28 +1,37 @@
 module.exports = (sequelize, Datatypes) => {
     const ComicPreferencia = sequelize.define("ComicPreferencia", {
-        ID: {
+        id: {
             type: Datatypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
+        },
+        comics_id: {
+          type: Datatypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'comics',
+            key: 'id'
+          }
+        },
+        preferencia_id: {
+          type: Datatypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'preferencias', 
+            key: 'id'
+          }
+        },
+        createdAt: {
+          type: Datatypes.DATE,
+          allowNull: false,
+        },
+        updatedAt: {
+          type: Datatypes.DATE,
+          allowNull: false,
         }
     }, {
         tableName: 'comics_preferencias',
-        timestamps: false
     });
-
-    ComicPreferencia.associate = function(models) {
-        ComicPreferencia.belongsTo(models.Comic, {
-            as: 'Comic',
-            foreignKey: 'COMICS_ID'
-        })
-    }
-
-    ComicPreferencia.associate = function(models) {
-        ComicPreferencia.belongsTo(models.Preferencia, {
-            as: 'Preferencia',
-            foreignKey: 'PREFERENCIA_ID'
-        })
-    }
 
     return ComicPreferencia
 }

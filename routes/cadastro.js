@@ -16,6 +16,7 @@ router.delete('/:id',  CadastroController.delete)
 router.get('/login', CadastroController.logged)
 router.get('/all', CadastroController.indexAll)
 router.get('/:id', CadastroController.buscaPorId) 
+router.get('/:id/preferencias', CadastroController.buscaPreferencias)
 router.get('/pagina/:pagina', CadastroController.buscaPagina)
 
 
