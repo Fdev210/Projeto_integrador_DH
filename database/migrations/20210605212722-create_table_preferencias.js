@@ -4,12 +4,12 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
  
     await queryInterface.createTable('preferencias', {
-      ID: {
+      id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      PREFERENCIAS: {
+      preferencias: {
           type: Sequelize.STRING(100),
           allowNull: false
       },

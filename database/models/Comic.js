@@ -1,26 +1,35 @@
 module.exports = (sequelize, Datatypes) => {
     const Comic = sequelize.define("Comic", {
-        ID: {
+        id: {
             type: Datatypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        TITULO: {
+        titulo: {
             type: Datatypes.STRING(50),
             allowNull: false
         },
-        AUTOR: {
+        autor: {
             type: Datatypes.STRING(50),
             allowNull: false
         },
-        ANO: {
+        ano: {
             type: Datatypes.INTEGER,
             allowNull: false
         },
-        SINOPSE: {
+        sinopse: {
             type: Datatypes.STRING(100),
             allowNull: false
-        },   
+        },
+        createdAt: {
+          type: Datatypes.DATE,
+          allowNull: false,
+        },
+        updatedAt: {
+          type: Datatypes.DATE,
+          allowNull: false,
+        }
+
     }, {
         tableName: 'comics',
     });
@@ -28,10 +37,9 @@ module.exports = (sequelize, Datatypes) => {
     Comic.associate = function(models) {
         Comic.belongsToMany(models.Preferencia, {
             through: models.ComicPreferencia,
-            foreignKey: 'COMICS_ID',
-            otherKey: 'PREFERENCIA_ID'
+            foreignKey: 'comics_id',
          });
     }
-    return Comic;
+    return Comic; 
 }
 

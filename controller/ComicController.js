@@ -56,7 +56,7 @@ const ComicController = {
         const { id } = req.params
         const returnAssociation = await ComicService.relateTables(id)
         res.json(returnAssociation);
-    }  
+    },
 }
 
 module.exports = ComicController;

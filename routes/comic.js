@@ -12,4 +12,4 @@ router.put('/:id', ComicController.updateComic)
 router.delete('/:id', ComicController.deleteComic)
 
 
-module.exports = router;
+module.exports = router; 
