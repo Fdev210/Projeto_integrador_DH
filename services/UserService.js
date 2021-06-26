@@ -1,4 +1,6 @@
 const db = require("../database/models")
+const jwt = require("jsonwebtoken")
+const jwtSecret = process.env.JWT_SECRET
 
 const UserService = {
 
@@ -9,6 +11,19 @@ const UserService = {
             }
         });
         return findEmail
+    },
+
+    tokenize: async(cliente) => {
+        const token = await jwt.sign(
+            {
+                id: cliente.id,
+                nome: cliente.nome,
+                email: cliente.email
+            },
+            jwtSecret,
+            { expiresIn: '12h' }    
+    )
+    return token
     }
 }
 
