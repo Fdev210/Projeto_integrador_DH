@@ -20,7 +20,6 @@ const UsersController = {
         if(!checkSenha) return res.status(401).send('Senha inválida')
 
         const tokenCliente = await UserService.tokenize(cliente)
-        console.log(tokenCliente)
         
         req.session.usuario = tokenCliente
         return res.redirect("/users")
