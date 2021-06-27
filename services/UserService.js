@@ -18,7 +18,8 @@ const UserService = {
             {
                 id: cliente.id,
                 nome: cliente.nome,
-                email: cliente.email
+                email: cliente.email,
+                tipo_usuario: cliente.tipo_usuario
             },
             jwtSecret,
             { expiresIn: '12h' }    

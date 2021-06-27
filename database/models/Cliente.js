@@ -32,6 +32,11 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.DATE,
                 allowNull: false
             },
+            tipo_usuario: {
+                type: DataTypes.STRING,
+                defaultValue: 'usuario',
+                allowNull: false
+            },
             createdAt: {
               type: DataTypes.DATE,
               allowNull: false,

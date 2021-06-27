@@ -14,6 +14,7 @@ const UsersController = {
         let { email, senha } = req.body;
 
         const cliente = await UserService.getEmail(email);
+        console.log(cliente);
         if(cliente === null) return res.status(400).send("Usuário não cadastrado !")
 
         const checkSenha = await bcryptjs.compare(senha, cliente.senha_hash)
