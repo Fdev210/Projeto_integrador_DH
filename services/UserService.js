@@ -22,7 +22,7 @@ const UserService = {
                 tipo_usuario: cliente.tipo_usuario
             },
             jwtSecret,
-            { expiresIn: '12h' }    
+            { expiresIn: '48h' }    
     )
     return token
     }
