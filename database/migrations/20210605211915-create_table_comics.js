@@ -4,25 +4,25 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     
     await queryInterface.createTable('comics', {
-      ID: {
+      id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-      TITULO: {
-          type: Sequelize.STRING(50),
+      titulo: {
+          type: Sequelize.STRING(100),
           allowNull: false
       },
-      AUTOR: {
-          type: Sequelize.STRING(50),
+      autor: {
+          type: Sequelize.STRING(100),
           allowNull: false
       },
-      ANO: {
+      ano: {
           type: Sequelize.INTEGER,
           allowNull: false
       },
-      SINOPSE: {
-          type: Sequelize.STRING(100),
+      sinopse: {
+          type: Sequelize.STRING,
           allowNull: false
       },
       createdAt: {
@@ -33,7 +33,7 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       }
-    });  
+    });   
   },
 
   down: async (queryInterface, Sequelize) => {

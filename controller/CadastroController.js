@@ -15,9 +15,15 @@ const CadastroController = {
         return res.json(lista)
     },
 
-    buscaPorNome: async (req, res) => {
+    buscaPorId: async (req, res) => { 
         const {id} = req.params
-        const cliente = await CadastroService.buscaClienteNome(id)
+        const cliente = await CadastroService.buscaClienteId(id)
+        return res.json(cliente)
+    },
+
+    buscaPreferencias: async (req, res) => {
+        const {id} = req.params
+        const cliente = await CadastroService.buscaPreferencia(id)
         return res.json(cliente)
     },
 
@@ -43,7 +49,11 @@ const CadastroController = {
             senha,
             data_nascimento
         )
-        return res.json(cliente)
+        return res.json({
+            nome: cliente.nome, 
+            email: cliente.email,
+            data_nascimento: cliente.data_nascimento
+        })
     },
     
     update: async (req, res) => {
@@ -55,13 +65,15 @@ const CadastroController = {
             senha,
             data_nascimento
         } = req.body
+
+        const senha_hash = bcryptjs.hashSync(senha, 12)
    
         const clienteAlterado = await CadastroService.alteraCliente(
             id,
             nome,
             email,  
             telefone,
-            senha,
+            senha_hash,
             data_nascimento
         ) 
         

@@ -1,11 +1,11 @@
 module.exports = (sequelize, Datatypes) => {
     const Preferencia = sequelize.define("Preferencia", {
-        ID: {
+        id: {
             type: Datatypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        PREFERENCIAS: {
+        preferencias: {
             type: Datatypes.STRING(50),
             allowNull: false
         },   
@@ -14,12 +14,18 @@ module.exports = (sequelize, Datatypes) => {
     });
 
     Preferencia.associate = function(models) {
+        Preferencia.belongsToMany(models.Cliente, {
+            through: models.ClientePreferencia,
+            foreignKey: 'preferencia_id',
+        });
+
         Preferencia.belongsToMany(models.Comic, {
             through: models.ComicPreferencia,
-            foreignKey: 'PREFERENCIAS_ID',
-            otherKey: 'COMICS_ID'
-         });
+            foreignKey: 'preferencia_id',
+        });
+
     }
+
     return Preferencia;
 
 }

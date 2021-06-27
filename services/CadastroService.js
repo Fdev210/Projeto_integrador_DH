@@ -1,7 +1,9 @@
 const CadastroModel = require('../models/CadastroModel');
 const { v4: uuidv4 } = require('uuid');
+const bcryptjs = require('bcryptjs');
 
-const database = require('../database/models/index')
+const database = require('../database/models/index');
+const Preferencia = require('../database/models/Preferencia');
  
 const CadastroService = {
     listaDeUsuarios: (nomeUsuario) => {
@@ -22,6 +24,7 @@ const CadastroService = {
         senha,
         data_nascimento
         ) => {
+
         const novoCliente = await database.Cliente.create({
             nome,
             email,  
@@ -65,17 +68,29 @@ const CadastroService = {
     },
 
     buscaClientesLista: async () => {
-        const resultados = await database.Cliente.findAll()
+        const resultados = await database.Cliente.findAll({
+            attributes: ['id','nome', 'email', 'data_nascimento', 'createdAt','updatedAt']
+        })
         return resultados        
     },
-    buscaClienteNome: async (id) => {
-        const resultado = await database.Cliente.findAll({
+    buscaClienteId: async (id) => { 
+        const resultado = await database.Cliente.findByPk(id)
+        return resultado
+    },
+
+    buscaPreferencia: async (id) => {
+        const resultado = await database.Cliente.findOne({
             where: {
-                nome: id
+                id: id
+            },
+            include: {
+                model: database.Preferencia,
+                required: true
             }
         })
         return resultado
     },
+
     buscaPagina: async (pagina) => {
         const resultado = await database.Cliente.findAll({
             offset: (pagina - 1) * 3,

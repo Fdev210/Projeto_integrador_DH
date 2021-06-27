@@ -69,7 +69,7 @@ const ComicService = {
             include: [{ model: database.Preferencia}]
         });
         return joinTables
-    }
+    },
 }
 
 module.exports = ComicService;
