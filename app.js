@@ -4,7 +4,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const multer = require('multer');
-const session = require('express-session')
+const dotenv = require('dotenv')
+const session = require('express-session');
+
+dotenv.config({
+  path: path.resolve(__dirname + '/.env')
+})
 
 const storage = require('./config/multer')
 

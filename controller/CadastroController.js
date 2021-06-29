@@ -84,36 +84,6 @@ const CadastroController = {
         const { id } = req.params
         await CadastroService.apagaCliente(id)
         res.json(id)
-    },
-
-    // delete: (req, res) => {
-
-    //     let { id } = req.params;
-        
-    //     fs.readFile(listaDeCadastro, 'utf8', (err, cadastroJson) => {
-    //         if(err) throw err;
-            
-    //         let arrayCadastro = JSON.parse(cadastroJson);
-
-    //         const indexId = arrayCadastro.findIndex(elem => elem.id == id);
-    //         let novoArray = arrayCadastro.filter(elem => elem.id != id);
-            
-    //         if(indexId == -1) return res.status(400).render('not-found');
-                            
-    //         const novaLista = JSON.stringify(novoArray, null, 2)
-            
-    //         fs.writeFile(listaDeCadastro, novaLista, err => {
-    //             if (err) throw err;
-    //             console.log('Usuário excluído com sucesso')
-    //         });
-            
-    //         return res.json(novoArray);
-    //     });
-    // },
-
-    logged: (req, res) => {
-        let { senha } = req.body
-        let senhacript = []
     }
 }
 

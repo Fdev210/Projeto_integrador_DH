@@ -1,12 +1,9 @@
-// const fs = require('fs');
-// const path = require("path");
-// const listaDeCadastro = path.join(__dirname,'../listaDeCadastro.json');
 const UserService = require('../services/UserService');
 const bcryptjs = require('bcryptjs');
 
 const UsersController = {
     index: (req, res) =>{ 
-        res.render('usersPage', { usuario: req.session.usuario })
+        res.render('usersPage', { usuario: req.usuario })
     },
     
     login: (req, res) => {
@@ -17,29 +14,19 @@ const UsersController = {
         let { email, senha } = req.body;
 
         const cliente = await UserService.getEmail(email);
-        console.log(cliente)
-        if(cliente === null) return res.send('Usuário inválido')
-        console.log(cliente.senha);
+        if(cliente === null) return res.status(400).send("Usuário não cadastrado !")
+
         const checkSenha = await bcryptjs.compare(senha, cliente.senha_hash)
-        console.log(checkSenha);
+        if(!checkSenha) return res.status(401).send('Senha inválida')
 
-        if(!checkSenha) return res.send('Senha inválida')
-
+        const tokenCliente = await UserService.tokenize(cliente)
         
-        // fs.readFile(listaDeCadastro, 'utf-8', (err, cadastroJson) => {
-        //     if(err) throw err;
-            
-        //     arrayUsuario = JSON.parse(cadastroJson);
-            
-        //     let indexEmail = arrayUsuario.findIndex( usuario => usuario.email == email)
-        //     let indexSenha = arrayUsuario.findIndex(usuario => bcryptjs.compareSync(senha, usuario.senha));
-               
-        //     if(indexEmail == -1) return res.send('Usuario invalido!');
-        //     if(indexSenha == -1) return res.status(401).send('não autorizado');
-            
-            // return res.send('ok')
-            req.session.usuario = cliente
-            return res.redirect("/users")
+        req.session.usuario = tokenCliente
+
+        if (cliente.tipo_usuario == "admin") return res.redirect("/cadastro")
+
+        return res.redirect("/users")
+
         }
 }
 
