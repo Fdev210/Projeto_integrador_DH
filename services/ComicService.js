@@ -21,13 +21,10 @@ const ComicService = {
         return newComic
     },
 
-    getComic: (id) => {
-        let comicList = fs.readFileSync(comicsdb, {encoding : 'utf-8'})
-        comicList = JSON.parse(comicList)
-
-        const comicData = comicList.find(elem => elem.id === id)
-        return comicData 
-    }, 
+    getComic: async (id) => { 
+        const resultado = await database.Comic.findByPk(id)
+        return resultado
+    },  
 
     updateValues: (id, nome) => {
         let comicList = fs.readFileSync(comicsdb, {encoding : 'utf-8'})
