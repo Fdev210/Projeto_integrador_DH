@@ -6,7 +6,7 @@ module.exports = (sequelize, Datatypes) => {
             primaryKey: true
         },
         titulo: {
-            type: Datatypes.STRING(50),
+            type: Datatypes.STRING(50), 
             allowNull: false
         },
         autor: {
@@ -19,6 +19,10 @@ module.exports = (sequelize, Datatypes) => {
         },
         sinopse: {
             type: Datatypes.STRING(100),
+            allowNull: false
+        },
+        endereço: {
+            type: Datatypes.STRING,
             allowNull: false
         },
         createdAt: {

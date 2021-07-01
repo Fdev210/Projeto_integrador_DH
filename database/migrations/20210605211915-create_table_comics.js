@@ -24,6 +24,11 @@ module.exports = {
       sinopse: {
           type: Sequelize.STRING,
           allowNull: false
+          
+      },
+      endereço: {
+          type: Sequelize.STRING,
+          allowNull: false
       },
       createdAt: {
         type: Sequelize.DATE,

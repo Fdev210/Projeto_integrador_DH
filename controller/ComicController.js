@@ -18,11 +18,12 @@ const ComicController = {
         
     },
 
-    readComic: (req, res) =>{
+    readComic: async (req, res) =>{
         const { id } = req.params;
-        const comic = ComicService.getComic(id);
-        // return res.json(comic);
-        return res.render('comicpage', {comic : comic })
+        const { endereço } = await ComicService.getComic(id);
+        //return res.json(endereço);
+        // return res.render('comicpage', {comic : comic })
+        return res.render('viewer', {caminho: endereço})
     },
 
     updateComic:(req, res) => {
