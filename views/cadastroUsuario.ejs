@@ -7,26 +7,33 @@
     <title>Site de HQ</title>
     <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
     <link href="stylesheets/cadastroUsuario.css" rel="stylesheet"  />
+    <script src="javascripts/cadastroUsuario.js"></script>
 </head>
 <body>
     <header>
         <%- include('./global/header.ejs') %>
     </header>
     <main>
-        <form class="formulario" action="#" method="POST">
+        <form class="formulario" id="formulario"  method="POST">
             <div class="dados">
                 <label for="nome">Digite seu nome</label>
                 <input type="text" name="nome" id="nome">
+                <span id="nomeError" class="error">Nome incorreto</span>
                 <label for="email">Digite seu email</label>
                 <input type="email" name="email" id="email">
+                <span id="emailError" class="error">Nome incorreto</span>
                 <label for="telefone">Digite seu telefone</label>
                 <input type="tel" name="telefone" id="telefone">
+                <span id="telefoneError" class="error">Nome incorreto</span>
                 <label for="senha">Crie uma senha</label>
                 <input type="password" name="senha" id="senha">
+                <span id="senhaError" class="error">Nome incorreto</span>
                 <label for="confirmaSenha">Confirme sua senha</label>
                 <input type="password" name="confirmaSenha" id="confirmaSenha">
+                <span id="confirmaSenhaError" class="error">Nome incorreto</span>
                 <label for="nascimento">Data de nascimento</label>
                 <input type="date" name="nascimento" id="nascimento">
+                <span id="nascimentoError" class="error">Nome incorreto</span>
             </div>
             <div class="desktop">
                 <div class="preferencias">
