@@ -6,7 +6,8 @@ const ComicService = require('../services/ComicService')
 const ComicController = {
     storeComic: async (req, res) => {
         
-        const coverAndComic = req.file;
+        const comicThings = req.files;
+
         const {
             titulo,
             autor,
@@ -15,7 +16,7 @@ const ComicController = {
         } = req.body;
         
         const { endereço } = await ComicService.createComic(
-            coverAndComic,
+            comicThings,
             titulo,
             autor,
             ano,

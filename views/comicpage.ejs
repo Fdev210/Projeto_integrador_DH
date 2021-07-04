@@ -65,9 +65,12 @@
         <section class="antevisao">
             <h2>Antevisão</h2>
             <div>
-                <img src="/images/hq.png"/>
-                <img src="/images/hq.png"/>
-                <img src="/images/hq.png"/>
+            <% const antevisao = JSON.parse(comic.antevisao) %>
+            <% antevisao.forEach(elem => { %>
+                <img src=<%= elem %> />
+            <% }) %>
+                <!-- <img src=<%= comic.antevisao[1] %> />
+                <img src=<%= comic.antevisao[2] %> /> -->
             </div>
         </section>
         <!-- Fim antevisão-->

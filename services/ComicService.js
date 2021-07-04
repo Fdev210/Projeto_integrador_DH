@@ -8,20 +8,33 @@ const database = require('../database/models/index')
 
 const ComicService = {
     createComic: async (
-        coverAndComic,
+        comicThings,
         titulo,
         autor,
         ano,
         sinopse,
         ) => {
 
+        const { antevisao } = comicThings
+
+        const comicPages = antevisao.map(elem => {
+            const { filename } = elem;
+            return filename
+        })
+        console.log(comicPages)
+
         const addComic  = await database.Comic.create({
             titulo,
             autor,
             ano,
             sinopse,
-            capa: `uploads/${coverAndComic[0].filename}`,
-            endereço: `/uploads/${coverAndComic[1].filename}`
+            capa: `uploads/${comicThings['capa'][0].filename}`,
+            antevisao: [
+                        `/uploads/${comicPages[0]}`,
+                        `/uploads/${comicPages[1]}`,
+                        `/uploads/${comicPages[2]}`,
+                    ],
+            endereço: `/uploads/${comicThings['pdf'][0].filename}`
         })
 
         // let comicList = fs.readFileSync(comicsdb, {encoding : 'utf-8'})

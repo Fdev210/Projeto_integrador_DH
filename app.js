@@ -46,7 +46,14 @@ app.use('/users', usersRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/comicpage', comicRouter);
 app.use('/admin', adminRouter);
-app.post('/files', uploadsFile.array('file', 2), ComicController.storeComic);
+
+app.post('/files', uploadsFile.fields(
+  [
+    {name: 'capa', maxCount: 1},
+    {name: 'antevisao', maxCount: 3},
+    {name: 'pdf', maxCount: 1}
+  ]
+), ComicController.storeComic);
 
 // catch 404 and forward to error handler
 app.use(function(req, res) {

@@ -30,6 +30,10 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false,
       },
+      antevisao : {
+        type: Sequelize.JSON,
+        allowNull:false
+      },
       endereço: {
           type: Sequelize.STRING,
           allowNull: false
