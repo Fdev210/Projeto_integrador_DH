@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0
+}
+
+/* -- BODY ----------------------------------------------------------------------------------------- */
+html, body, .capa {
+    height: 100%;
+    overflow: auto;
+}
+
+body {  
+    position: relative;      
+    overflow-x: hidden;             
+}
+
+body::before {
+    content: "";
+    background: rgba(0, 0, 0) url("../images/Batman_Villains.webp");
+    background-size: 100% 100%;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    filter: grayscale(70%);
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;   
+  }
+
+/* -- FIM BODY -------------------------------------------------------------------------------------- */
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+    color: rgb(255, 230, 0);
+    margin: 0;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 150px;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+
+@media (min-width: 540px) {
+
+    body {
+        background-size: 80% 100%;
+    }
+}
+
+@media(min-width: 650px) {
+    body::before {
+        background-size: 50% 100%;
+    }
+}
+
+@media(min-width: 900px) {
+    body::before {
+        background-size: 45% 100%;
+    }
+}
+
+
+
+
+

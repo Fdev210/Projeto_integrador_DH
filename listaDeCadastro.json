@@ -1,0 +1,47 @@
+[
+  {
+    "id": "f432c061-f38d-40c3-8c72-684725025f52",
+    "nome": "joaquina fernandez",
+    "email": "joaquina@teste.com",
+    "telefone": "0000-0000",
+    "senha": "$2a$10$N9EqYaKVVHoQk2DVo2KSO.XdXL0Oc32DUKEje/QbIzVLXeo18934e",
+    "confirmaSenha": "000000",
+    "nascimento": "01-01-2022"
+  },
+  {
+    "id": "bad759ff-a98d-4b66-abb7-d1619da9cb1c",
+    "nome": "Herrera guatemalteco",
+    "email": "guatemalteco@teste.com",
+    "telefone": "0000-0000",
+    "senha": "$2a$10$WBIzsCgIR8h6ptSOFaipAeUF13g2rOSZ1YzpkzEY3h1/okOrmekUC",
+    "confirmaSenha": "000000",
+    "nascimento": "01-01-2022"
+  },
+  {
+    "id": "fd616f86-aed9-442d-b1ea-8ebe3f549b62",
+    "nome": "Ivens Muller",
+    "email": "Ivens@teste.com",
+    "telefone": "0000-0000",
+    "senha": "$2a$10$6XZBcGIfOznfU7kqBIXgneA2sVRjnTSlr854hkJy.wEozADAZmz7K",
+    "confirmaSenha": "000000",
+    "nascimento": "01-01-2022"
+  },
+  {
+    "id": "20249818-3af9-4244-8524-1e1d7fb73e7a",
+    "nome": "Fabiano bambambam",
+    "email": "fabiano@teste.com",
+    "telefone": "9999-9999",
+    "senha": "$2a$10$1XH5AfZTvpoWITv3.wwF1eCJQnx3ugYSHIt3yEAY0AC.hz76PCzXO",
+    "confirmaSenha": "000000",
+    "nascimento": "01-01-2022"
+  },
+  {
+    "id": "38ffc73e-00a9-4355-af81-74db23e7afed",
+    "nome": "Daniel Sam",
+    "email": "sam.daniel@teste.com",
+    "telefone": "0000-0000",
+    "senha": "$2a$10$I2FmrBkRdC61nXteuuYv5ePmGQgCtQWGUc.dtyiCXesv4t2VIbD42",
+    "confirmaSenha": "abcdefg",
+    "nascimento": "01-01-1971"
+  }
+]
