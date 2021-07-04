@@ -14,9 +14,9 @@
     <main>
         <!-- Capa da HQ e botões de ação -->
         <div class="exibicao">
-            <img src="/uploads/<%= comic.nome %>"/>
-            <img src="/uploads/<%= comic.nome %>"/>
-            <img src="/uploads/<%= comic.nome %>"/>
+            <img src='/<%= comic.capa %>' />
+            <img src='/<%= comic.capa %>' />
+            <img src='/<%= comic.capa %>' />
         </div>
         <button class="interagir" type="button" >Ler</button>
         <button class="interagir" type="button">Download</button>
@@ -29,13 +29,9 @@
         <section>
             <h1>Nesta edição</h1>
             <p id="sinopse">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt congue ligula in rutrum. 
-                Morbi nec lacus condimentum, hendrerit mi eu, feugiat. Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit. Sed tincidunt congue ligula in rutrum. Morbi nec lacus condimentum, hendrerit 
-                mi eu, feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt congue ligula
-                in rutrum. Morbi nec lacus condimentum, hendrerit mi eu, feugiat.
+                <%= comic.sinopse%>
             </p>
-            <p id="ano-edicao">Ano de edição - xx/xx/xxxx</p>
+            <p id="ano-edicao">Ano de edição - <%= comic.ano %></p>
         </section>
         <!-- Fim Sinópse -->
 
@@ -45,21 +41,21 @@
             <table>
                 <th>
                     <tr>
-                        <td>Informações técnicas</td>
-                        <td>Informações técnicas</td>
+                        <td>autor</td>
+                        <td><%= comic.autor%></td>
                     </tr>
                 </th>
                 <tr>
-                    <td>Informações técnicas</td>
-                    <td>Informações técnicas</td>
+                    <td>ano de edição</td>
+                    <td><%= comic.ano %></td>
                 </tr>
                 <tr>
-                    <td>Informações técnicas</td>
-                    <td>Informações técnicas</td>
+                    <td>autor</td>
+                    <td><%= comic.autor%></td>
                 </tr>
                 <tr>
-                    <td>Informações técnicas</td>
-                    <td>Informações técnicas</td>
+                    <td>ano de edição</td>
+                    <td><%= comic.ano%></td>
                 </tr>
             </table>
         </section>

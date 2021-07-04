@@ -26,6 +26,10 @@ module.exports = {
           allowNull: false
           
       },
+      capa: {
+          type: Sequelize.STRING,
+          allowNull: false,
+      },
       endereço: {
           type: Sequelize.STRING,
           allowNull: false

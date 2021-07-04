@@ -1,14 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-const comicsdb = path.join(__dirname, '../comicdb.json');
-const ComicModel= require('../models/ComicModel');
-const { v4: uuidv4 } = require('uuid');
+// const fs = require('fs');
+// const path = require('path');
+// const comicsdb = path.join(__dirname, '../comicdb.json');
+// const ComicModel= require('../models/ComicModel');
+// const { v4: uuidv4 } = require('uuid');
 
 const database = require('../database/models/index')
 
 const ComicService = {
     createComic: async (
-        filename,
+        coverAndComic,
         titulo,
         autor,
         ano,
@@ -20,7 +20,8 @@ const ComicService = {
             autor,
             ano,
             sinopse,
-            endereço: `/uploads/${filename}`
+            capa: `uploads/${coverAndComic[0].filename}`,
+            endereço: `/uploads/${coverAndComic[1].filename}`
         })
 
         // let comicList = fs.readFileSync(comicsdb, {encoding : 'utf-8'})
