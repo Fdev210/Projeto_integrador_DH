@@ -21,6 +21,14 @@ module.exports = (sequelize, Datatypes) => {
             type: Datatypes.STRING(100),
             allowNull: false
         },
+        capa: {
+            type: Datatypes.STRING(100),
+            allowNull: false
+        },
+        antevisao: {
+            type: Datatypes.JSON,
+            allowNull: false
+        },
         endereço: {
             type: Datatypes.STRING,
             allowNull: false

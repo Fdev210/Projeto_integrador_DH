@@ -1,24 +1,41 @@
-const fs = require('fs');
-const path = require('path');
-const comicsdb = path.join(__dirname, '../comicdb.json');
-const CadastroService = require('../services/CadastroService');
+// const fs = require('fs');
+// const path = require('path');
+// const comicsdb = path.join(__dirname, '../comicdb.json');
 const ComicService = require('../services/ComicService')
-const CadastroController = require('./CadastroController');
 
 const ComicController = {
-    storeComic: (req, res) => {
+    storeComic: async (req, res) => {
         
-        const { filename } = req.file;
+        const comicThings = req.files;
+
+        const {
+            titulo,
+            autor,
+            ano,
+            sinopse
+        } = req.body;
         
-        ComicService.createComic(filename)
+        const { endereço } = await ComicService.createComic(
+            comicThings,
+            titulo,
+            autor,
+            ano,
+            sinopse
+            )
 
         res.json({
-            url: `localhost:3000/uploads/${filename}`
+            url: `localhost:3000${ endereço }`
         });
         
     },
 
     readComic: async (req, res) =>{
+        const { id } = req.params;
+        const comic = await ComicService.getComic(id);
+        return res.render('comicpage', {comic : comic })
+    },
+
+    readPdf: async (req, res) =>{
         const { id } = req.params;
         const { endereço } = await ComicService.getComic(id);
         //return res.json(endereço);
@@ -26,28 +43,40 @@ const ComicController = {
         return res.render('viewer', {caminho: endereço})
     },
 
-    updateComic:(req, res) => {
+    updateComic: async (req, res) => {
         const { id } = req.params
 
-        const { nome } = req.body
+        const { 
+            titulo,
+            autor,
+            ano,
+            sinopse,
+        } = req.body
 
-        const comic = ComicService.updateValues(id, nome)
+        const comic = await ComicService.updateValues(
+            id,
+            titulo,
+            autor,
+            ano,
+            sinopse,
+        )
 
-        if(comic == -1) return res.status(400).render('not-found')
+        if(comic === null) return res.status(400).render('not-found')
+        console.log(comic.endereço)
 
         res.json({
-            url: `localhost:3000/uploads/${nome}`
+            url: `localhost:3000${comic.endereço}`
         })
 
     },
 
-    deleteComic: (req, res) => {
+    deleteComic: async (req, res) => {
 
         const { id } = req.params
 
-        const comic = ComicService.comicDestroyer(id)
+        const comic = await ComicService.comicDestroyer(id)
 
-        if(comic == -1) return res.status(400).render('not-found');
+        if(comic === null) return res.status(400).render('not-found');
 
         return res.json(comic)
 
