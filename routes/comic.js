@@ -11,7 +11,7 @@ const ComicController = require('../controller/ComicController');
 router.get('/:id', ComicController.readComic);
 router.get('/comicpdf/:id', ComicController.readPdf)
 router.get('/preferencias/:id', /*auth, authO,*/ ComicController.findAssociation);
-// router.put('/:id', /*auth, authO,*/ ComicController.updateComic);
+router.put('/:id', /*auth, authO,*/ ComicController.updateComic);
 router.delete('/:id', /*auth, authO,*/ ComicController.deleteComic);
 
 

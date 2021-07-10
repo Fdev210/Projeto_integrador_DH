@@ -46,9 +46,6 @@ const ComicController = {
     updateComic: async (req, res) => {
         const { id } = req.params
 
-        const comicThings = req.files
-        console.log(comicThings)
-
         const { 
             titulo,
             autor,
@@ -58,14 +55,14 @@ const ComicController = {
 
         const comic = await ComicService.updateValues(
             id,
-            comicThings,
             titulo,
             autor,
             ano,
-            sinopse
+            sinopse,
         )
 
         if(comic === null) return res.status(400).render('not-found')
+        console.log(comic.endereço)
 
         res.json({
             url: `localhost:3000${comic.endereço}`
