@@ -55,6 +55,14 @@ app.post('/files', uploadsFile.fields(
   ]
 ), ComicController.storeComic);
 
+app.put('/files/:id', uploadsFile.fields(
+  [
+    {name: 'capa', maxCount: 1},
+    {name: 'antevisao', maxCount: 3},
+    {name: 'pdf', maxCount: 1}
+  ]
+), ComicController.updateComic);
+
 // catch 404 and forward to error handler
 app.use(function(req, res) {
   res.status(404).render('not-found');
