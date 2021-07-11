@@ -4,6 +4,8 @@
 // const ComicModel= require('../models/ComicModel');
 // const { v4: uuidv4 } = require('uuid');
 
+const { sequelize } = require('../database/models/index');
+const { QueryTypes } = require('sequelize')
 const database = require('../database/models/index')
 
 const ComicService = {
@@ -40,8 +42,25 @@ const ComicService = {
     },
 
     getComic: async (id) => { 
-        const resultado = await database.Comic.findByPk(id)
-        return resultado
+        const comic = await database.Comic.findByPk(id, {
+            include: [{model: database.Preferencia}]
+        })
+        // const relacionados = await sequelize.query(`SELECT capa FROM comics
+        //                                             INNER JOIN comics_preferencias
+        //                                             ON comics.id = comics_preferencias.comics_id
+        //                                             WHERE comics_preferencias.preferencia_id = :preferenciaId`,
+        //                                             {
+        //                                                 replacements:{preferenciaId: comic.Preferencia[0].id},
+        //                                                 type: QueryTypes.SELECT
+        //                                             })
+
+        const relacionados = await database.Preferencia.findAll({
+            where: { preferencias: comic.Preferencia[0].preferencias },
+            include: [{ model: database.Comic}]
+        })
+        const all = []
+        all.push(comic, relacionados)
+        return all
     },  
 
     updateValues: async(
@@ -87,26 +106,13 @@ const ComicService = {
             where: { id }
         });
         
-        return targetValues.dataValues
-        // let comicList = fs.readFileSync(comicsdb, {encoding : 'utf-8'})
-        // comicList = JSON.parse(comicList)
-
-        // const comicIndex = comicList.findIndex(elem => elem.id == id)
-        // if(comicIndex == -1) return comicIndex
-                
-        // const newComicList = comicList.filter(elem => elem.id != id)
-        // comicList = JSON.stringify(newComicList, null, 2)
-
-        // fs.writeFileSync(comicsdb, comicList, {encoding : 'utf-8'})
-
-        // return newComicList
-        
+        return targetValues.dataValues    
         
     },
 
     relateTables: async (id) => {
         const joinTables = await database.Comic.findByPk(id, {
-            include: [{ model: database.Preferencia}]
+            include: [{ model: database.ComicPreferencia}]
         });
         return joinTables
     },
