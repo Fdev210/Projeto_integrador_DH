@@ -23,9 +23,9 @@ const UsersController = {
         
         req.session.usuario = tokenCliente
 
-        if (cliente.tipo_usuario == "admin") return res.redirect("/cadastro")
+        if (cliente.tipo_usuario == "admin") return res.redirect("/admin")
 
-        return res.redirect("/users")
+        return res.redirect(`/users/${cliente.id}`)
 
         }
 }

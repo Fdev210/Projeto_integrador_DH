@@ -41,10 +41,10 @@ const ComicController = {
 
     readPdf: async (req, res) =>{
         const { id } = req.params;
-        const { endereço } = await ComicService.getComic(id);
+        const [comic] = await ComicService.getComic(id);
         //return res.json(endereço);
         // return res.render('comicpage', {comic : comic })
-        return res.render('viewer', {caminho: endereço})
+        return res.render('viewer', {caminho: comic.endereço})
     },
 
     updateComic: async (req, res) => {

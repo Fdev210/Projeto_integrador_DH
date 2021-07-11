@@ -22,9 +22,17 @@ const CadastroController = {
     },
 
     buscaPreferencias: async (req, res) => {
-        const {id} = req.params
-        const cliente = await CadastroService.buscaPreferencia(id)
-        return res.json(cliente)
+        const { id } = req.params
+        // const cliente = await CadastroService.buscaPreferencia(id)
+        const clientePreferencias = await CadastroService.buscaPreferencia(id)
+        const clienteComics = clientePreferencias.map(elem => elem.Comics[0])
+
+        console.log(clienteComics)
+        
+        return res.render('usersPage', { 
+            usuario: req.usuario,
+            comics: clienteComics
+        })
     },
 
     buscaPagina: async (req, res) => {
@@ -80,6 +88,7 @@ const CadastroController = {
         res.json(clienteAlterado)
 
     },
+
     delete: async (req, res) => {
         const { id } = req.params
         await CadastroService.apagaCliente(id)

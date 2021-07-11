@@ -1,9 +1,10 @@
-const CadastroModel = require('../models/CadastroModel');
-const { v4: uuidv4 } = require('uuid');
-const bcryptjs = require('bcryptjs');
+// const CadastroModel = require('../models/CadastroModel');
+// const { v4: uuidv4 } = require('uuid');
+// const bcryptjs = require('bcryptjs');
 
 const database = require('../database/models/index');
-const Preferencia = require('../database/models/Preferencia');
+const { Op } = require('sequelize')
+// const Preferencia = require('../database/models/Preferencia');
  
 const CadastroService = {
     listaDeUsuarios: (nomeUsuario) => {
@@ -57,6 +58,7 @@ const CadastroService = {
         return clienteAlterado 
         
     },
+
     apagaCliente: async (id) => {
         await database.Cliente.destroy({
             where: {
@@ -73,13 +75,14 @@ const CadastroService = {
         })
         return resultados        
     },
+
     buscaClienteId: async (id) => { 
         const resultado = await database.Cliente.findByPk(id)
         return resultado
     },
 
     buscaPreferencia: async (id) => {
-        const resultado = await database.Cliente.findOne({
+        const cliente = await database.Cliente.findOne({
             where: {
                 id: id
             },
@@ -87,8 +90,19 @@ const CadastroService = {
                 model: database.Preferencia,
                 required: true
             }
-        })
-        return resultado
+        });
+        
+        const { Preferencia } = cliente
+        const preferenciasIds = Preferencia.map( elem => elem.id)
+
+        const clientePreferencias = await database.Preferencia.findAll({
+            where: { 
+                id: { [Op.in]: preferenciasIds}
+            },
+            include: [{ model: database.Comic }]
+        });
+
+        return clientePreferencias
     },
 
     buscaPagina: async (pagina) => {
