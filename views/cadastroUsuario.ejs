@@ -13,7 +13,7 @@
         <%- include('./global/header.ejs') %>
     </header>
     <main>
-        <form class="formulario" action="#" method="POST">
+        <form class="formulario" action="/cadastro" method="POST">
             <div class="dados">
                 <label for="nome">Digite seu nome</label>
                 <input type="text" name="nome" id="nome">
@@ -32,14 +32,9 @@
                 <div class="preferencias">
                     <label>Selecione abaixo as suas preferências</label>
                     <ul class="titulos">
-                        <li><input type="checkbox" name="preferencias" value="preferencia1" id="pr1"><label for="pr1"> Preferencia 1</label></li>
-                        <li><input type="checkbox" name="preferencias" value="preferencia2" id="pr2"><label for="pr2"> Preferencia 2</label></li>
-                        <li><input type="checkbox" name="preferencias" value="preferencia3" id="pr3"><label for="pr3"> Preferencia 3</label></li>
-                        <li><input type="checkbox" name="preferencias" value="preferencia4" id="pr4"><label for="pr4"> Preferencia 4</label></li>
-                        <li><input type="checkbox" name="preferencias" value="preferencia5" id="pr5"><label for="pr5"> Preferencia 5</label></li>
-                        <li><input type="checkbox" name="preferencias" value="preferencia6" id="pr6"><label for="pr6"> Preferencia 6</label></li>
-                        <li><input type="checkbox" name="preferencias" value="preferencia7" id="pr7"><label for="pr7"> Preferencia 7</label></li>
-                        <li><input type="checkbox" name="preferencias" value="preferencia8" id="pr8"><label for="pr8"> Preferencia 8</label></li>
+                        <% preferencias.forEach(item => { %>
+                        <li><input type="checkbox" name="preferencias" value="<%= item.preferencias %>" id="pr<%= item.id%>"><label for="pr<%= item.id%>"> <%= item.preferencias %> </label></li>
+                        <% }) %>
                     </ul>
                 </div>
                 <div class="botoes">

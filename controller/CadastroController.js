@@ -3,12 +3,13 @@ const path = require('path');
 const listaDeCadastro = path.join(__dirname, '../listaDeCadastro.json')
 const CadastroService = require("../services/CadastroService");
 const bcryptjs = require('bcryptjs');
+const moment = require('moment');
 
 const CadastroController = {
-    index: (req, res) => {
-       res.render('cadastroUsuario');
-
-    },
+    index: async (req, res) => {
+        const listaTodas = await CadastroService.listarPreferencias()
+        res.render('cadastroUsuario', {preferencias:listaTodas});
+     },
   
     indexAll: async (req, res) => {
         const lista = await CadastroService.buscaClientesLista()
@@ -34,14 +35,13 @@ const CadastroController = {
     },
 
     create: async (req, res) => {
-        const {
+        let {
             nome,
             email,  
             telefone,
             senha,
             data_nascimento
         } = req.body
-
         const cliente = await CadastroService.criaUsuario(
             nome,
             email,  
@@ -52,7 +52,7 @@ const CadastroController = {
         return res.json({
             nome: cliente.nome, 
             email: cliente.email,
-            data_nascimento: cliente.data_nascimento
+            data_nascimento: cliente.data_formatada
         })
     },
     

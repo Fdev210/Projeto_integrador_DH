@@ -8,7 +8,7 @@ const validador = [
     check('telefone', 'insira um número de telefone válido').notEmpty().isMobilePhone('pt-BR'),
     check('email', 'insira um email válido').notEmpty().isEmail(),
     check('senha', 'insira sua senha').notEmpty(),
-    check('data_nascimento', 'formato de data inválida').notEmpty().isDate(),
+    //check('data_nascimento', 'formato de data inválida').notEmpty().isDate(),
     // check('confirmaSenha', 'confirme sua senha').notEmpty(),
     // body('email').custom( email => {
     //     let arrayCadastro = JSON.parse(fs.readFileSync(listaDeCadastro));
