@@ -13,7 +13,7 @@ router.post('/', /*auth, authO,*/ validador, CadastroController.create)
 router.get('/all', auth, authO, CadastroController.indexAll)
 router.get('/:id', auth, authO, CadastroController.buscaPorId) 
 router.get('/pagina/:pagina', auth, authO, CadastroController.buscaPagina)
-// router.get('/:id/preferencias', /*auth, authO,*/ CadastroController.buscaPreferencias)
+router.get('/:id/preferencias', /*auth, authO,*/ CadastroController.buscaPreferencias)
 router.put('/:id', /*auth, authO,*/ validador, CadastroController.update)
 router.delete('/:id', /*auth, authO,*/ CadastroController.delete)
 

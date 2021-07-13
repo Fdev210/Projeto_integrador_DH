@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const listaDeCadastro = path.join(__dirname, '../listaDeCadastro.json')
+// const fs = require('fs');
+// const path = require('path');
+// const listaDeCadastro = path.join(__dirname, '../listaDeCadastro.json')
 const CadastroService = require("../services/CadastroService");
 const bcryptjs = require('bcryptjs');
 
@@ -23,16 +23,8 @@ const CadastroController = {
 
     buscaPreferencias: async (req, res) => {
         const { id } = req.params
-        // const cliente = await CadastroService.buscaPreferencia(id)
-        const clientePreferencias = await CadastroService.buscaPreferencia(id)
-        const clienteComics = clientePreferencias.map(elem => elem.Comics[0])
-
-        console.log(clienteComics)
-        
-        return res.render('usersPage', { 
-            usuario: req.usuario,
-            comics: clienteComics
-        })
+        const cliente = await CadastroService.buscaPreferencia(id)
+        return res.json(cliente)
     },
 
     buscaPagina: async (req, res) => {

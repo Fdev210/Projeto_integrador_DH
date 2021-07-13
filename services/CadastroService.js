@@ -91,18 +91,9 @@ const CadastroService = {
                 required: true
             }
         });
-        
-        const { Preferencia } = cliente
-        const preferenciasIds = Preferencia.map( elem => elem.id)
 
-        const clientePreferencias = await database.Preferencia.findAll({
-            where: { 
-                id: { [Op.in]: preferenciasIds}
-            },
-            include: [{ model: database.Comic }]
-        });
-
-        return clientePreferencias
+        return cliente
+    
     },
 
     buscaPagina: async (pagina) => {

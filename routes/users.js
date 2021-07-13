@@ -10,6 +10,5 @@ router.get('/', auth, UsersController.index)
 router.get('/login', UsersController.login)
 router.post('/login', UsersController.logon)
 
-router.get('/:id', auth, CadastroController.buscaPreferencias)
 
 module.exports = router;
