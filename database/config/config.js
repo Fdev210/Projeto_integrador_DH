@@ -1,3 +1,4 @@
+
 module.exports = {
   "development": {
     "username": "root",
@@ -9,3 +10,4 @@ module.exports = {
     "seederStorageTableName": "sequelize_data"
   }
 }
+
