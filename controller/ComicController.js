@@ -4,6 +4,10 @@
 const ComicService = require('../services/ComicService')
 
 const ComicController = {
+    index: (req, res) =>{
+        res.render('telaAdmin')
+    },
+
     storeComic: async (req, res) => {
         
         const comicThings = req.files;
@@ -22,11 +26,10 @@ const ComicController = {
             ano,
             sinopse
             )
-
+        
         res.json({
             url: `localhost:3000${ endereço }`
-        });
-        
+        });        
     },
 
     readComic: async (req, res) =>{
