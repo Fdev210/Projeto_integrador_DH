@@ -79,10 +79,11 @@
         <section class="titulos-semelhantes">
             <h2>Títulos semelhantes</h2>
             <div>
-                <img src="/images/hq.png"/>
-                <img src="/images/hq.png"/>
-                <img src="/images/hq.png"/>
-                <img src="/images/hq.png"/>
+                <% relacionados.forEach (elem => { %>
+                    <% if(elem.id != comic.id) { %>
+                        <img src="/<%= elem.capa %>"/>
+                    <% } %>
+                <% }) %>
             </div>
         </section>
         <!-- Fim títulos semelhantes -->
