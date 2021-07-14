@@ -5,10 +5,10 @@ const CadastroService = require("../services/CadastroService");
 const bcryptjs = require('bcryptjs');
 
 const CadastroController = {
-    index: (req, res) => {
-       res.render('cadastroUsuario');
-
-    },
+    index : async (req, res) => {
+        const  listaTodas = await CadastroService.listarPreferencias( )
+        res.render('cadastroUsuario', { preferencias : listaTodas } ) ;
+     } ,
   
     indexAll: async (req, res) => {
         const lista = await CadastroService.buscaClientesLista()
