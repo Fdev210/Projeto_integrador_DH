@@ -12,7 +12,7 @@ const CadastroService = {
         let usuario = listaUsuario.find(item => item.nome === nomeUsuario);
 
         if (!usuario) {
-            usuario = listaUsuario[0];
+            usuario = listaUsuario[0]; 
         }
 
         return usuario;
@@ -23,7 +23,8 @@ const CadastroService = {
         email,  
         telefone,
         senha,
-        data_nascimento
+        data_nascimento,
+        preferenciasCliente
         ) => {
 
         const novoCliente = await database.Cliente.create({
@@ -33,8 +34,18 @@ const CadastroService = {
             senha,
             data_nascimento
         })
+        
+        const idCliente = await novoCliente.dataValues.id
+        preferenciasCliente.forEach(async (preferencia) => {
+            const novaPreferencia = await database.ClientePreferencia.create({
+                clientes_id: idCliente,
+                preferencia_id: preferencia
+            })
+        })
+
         return novoCliente        
-    },
+    }   
+    ,
 
     alteraCliente: async (
         id,
