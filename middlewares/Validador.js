@@ -3,21 +3,12 @@ const fs = require('fs');
 const path = require('path');
 const listaDeCadastro = path.join(__dirname, '../listaDeCadastro.json')
 
-const validador = [
+const validador_cadastro = [
     check('nome', 'Insira seu nome').notEmpty(),
     check('telefone', 'Insira um número de telefone válido').notEmpty().isMobilePhone('pt-BR'),
     check('email', 'Insira um email válido').notEmpty().isEmail(),
     check('senha', 'Insira sua senha').notEmpty(),
     check('data_nascimento', 'Formato de data inválida').notEmpty().isDate(),
-    // check('confirmaSenha', 'confirme sua senha').notEmpty(),
-    // body('email').custom( email => {
-    //     let arrayCadastro = JSON.parse(fs.readFileSync(listaDeCadastro));
-
-    //     for (let usuario of arrayCadastro) {
-    //         if(usuario.email == email) false;
-    //     }
-
-    // }).withMessage('Usuario já cadastrado'),
     (req, res, next) => {
         let errors = validationResult(req);
         if(!errors.isEmpty()) {
@@ -28,9 +19,23 @@ const validador = [
     } 
 ]
 
+const validador_comic = [
+    check('titulo', 'Insira um título válido').notEmpty(),
+    check('autor', 'Insira um autor válido').notEmpty(),
+    check('ano', 'Insira um ano válido').notEmpty(),
+    check('sinopse', 'Insira a sinopse').notEmpty(),
 
+    (req, res, next) => {
+        let errors = validationResult(req);
+        if(!errors.isEmpty()) {
+            return res.status(400).json(errors);
+        } else {
+            next();
+        }
+    } 
+]
 
-    
-
-
-module.exports = validador;
+module.exports = {
+    "validador_cadastro" : validador_cadastro,
+    "validador_comic" : validador_comic
+};

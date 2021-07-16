@@ -42,11 +42,17 @@ main {
 }
 
 .formulario input{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     border-radius: 20px;
     padding: 0px 5px 0px 5px;
     width: 270px;
     background: #ffffff;
+}
+
+#ano {
+    width: 100px;
+    text-align: center;
+
 }
 
 input:-webkit-autofill,
@@ -78,6 +84,19 @@ input:-webkit-autofill:active
 .bloco2 {
     margin-top: 15px;
     width: 313px;
+}
+
+.titulos {
+    margin-top: 15px;
+    width: 313px;
+    position: relative;
+    width: inherit;
+    height: inherit;
+    background: inherit;
+    top: inherit;
+    left: inherit;
+    text-align: inherit;
+    transition: inherit;
 }
 
 .bloco2 input{
@@ -116,12 +135,13 @@ input[type='file'] {
   }
 
 label.arquivo {
+    text-align: center;
     background-color: #ffffff;
     border-radius: 5px;
     color: rgb(0, 0, 0);
     cursor: pointer;
-    margin-top: 20px;
-    padding: 6px 20px;
+    margin-top: 10px;
+    padding: 3px 20px;
     width: 160px;
 } 
 
@@ -141,7 +161,19 @@ label.arquivo {
     border-radius: 20px;
 }
 
+.error {
+    color: rgba(185, 30, 30, 0);
+    opacity: 1;
+    font-family: 'Arial';
+    font-size: 9px;
+    margin-bottom: 10px;
+    margin-left: 9px;
 
+}
+
+.show {
+    color: rgba(185, 30, 30, 1);
+}
 /* -- FIM MAIN ---------------------------------------------------------------------------------------*/
 
 
@@ -157,8 +189,10 @@ label.arquivo {
     padding: 0px 5px 0px 5px;
 }
 
+
+
 .formulario input{
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 
@@ -190,7 +224,7 @@ label.arquivo {
     margin-top: 30px;
     width: 500px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
@@ -198,12 +232,20 @@ label.arquivo {
     margin-bottom: 15px;
     border-radius: 20px;
     padding: 0px 5px 0px 5px;
-    width: 200px;
+    width: 20px;
 }
 
 .bloco2 label{
-    margin-right: 4px;
+    margin-right: 40px;
     margin-left: 9px;
+}
+
+.titulos {
+    display: flex;
+    margin-top: 15px;
+    width: 500px;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .desktop {
