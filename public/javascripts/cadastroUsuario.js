@@ -1,5 +1,3 @@
-//const { body } = require("express-validator") 
-
 async function onClickSubmit(event) {
     event.preventDefault()
     const nome = document.getElementById("nome").value
