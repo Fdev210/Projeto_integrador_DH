@@ -14,7 +14,7 @@
         <%- include('./global/header.ejs') %>
     </header>
     <main>
-        <form class="formulario" id="formulario"  method="POST">
+        <form class="formulario" action="/cadastro" method="POST">
             <div class="dados">
                 <label for="nome">Digite seu nome</label>
                 <input type="text" name="nome" id="nome">
@@ -40,6 +40,7 @@
                     <label>Selecione abaixo as suas preferências</label>
                     <span id="preferenciaError" class="error">Selecione pelo menos uma preferência</span>
                     <ul class="titulos">
+
                         <% preferencias.forEach(function(preferencia, i) { %>
                             <li>
                                 <input 

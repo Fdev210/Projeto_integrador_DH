@@ -53,8 +53,6 @@ main {
     width: 100px;
     text-align: center;
 
-}
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -167,6 +165,7 @@ label.arquivo {
     font-family: 'Arial';
     font-size: 9px;
     margin-bottom: 10px;
+
     margin-left: 9px;
 
 }
@@ -249,7 +248,7 @@ label.arquivo {
 }
 
 .desktop {
-    width: 100%;
+    width: 100%; 
     margin-left: 60px;
     margin-right: 30px;
 }

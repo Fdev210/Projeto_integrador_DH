@@ -14,10 +14,12 @@ async function onClickSubmit(event) {
     const preferenciaError = document.getElementById("preferenciaError")
     const preferencias = document.getElementsByName("preferencias")
 
+
     tituloError.classList.remove("show")
     autorError.classList.remove("show")
     anoError.classList.remove("show")
     sinopseError.classList.remove("show")
+
     preferenciaError.classList.remove("show")
 
     function criaPreferencias(p) {
@@ -44,6 +46,7 @@ async function onClickSubmit(event) {
     if (!autor) {
         errors.push({
             element: autorError,
+
             message: "Autor precisa ser informado" 
         })
     }
@@ -61,6 +64,7 @@ async function onClickSubmit(event) {
             message: "Sinopse precisa ser informada"
         })
     }
+
 
     if(preferenciasComic.length === 0) {
         errors.push({
@@ -87,6 +91,7 @@ async function onClickSubmit(event) {
     formdata.append("antevisao", antevisao.files[0]);
     formdata.append("antevisao", antevisao.files[1]);
     formdata.append("antevisao", antevisao.files[2]);
+
     for (let i = 0; i < preferenciasComic.length; i++) {
         formdata.append("preferenciasComic", preferenciasComic[i])
     }
@@ -106,6 +111,7 @@ async function onClickSubmit(event) {
         document.getElementById("autor").value = ""
         document.getElementById("ano").value = ""
         document.getElementById("sinopse").value = ""
+
         window.alert("Gibi cadastrado com sucesso!")
         preferencias.forEach((preferencia) => {
             preferencia.checked = false
@@ -114,10 +120,9 @@ async function onClickSubmit(event) {
         window.alert(data.errors[0].msg)
     }
 
-}
-
-
 window.onload = () => {
     const form = document.getElementById("formulario")
     form.addEventListener("submit", onClickSubmit)
+
 } 
+

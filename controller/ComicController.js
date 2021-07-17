@@ -5,10 +5,10 @@ const ComicService = require('../services/ComicService')
 const database = require('../database/models/index');
 
 const ComicController = {
+
     index: async (req, res) =>{
         const preferencias = await database.Preferencia.findAll({attributes: ['id','preferencias']})
         res.render('telaAdmin', {preferencias: preferencias})
-    },
 
     storeComic: async (req, res) => {
         
@@ -30,11 +30,10 @@ const ComicController = {
             sinopse,
             preferenciasComic
             )
-
+        
         res.json({
             url: `localhost:3000${ endereço }`
-        });
-        
+        });        
     },
 
     readComic: async (req, res) =>{

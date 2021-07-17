@@ -6,6 +6,7 @@ const bcryptjs = require('bcryptjs');
 const database = require('../database/models/index');
 
 const CadastroController = {
+
     index: async (req, res) => {
         const preferencias = await database.Preferencia.findAll({attributes: ['id','preferencias']})
      //   res.render('cadastroUsuario', {preferencias: JSON.stringify(preferencias)});

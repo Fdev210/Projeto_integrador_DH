@@ -58,7 +58,7 @@ app.post('/files', uploadsFile.fields(
 app.put('/files/:id', uploadsFile.fields(
   [
     {name: 'capa', maxCount: 1},
-    {name: 'antevisao', maxCount: 3},
+    {name: 'antevisao', maxCount: 3}, 
     {name: 'pdf', maxCount: 1}
   ]
 ), ComicController.updateComic);

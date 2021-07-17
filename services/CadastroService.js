@@ -92,6 +92,13 @@ const CadastroService = {
         return resultado
     },
 
+    listarPreferencias: async () => {
+        const listaTodas = await database.Preferencia.findAll({
+            attributes: ['id','preferencias']
+        })
+        return listaTodas
+    },
+
     buscaPreferencia: async (id) => {
         const cliente = await database.Cliente.findOne({
             where: {

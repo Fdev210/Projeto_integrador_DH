@@ -9,6 +9,7 @@ const validador_cadastro = [
     check('email', 'Insira um email válido').notEmpty().isEmail(),
     check('senha', 'Insira sua senha').notEmpty(),
     check('data_nascimento', 'Formato de data inválida').notEmpty().isDate(),
+
     (req, res, next) => {
         let errors = validationResult(req);
         if(!errors.isEmpty()) {

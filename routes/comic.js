@@ -17,5 +17,4 @@ router.put('/:id', /*auth, authO,*/ ComicController.updateComic);
 router.delete('/:id', /*auth, authO,*/ ComicController.deleteComic);
 router.post('/', /*auth, authO,*/ validador.validador_comic, ComicController.storeComic)
 
-
-module.exports = router; 
+module.exports = router;  
