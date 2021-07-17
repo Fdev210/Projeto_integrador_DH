@@ -38,9 +38,22 @@
             <div class="desktop">
                 <div class="preferencias">
                     <label>Selecione abaixo as suas preferências</label>
+                    <span id="preferenciaError" class="error">Selecione pelo menos uma preferência</span>
                     <ul class="titulos">
-                        <% preferencias.forEach(item => { %>
-                        <li><input type="checkbox" name="preferencias" value="<%= item.preferencias %>" id="pr<%= item.id%>"><label for="pr<%= item.id%>"> <%= item.preferencias %> </label></li>
+
+                        <% preferencias.forEach(function(preferencia, i) { %>
+                            <li>
+                                <input 
+                                    type="checkbox" 
+                                    name="preferencias"  
+                                    value=<%- preferencia.dataValues.preferencias %> 
+                                    id=<%- preferencia.dataValues.id  %>>
+                                <label 
+                                    for=id=<%- preferencia.dataValues.id  %>> 
+                                    <%= preferencia.dataValues.preferencias %>
+                                </label>
+                            </li>
+
                         <% }) %>
                     </ul>
                 </div>

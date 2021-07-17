@@ -1,5 +1,3 @@
-//const { body } = require("express-validator")
-
 async function onClickSubmit(event) {
     event.preventDefault()
     const nome = document.getElementById("nome").value
@@ -14,6 +12,8 @@ async function onClickSubmit(event) {
     const senhaError = document.getElementById("senhaError")
     const confirmaSenhaError = document.getElementById("confirmaSenhaError")
     const nascimentoError = document.getElementById("nascimentoError")
+    const preferenciaError = document.getElementById("preferenciaError")
+    const preferencias = document.getElementsByName("preferencias")
 
     nomeError.classList.remove("show")
     emailError.classList.remove("show")
@@ -21,6 +21,19 @@ async function onClickSubmit(event) {
     senhaError.classList.remove("show")
     confirmaSenhaError.classList.remove("show")
     nascimentoError.classList.remove("show")
+    preferenciaError.classList.remove("show")
+
+    function criaPreferencias(p) {
+        let prefs = []
+        for (i in p) {
+            if (p[i].checked) {
+                prefs.push(p[i].id)
+            }
+        }
+        return prefs
+        }
+
+    const preferenciasCliente = criaPreferencias(preferencias)
 
     const errors = []
 
@@ -66,6 +79,14 @@ async function onClickSubmit(event) {
         })
     }
 
+    if(preferenciasCliente.length === 0) {
+        errors.push({
+            element: preferenciaError,
+            message: "Selecione pelo menos uma preferência"
+        })
+    }
+
+
     if (errors.length > 0) {
         errors.forEach(erro => {
             erro.element.innerText = erro.message
@@ -81,7 +102,8 @@ async function onClickSubmit(event) {
             email,
             telefone,
             senha,
-            data_nascimento: nascimento,             
+            data_nascimento: nascimento,
+            preferenciasCliente              
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -96,6 +118,9 @@ async function onClickSubmit(event) {
         document.getElementById("senha").value = ""
         document.getElementById("confirmaSenha").value = ""
         document.getElementById("nascimento").value = ""
+        preferencias.forEach((preferencia) => {
+            preferencia.checked = false
+        })
         window.alert("Usuário cadastrado com sucesso!")
     } else {
         window.alert(data.errors[0].msg)

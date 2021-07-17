@@ -26,12 +26,32 @@
                 <input type="text" name="ano" id="ano">
                 <span id="anoError" class="error">Ano inválido</span>
                 <div class="bloco2">
-                    <label for="tag1">Tag 1</label>
+
+                    <label>Selecione as preferências relacionadas ao gibi</label>
+                    <span id="preferenciaError" class="error">Selecione pelo menos uma preferência</span>
+                    <ul class="titulos">
+                        <% preferencias.forEach(function(preferencia, i) { %>
+                            <li>
+                                <input 
+                                    type="checkbox" 
+                                    name="preferencias"  
+                                    value=<%- preferencia.dataValues.preferencias %> 
+                                    id=<%- preferencia.dataValues.id  %>>
+                                <label 
+                                    for=id=<%- preferencia.dataValues.id  %>> 
+                                    <%= preferencia.dataValues.preferencias %>
+                                </label>
+                            </li>
+
+                        <% }) %>
+                    </ul>
+                    <!-- <label for="tag1">Tag 1</label>
+
                     <input type="text" name="tag1" id="tag1">
                     <label for="tag2">Tag 2</label>
                     <input type="text" name="tag2" id="tag2">
                     <label for="tag3">Tag 3</label>
-                    <input type="text" name="tag3" id="tag3">
+                    <input type="text" name="tag3" id="tag3"> -->
                 </div>
             </div>
             <div class="desktop">
@@ -49,13 +69,3 @@
                 <div class="botoes">
                     <button class="botao" type="reset">Limpar</button>
                     <button class="botao" type="submit">Enviar</button>
-                </div>
-            </div>
-        </form>
-    </main>
-    <footer>
-        <%- include('./global/footer.ejs') %>
-    </footer>
-
-
-    

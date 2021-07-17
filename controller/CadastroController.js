@@ -3,12 +3,15 @@ const path = require('path');
 const listaDeCadastro = path.join(__dirname, '../listaDeCadastro.json')
 const CadastroService = require("../services/CadastroService");
 const bcryptjs = require('bcryptjs');
+const database = require('../database/models/index');
 
 const CadastroController = {
-    index : async (req, res) => {
-        const  listaTodas = await CadastroService.listarPreferencias( )
-        res.render('cadastroUsuario', { preferencias : listaTodas } ) ;
-     } ,
+
+    index: async (req, res) => {
+        const preferencias = await database.Preferencia.findAll({attributes: ['id','preferencias']})
+     //   res.render('cadastroUsuario', {preferencias: JSON.stringify(preferencias)});
+        res.render('cadastroUsuario', {preferencias: preferencias});
+},
   
     indexAll: async (req, res) => {
         const lista = await CadastroService.buscaClientesLista()
@@ -39,7 +42,8 @@ const CadastroController = {
             email,  
             telefone,
             senha,
-            data_nascimento
+            data_nascimento,
+            preferenciasCliente
         } = req.body
 
         const cliente = await CadastroService.criaUsuario(
@@ -47,15 +51,12 @@ const CadastroController = {
             email,  
             telefone,
             senha,
-            data_nascimento
+            data_nascimento,
+            preferenciasCliente
         )
-        return res.json({
-            nome: cliente.nome, 
-            email: cliente.email,
-            data_nascimento: cliente.data_nascimento
-        })
+        return res.json(cliente)
     },
-    
+     
     update: async (req, res) => {
         const { id } = req.params
         const {
@@ -81,7 +82,7 @@ const CadastroController = {
 
     },
     delete: async (req, res) => {
-        const { id } = req.params
+        const { id } = req.params 
         await CadastroService.apagaCliente(id)
         res.json(id)
     }
