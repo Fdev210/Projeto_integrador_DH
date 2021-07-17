@@ -1,6 +1,6 @@
 // const fs = require('fs');
 // const path = require('path');
-// const comicsdb = path.join(__dirname, '../comicdb.json');
+// const comicsdb = path.join(__dirname, '../comicdb.json'); 
 // const ComicModel= require('../models/ComicModel');
 // const { v4: uuidv4 } = require('uuid');
 
@@ -15,6 +15,7 @@ const ComicService = {
         autor,
         ano,
         sinopse,
+        preferenciasComic
         ) => {
 
         const { antevisao } = comicThings
@@ -36,6 +37,15 @@ const ComicService = {
                         `/uploads/${comicPages[2]}`,
                        ],
             endereço: `/uploads/${comicThings['pdf'][0].filename}`
+        })
+
+        const idComic = await addComic.dataValues.id
+
+        preferenciasComic.forEach(async (preferencia) => {
+            const novaPreferencia = await database.ComicPreferencia.create({
+                comics_id: idComic,
+                preferencia_id: preferencia
+            })
         })
 
         return addComic

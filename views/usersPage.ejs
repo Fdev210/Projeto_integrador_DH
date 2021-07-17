@@ -60,24 +60,29 @@
 
         <!-- HQs em tela -->
         <section class="expositor">
-            <div class="base_apoio">
-                <div class="hq">
-                    <img src="images/hq.png"  />
-                </div>
-
-                <div class="container">
-                    <div class="infomacoes_tecnicas">
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
+            <% comics.forEach( elem => { %>
+                <% if(elem) { %>
+                <% console.log(elem) %>
+                    <div class="base_apoio">
+                        <div class="hq">
+                            <img src="<%= elem.capa %>"  />
+                        </div>
+                        
+                        <div class="container">
+                            
+                            <div class="infomacoes_tecnicas">
+                                <p><%= elem.titulo %></p>
+                                <p>autor: <%= elem.autor %></p>
+                                <p>ano: <%= elem.ano %></p>
+                            </div>
+                            <div class="interagir">
+                                <img src="images/favoritar.png"  />
+                                <img src="images/salvar.png"  />
+                            </div>
+                        </div>
                     </div>
-                    <div class="interagir">
-                        <img src="images/favoritar.png"  />
-                        <img src="images/salvar.png"  />
-                    </div>
-                </div>
-            </div>
+                <% } %>
+            <% }) %>
 
             <div class="base_apoio">
                 <div class="hq">

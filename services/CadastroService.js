@@ -1,9 +1,10 @@
-const CadastroModel = require('../models/CadastroModel');
-const { v4: uuidv4 } = require('uuid');
-const bcryptjs = require('bcryptjs');
+// const CadastroModel = require('../models/CadastroModel');
+// const { v4: uuidv4 } = require('uuid');
+// const bcryptjs = require('bcryptjs');
 
 const database = require('../database/models/index');
-const Preferencia = require('../database/models/Preferencia');
+const { Op } = require('sequelize')
+// const Preferencia = require('../database/models/Preferencia');
  
 const CadastroService = {
     listaDeUsuarios: (nomeUsuario) => {
@@ -11,7 +12,7 @@ const CadastroService = {
         let usuario = listaUsuario.find(item => item.nome === nomeUsuario);
 
         if (!usuario) {
-            usuario = listaUsuario[0];
+            usuario = listaUsuario[0]; 
         }
 
         return usuario;
@@ -22,7 +23,8 @@ const CadastroService = {
         email,  
         telefone,
         senha,
-        data_nascimento
+        data_nascimento,
+        preferenciasCliente
         ) => {
 
         const novoCliente = await database.Cliente.create({
@@ -32,8 +34,18 @@ const CadastroService = {
             senha,
             data_nascimento
         })
+        
+        const idCliente = await novoCliente.dataValues.id
+        preferenciasCliente.forEach(async (preferencia) => {
+            const novaPreferencia = await database.ClientePreferencia.create({
+                clientes_id: idCliente,
+                preferencia_id: preferencia
+            })
+        })
+
         return novoCliente        
-    },
+    }   
+    ,
 
     alteraCliente: async (
         id,
@@ -57,6 +69,7 @@ const CadastroService = {
         return clienteAlterado 
         
     },
+
     apagaCliente: async (id) => {
         await database.Cliente.destroy({
             where: {
@@ -73,13 +86,21 @@ const CadastroService = {
         })
         return resultados        
     },
+
     buscaClienteId: async (id) => { 
         const resultado = await database.Cliente.findByPk(id)
         return resultado
     },
 
+    listarPreferencias: async () => {
+        const listaTodas = await database.Preferencia.findAll({
+            attributes: ['id','preferencias']
+        })
+        return listaTodas
+    },
+
     buscaPreferencia: async (id) => {
-        const resultado = await database.Cliente.findOne({
+        const cliente = await database.Cliente.findOne({
             where: {
                 id: id
             },
@@ -87,8 +108,10 @@ const CadastroService = {
                 model: database.Preferencia,
                 required: true
             }
-        })
-        return resultado
+        });
+
+        return cliente
+    
     },
 
     buscaPagina: async (pagina) => {

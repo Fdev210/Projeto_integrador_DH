@@ -2,8 +2,15 @@ const UserService = require('../services/UserService');
 const bcryptjs = require('bcryptjs');
 
 const UsersController = {
-    index: (req, res) =>{ 
-        res.render('usersPage', { usuario: req.usuario })
+    index: async (req, res) =>{ 
+        const { id } = req.usuario
+        const clientePreferencias = await UserService.clientePreferencia(id)
+        const clienteComics = clientePreferencias.map(elem => elem.Comics[0])
+
+        return res.render('usersPage', { 
+            usuario: req.usuario,
+            comics: clienteComics
+        })
     },
     
     login: (req, res) => {
@@ -23,9 +30,9 @@ const UsersController = {
         
         req.session.usuario = tokenCliente
 
-        if (cliente.tipo_usuario == "admin") return res.redirect("/cadastro")
+        if (cliente.tipo_usuario == "admin") return res.redirect("/admin")
 
-        return res.redirect("/users")
+        return res.redirect('/users')
 
         }
 }
