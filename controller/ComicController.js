@@ -10,6 +10,8 @@ const ComicController = {
         const preferencias = await database.Preferencia.findAll({attributes: ['id','preferencias']})
         res.render('telaAdmin', {preferencias: preferencias})
 
+    },
+
     storeComic: async (req, res) => {
         
         const comicThings = req.files;
@@ -21,6 +23,8 @@ const ComicController = {
             sinopse,
             preferenciasComic
         } = req.body;
+
+        console.log(preferenciasComic)
         
         const { endereço } = await ComicService.createComic(
             comicThings,

@@ -30,7 +30,7 @@ const UsersController = {
         
         req.session.usuario = tokenCliente
 
-        if (cliente.tipo_usuario == "admin") return res.redirect("/admin")
+        if (cliente.tipo_usuario == "admin") return res.redirect("/comicpage")
 
         return res.redirect('/users')
 
