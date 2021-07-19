@@ -120,9 +120,10 @@ async function onClickSubmit(event) {
         window.alert(data.errors[0].msg)
     }
 
+}
+
 window.onload = () => {
     const form = document.getElementById("formulario")
     form.addEventListener("submit", onClickSubmit)
-
 } 
-}
+
