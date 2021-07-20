@@ -10,11 +10,12 @@ const ComicController = require('../controller/ComicController');
 
 // router.get('/', ComicController.readComic);
 router.get('/', ComicController.index)
-router.get('/:id', ComicController.readComic);
+router.get('/comicslist', ComicController.readAll);
 router.get('/comicpdf/:id', ComicController.readPdf)
+router.get('/:id', ComicController.readComic);
 router.get('/preferencias/:id', /*auth, authO,*/ ComicController.findAssociation);
+router.post('/', /*auth, authO,*/ validador.validador_comic, ComicController.storeComic)
 router.put('/:id', /*auth, authO,*/ ComicController.updateComic);
 router.delete('/:id', /*auth, authO,*/ ComicController.deleteComic);
-router.post('/', /*auth, authO,*/ validador.validador_comic, ComicController.storeComic)
 
 module.exports = router;  

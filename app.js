@@ -46,6 +46,7 @@ app.use('/users', usersRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/comicpage', comicRouter);
 app.use('/admin', adminRouter);
+app.use('/adminComic', adminRouter);
 
 app.post('/files', uploadsFile.fields(
   [

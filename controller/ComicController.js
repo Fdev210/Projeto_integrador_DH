@@ -23,8 +23,6 @@ const ComicController = {
             sinopse,
             preferenciasComic
         } = req.body;
-
-        console.log(preferenciasComic)
         
         const { endereço } = await ComicService.createComic(
             comicThings,
@@ -48,6 +46,11 @@ const ComicController = {
             comic : comic, 
             relacionados: relacionados[0].Comics
         })
+    },
+
+    readAll: async (req, res) => {
+        const comicsList = await ComicService.getAllComics();
+        return res.render('comicsList', { comics: comicsList });
     },
 
     readPdf: async (req, res) =>{

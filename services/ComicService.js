@@ -71,7 +71,15 @@ const ComicService = {
         const all = []
         all.push(comic, relacionados)
         return all
-    },  
+    },
+    
+    getAllComics : async () => {
+        comicsList = await database.Comic.findAll({
+            attributes: ['id', 'titulo', 'autor', 'ano', 'sinopse', 'capa', 'createdAt', 'updatedAt'] 
+        })
+
+        return comicsList
+    },
 
     updateValues: async(
         id,
@@ -122,7 +130,7 @@ const ComicService = {
 
     relateTables: async (id) => {
         const joinTables = await database.Comic.findByPk(id, {
-            include: [{ model: database.ComicPreferencia}]
+            include: [{ model: database.Preferencia }]
         });
         return joinTables
     },
