@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de HQ</title>
     <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
-    <link href="/stylesheets/telaAdmin.css" rel="stylesheet"  /> 
-    <script src="javascripts/deleteComic.js"></script>
+    <link href="/stylesheets/telaAdmin.css" rel="stylesheet"  />
+    <script src="/javascripts/deleteComic.js"></script>
 </head>
 <body>
     <header>
         <%- include('./global/header.ejs') %>
     </header>
     <main>
-        <form class="formulario" id="formulario"  method="POST" enctype="multipart/form-data">
+        <form class="formulario" id="formulario" method="POST" enctype="multipart/form-data">
             <div class="dados">
+                <input type="hidden" id="inputId" value="<%= comic.id %>">
                 <label for="titulo">Título</label>
                 <input type="text" name="titulo" id="titulo" value="<%= comic.titulo %>">
                 <span id="tituloError" class="error">Titulo inválido</span>
@@ -39,7 +40,7 @@
                                     value=<%- preferencia.dataValues.preferencias %>
                                     <% if(preferencia.dataValues.preferencias === comic.Preferencia[0].preferencias) { %>
                                         checked
-                                    <% } %>   
+                                    <% } %>  
                                 <label 
                                     for=id=<%- preferencia.dataValues.id  %>> 
                                     <%= preferencia.dataValues.preferencias %>
@@ -64,15 +65,15 @@
                     <span id="sinopseError" class="error">Sinopse inválida</span>
                 </div>
                 <label for="pdf" class="arquivo">Selecione o gibi</label>
-                <input type="file" id="pdf" name="pdf" accept=".pdf">
+                <input type="file" id="pdf" name="pdf" accept=".pdf" value="<%= comic.endereço %>">
                 <label for="capa" class="arquivo">Selecione a capa</label>
-                <input type="file" id="capa" name="capa" accept=".png, .jpg, .jpeg">
+                <input type="file" id="capa" name="capa" accept=".png, .jpg, .jpeg" value="<%= comic.capa %>">
                 <label for="antevisão" class="arquivo">Selecione a antevisão</label>
                 <input type="file" id="antevisão" name="antevisão" accept=".png, .jpg, .jpeg" multiple>                
                 <div class="botoes">
                     <button class="botao" type="reset">Limpar</button>
                     <button class="botao" type="submit">Update</button>
-                    <button class="botao" type="submit">Delete</button>
+                    <button class="botao" id="btnDelete" type="button">Delete</button>
                 </div>
             </div>
         </form>
@@ -80,3 +81,4 @@
     <footer>
         <%- include('./global/footer.ejs') %>
     </footer>
+    

@@ -65,13 +65,13 @@ const ComicController = {
         const { id } = req.params
 
         const comicThings = req.files
-        console.log(comicThings)
 
         const { 
             titulo,
             autor,
             ano,
             sinopse,
+            preferenciasComic
         } = req.body
 
         const comic = await ComicService.updateValues(
@@ -80,7 +80,8 @@ const ComicController = {
             titulo,
             autor,
             ano,
-            sinopse
+            sinopse,
+            preferenciasComic
         )
 
         if(comic === null) return res.status(400).render('not-found')
@@ -94,8 +95,9 @@ const ComicController = {
     deleteComic: async (req, res) => {
 
         const { id } = req.params
+        const { preferenciasComic } = req.body
 
-        const comic = await ComicService.comicDestroyer(id)
+        const comic = await ComicService.comicDestroyer(id, preferenciasComic)
 
         if(comic === null) return res.status(400).render('not-found');
 
