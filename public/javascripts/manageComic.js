@@ -1,3 +1,4 @@
+//---- Botão UPDATE ----------------------------------------------------------------------------
 async function onClickSubmit(event) {
     event.preventDefault()
     const id = document.getElementById('inputId').value
@@ -121,9 +122,30 @@ async function onClickSubmit(event) {
     }
 
 }
+// ---- fim botão UPDATE ---------------------------------------------------------------------
+
+// ---- Botão DELETE -------------------------------------------------------------------------
+async function onClick(event) {
+    event.preventDefault()
+    const id = document.getElementById('inputId').value
+
+   await fetch(`http://localhost:3000/comicpage/${id}`, {
+        method: "DELETE"
+    })
+
+    window.alert('Comic deletada com sucesso !')
+    window.location="http://localhost:3000/comicpage/comicslist"
+
+}
+
+//---- fim botão DELETE -----------------------------------------------------------------------
+
 
 window.onload = () => {
     const form = document.getElementById("formulario")
     form.addEventListener("submit", onClickSubmit)
+
+    const btnDelete = document.getElementById("btnDelete")
+    btnDelete.addEventListener("click", onClick)
 } 
 

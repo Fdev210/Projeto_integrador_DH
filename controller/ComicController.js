@@ -74,6 +74,8 @@ const ComicController = {
             preferenciasComic
         } = req.body
 
+        console.log(preferenciasComic)
+
         const comic = await ComicService.updateValues(
             id,
             comicThings,

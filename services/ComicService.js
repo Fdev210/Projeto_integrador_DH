@@ -114,31 +114,30 @@ const ComicService = {
                     id
                 }
             })
-
-            const idComic = await updateComic.dataValues.id
+            
+            const dataComic = await database.Comic.findByPk(id)
+            const idComic = await dataComic.dataValues.id
 
             preferenciasComic.forEach(async (preferencia) => {
                 const novaPreferencia = await database.ComicPreferencia.update({
                     comics_id: idComic,
                     preferencia_id: preferencia
-                })
+                }, {
+                    where: { id }
+                   });
             });
 
-            const dataComic = await database.Comic.findByPk(id)
             return dataComic.dataValues
     },
 
-    comicDestroyer: async (id, preferenciasComic) => {
+    comicDestroyer: async (id) => {
 
         const comic = await database.Comic.findByPk(id)
-        const idComic = await comic.dataValues.id
 
-        preferenciasComic.forEach(async (preferencia) => {
-            await database.ComicPreferencia.destroy({
-                comics_id: idComic,
-            })
+        await database.ComicPreferencia.destroy({
+            where: { comics_id : id }
         })
-
+        
         await database.Comic.destroy({
             where: { id }
         });
