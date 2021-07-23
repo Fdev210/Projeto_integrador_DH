@@ -93,7 +93,7 @@ async function onClickSubmit(event) {
     formdata.append("antevisao", antevisao.files[2]);
 
     for (let i = 0; i < preferenciasComic.length; i++) {
-        formdata.append("preferenciasComic", preferenciasComic[i])
+        formdata.append("preferenciasComic[]", preferenciasComic[i])
     }
 
     const requestOptions = {
