@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de HQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+    <link href="/stylesheets/cadastroUsuario.css" rel="stylesheet"  />
+    <script src="/javascripts/cadastroMinhaConta.js"></script>
+</head>
+<body>
+    <header>
+        <%- include('./global/header.ejs') %>
+    </header>
+    <main>
+        <form class="formulario" id="formulario" method="POST">
+            <div class="dados">
+                <meta id="id" content=<%- cliente.dataValues.id %>>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" value=<%- cliente.dataValues.nome %>>
+                <span id="nomeError" class="error">Nome incorreto</span>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value=<%- cliente.dataValues.email %>>
+                <span id="emailError" class="error">Nome incorreto</span>
+                <label for="telefone">Telefone</label>
+                <input type="tel" name="telefone" id="telefone" value=<%- cliente.dataValues.telefone %>>
+                <span id="telefoneError" class="error">Nome incorreto</span>
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" value="">
+                <span id="senhaError" class="error">Nome incorreto</span>
+                <label for="nascimento">Data de nascimento</label>
+                <% function adicionaZero(n) {
+                    if (n <= 9) 
+                        return "0" + n 
+                    else 
+                        return n} %>
+                <input type="date" name="nascimento" id="nascimento" value=
+                    <%- cliente.dataValues.data_nascimento.getFullYear() + "-" +
+                    adicionaZero((cliente.dataValues.data_nascimento.getMonth() + 1)) + "-" +
+                    adicionaZero(cliente.dataValues.data_nascimento.getDate())                                
+                    %>>
+                %>
+                <span id="nascimentoError" class="error">Nom incorreto</span>
+            </div>
+            <div class="desktop">
+                <div class="preferencias">
+                    <label>Selecione abaixo as suas preferências</label>
+                    <span id="preferenciaError" class="error">Selecione pelo menos uma preferência</span>
+                    <ul class="titulos">
+
+                        <% preferencias.forEach(function(preferencia, i) { 
+                            let check = ""
+                            preferencias_clientes.forEach(function(preferencia_cliente) {
+                                if (preferencia.dataValues.id === preferencia_cliente)
+                                    check = "checked"
+                                    return check
+                            console.log(check)
+                            })
+                        %>
+                         
+                            <li>
+                                <input 
+                                    type="checkbox" 
+                                    name="preferencias"  
+                                    value=<%- preferencia.dataValues.preferencias %> 
+                                    id=<%- preferencia.dataValues.id  %>
+                                    <%- check  %>>
+                                <label 
+                                    for=id=<%- preferencia.dataValues.id  %>> 
+                                    <%= preferencia.dataValues.preferencias %>
+                                </label>
+                            </li>
+
+                        <%}) %>
+                    </ul>
+                </div>
+                <div class="botoes">
+                    <button class="botao" type="button" id="alterar">Alterar</button>
+                    <button class="botao" type="button" id="excluir">Excluir</button>
+                </div>
+            </div>
+
+        </form>
+    </main>
+    <footer>
+        <%- include('./global/footer.ejs') %> 
+    </footer>
+ 

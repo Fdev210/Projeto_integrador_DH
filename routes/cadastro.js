@@ -11,7 +11,7 @@ const CadastroController = require('../controller/CadastroController');
 router.get('/', CadastroController.index)
 router.post('/', /*auth, authO,*/ validador.validador_cadastro, CadastroController.create)
 router.get('/all', auth, authO, CadastroController.indexAll)
-router.get('/:id', auth, authO, CadastroController.buscaPorId) 
+router.get('/:id', /*auth, authO,*/ CadastroController.buscaPorId) 
 router.get('/pagina/:pagina', auth, authO, CadastroController.buscaPagina)
 router.get('/:id/preferencias', /*auth, authO,*/ CadastroController.buscaPreferencias)
 

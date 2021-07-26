@@ -21,7 +21,14 @@ const CadastroController = {
     buscaPorId: async (req, res) => { 
         const {id} = req.params
         const cliente = await CadastroService.buscaClienteId(id)
-        return res.json(cliente)
+        // return res.json(cliente)
+        const preferencias = await database.Preferencia.findAll({attributes: ['id','preferencias']})
+        const preferencias_clientes = await database.ClientePreferencia.findAll({where: {clientes_id: id}, attributes: ['preferencia_id']})
+        let pref_clientes = []
+        preferencias_clientes.forEach(element => {
+            pref_clientes.push(element.dataValues.preferencia_id)
+        });     
+        res.render('cadastroMinhaConta', {preferencias: preferencias, cliente: cliente, preferencias_clientes: pref_clientes});
     },
 
     buscaPreferencias: async (req, res) => {
@@ -64,18 +71,19 @@ const CadastroController = {
             email,  
             telefone,
             senha,
-            data_nascimento
+            data_nascimento,
+            preferenciasCliente
         } = req.body
 
-        const senha_hash = bcryptjs.hashSync(senha, 12)
    
         const clienteAlterado = await CadastroService.alteraCliente(
             id,
             nome,
             email,  
             telefone,
-            senha_hash,
-            data_nascimento
+            senha,
+            data_nascimento,
+            preferenciasCliente
         ) 
         
         res.json(clienteAlterado)
@@ -83,6 +91,7 @@ const CadastroController = {
     },
     delete: async (req, res) => {
         const { id } = req.params 
+        await CadastroService.apagaPreferenciasCliente(id)
         await CadastroService.apagaCliente(id)
         res.json(id)
     }
