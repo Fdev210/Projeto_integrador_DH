@@ -118,13 +118,16 @@ const ComicService = {
             
             const dataComic = await database.Comic.findByPk(id)
 
+            await database.ComicPreferencia.destroy({
+                where: { comics_id: id }
+            })
+
             preferenciasComic.forEach(async (preferencia) => {
-                await database.ComicPreferencia.update({
-                        preferencia_id: preferencia
-                    }, {
-                        where: { comics_id: id }
-                      });
-            });
+                const novaPreferencia = await database.ComicPreferencia.create({
+                    comics_id: id,
+                    preferencia_id: preferencia
+                })
+            })
 
             return dataComic.dataValues
     },
