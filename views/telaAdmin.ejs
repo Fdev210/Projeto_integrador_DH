@@ -61,12 +61,21 @@
                     <textarea name="sinopse" id="sinopse"></textarea>
                     <span id="sinopseError" class="error">Sinopse inválida</span>
                 </div>
-                <label for="pdf" class="arquivo">Selecione o gibi</label>
-                <input type="file" id="pdf" name="pdf" accept=".pdf">
-                <label for="capa" class="arquivo">Selecione a capa</label>
-                <input type="file" id="capa" name="capa" accept=".png, .jpg, .jpeg">
-                <label for="antevisão" class="arquivo">Selecione a antevisão</label>
-                <input type="file" id="antevisão" name="antevisão" accept=".png, .jpg, .jpeg" multiple>                
+                <div class="upload">
+                    <div class="upload_buttons">
+                        <label for="pdf" class="arquivo">Selecione o gibi</label>
+                        <input type="file" id="pdf" name="pdf" accept=".pdf">
+                        <label for="capa" class="arquivo">Selecione a capa</label>
+                        <input type="file" id="capa" name="capa" accept=".png, .jpg, .jpeg">
+                        <label for="antevisão" class="arquivo">Selecione a antevisão</label>
+                        <input type="file" id="antevisão" name="antevisão" accept=".png, .jpg, .jpeg" multiple> 
+                    </div>
+                    <div class="upload_labels">
+                        <label id="upload_pdf">Nenhum arquivo selecionado</label>
+                        <label id="upload_capa">Nenhum arquivo selecionado</label>
+                        <label id="upload_antevisao">Nenhum arquivo selecionado</label>
+                    </div>               
+                </div>
                 <div class="botoes">
                     <button class="botao" type="reset">Limpar</button>
                     <button class="botao" type="submit">Enviar</button>
