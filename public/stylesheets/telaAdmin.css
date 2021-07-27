@@ -151,6 +151,28 @@ label.arquivo {
     justify-content: center;
 }
 
+.upload{
+    display: flex;
+    flex-direction: row;
+}
+
+.upload_buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.upload_labels{
+    display: flex;
+    flex-direction: column;
+}
+
+#upload_pdf, #upload_capa, #upload_antevisao{
+    width: 200px;
+    height: 24.67px;
+    margin-top: 10px;
+    padding: 3px 20px;
+}
+
 .botao {
     font-family: 'Knewave';
     font-size: 12px;
