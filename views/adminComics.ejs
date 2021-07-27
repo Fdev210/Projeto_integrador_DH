@@ -38,11 +38,12 @@
                                     type="checkbox" 
                                     name="preferencias"  
                                     value=<%- preferencia.dataValues.preferencias %>
+                                    id=<%- preferencia.dataValues.id  %>
                                     <% for (let elem of comic.Preferencia) { %>
                                         <% if(preferencia.preferencias === elem.preferencias) { %>
                                             checked
                                         <% } %>
-                                    <% } %>  
+                                    <% } %>  />
                                 <label 
                                     for=id=<%- preferencia.dataValues.id  %>> 
                                     <%= preferencia.dataValues.preferencias %>

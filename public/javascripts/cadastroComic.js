@@ -14,7 +14,6 @@ async function onClickSubmit(event) {
     const preferenciaError = document.getElementById("preferenciaError")
     const preferencias = document.getElementsByName("preferencias")
 
-
     tituloError.classList.remove("show")
     autorError.classList.remove("show")
     anoError.classList.remove("show")
@@ -32,7 +31,7 @@ async function onClickSubmit(event) {
         return prefs
         }
 
-    const preferenciasComic = criaPreferencias(preferencias) 
+    const preferenciasComic = criaPreferencias(preferencias)
 
     const errors = []
 

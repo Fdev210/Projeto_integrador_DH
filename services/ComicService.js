@@ -88,7 +88,8 @@ const ComicService = {
         autor,
         ano,
         sinopse,
-        preferenciasComic) => {
+        preferenciasComic
+    ) => {
 
             const { antevisao } = comicThings
 
@@ -97,7 +98,7 @@ const ComicService = {
                 return filename
             })
 
-            const updateComic = await database.Comic.update({
+            await database.Comic.update({
                 titulo,
                 autor,
                 ano,
@@ -116,15 +117,13 @@ const ComicService = {
             })
             
             const dataComic = await database.Comic.findByPk(id)
-            const idComic = await dataComic.dataValues.id
 
             preferenciasComic.forEach(async (preferencia) => {
-                const novaPreferencia = await database.ComicPreferencia.update({
-                    comics_id: idComic,
-                    preferencia_id: preferencia
-                }, {
-                    where: { id }
-                   });
+                await database.ComicPreferencia.update({
+                        preferencia_id: preferencia
+                    }, {
+                        where: { comics_id: id }
+                      });
             });
 
             return dataComic.dataValues

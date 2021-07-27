@@ -97,9 +97,8 @@ const ComicController = {
     deleteComic: async (req, res) => {
 
         const { id } = req.params
-        const { preferenciasComic } = req.body
 
-        const comic = await ComicService.comicDestroyer(id, preferenciasComic)
+        const comic = await ComicService.comicDestroyer(id)
 
         if(comic === null) return res.status(400).render('not-found');
 
