@@ -3,66 +3,49 @@
         <!-- CABEÇALHO -->
         <header>
             <!-- <span src="">Logo</span>
-            <nav>
-                <img class="crtl_user"src="images/hamburguer.png"  ./>
-                <img class="crtl_user"src="images/profile.png"  ./>
-            </nav> -->
+                <nav>
+                    <img class="crtl_user"src="images/hamburguer.png"  ./>
+                    <img class="crtl_user"src="images/profile.png"  ./>
+                </nav> -->
         </header>
-    <!-- FIM CABEÇALHO -->
-
-    <!-- CORPO -->
-    <!-- Categorias -->
-    <main>
-        <div><h1>Olá, <%= usuario.nome %></h1></div>
-        <div class="categorias">
-            <h1>categorias: </h1>
-            <div class="categoria_especifica">
-                Lançamentos
-            </div>
-            <div class="categoria_especifica">
-                Em alta
-            </div>
-            <div class="categoria_especifica">
-                Mangás
-            </div>
-            <div class="categoria_especifica">
-                Marvel
-            </div>
-            <div class="categoria_especifica">
-                DC
-            </div>
-            <div class="categoria_especifica">
-                Ziraldo
-            </div>
-            <div class="categoria_especifica">
-                Turma da mônica
-            </div>
-        </div>
-        <!-- Fim categorias -->
-
-        <!-- Painel lateral -->
-        <section>
+            <!-- FIM CABEÇALHO -->
             
-            <nav id="navegacao" class="active">
-                <div class="menu-toggle"><img src="images/colapsar.png" alt="Menu"></div>
-                <ul>
-                    <li><a href="#" class="selecao"><img src="images/seta_direita.png" /><span>Herói</span></a></li>
-                    <li><a href="#" class="selecao"><img src="images/seta_direita.png" /><span>Herói</span></a></li>
-                    <li><a href="#" class="selecao"><img src="images/seta_direita.png" /><span>Herói</span></a></li>
-                    <li><a href="#" class="selecao"><img src="images/seta_direita.png" /><span>Herói</span></a></li>
-                    <li><a href="#" class="selecao"><img src="images/seta_direita.png" /><span>Herói</span></a></li>
-                    <li><a href="#" class="selecao"><img src="images/seta_direita.png" /><span>Herói</span></a></li>
-                </ul>
-            </nav>
-        </section>
-        <!-- Fim barra lateral -->
-
-
+            <!-- CORPO -->
+            <!-- Categorias -->
+        <div class="menu-toggle"><img id="fechar" src="images/colapsar.png" onclick="abrirMenu()"/></div>
+        <div><h1>Olá, <%= usuario.nome %></h1></div>
+    
+    <main>
+        <nav id="navegacao" class="categorias">
+            <div class="menu-toggle"><img src="images/colapsar.png" onclick="fecharMenu()"/></div>
+            <h2>categorias: </h2>
+            <p class="categoria_especifica">
+                Lançamentos
+            </p>
+            <p class="categoria_especifica">
+                Em alta
+            </p>
+            <p class="categoria_especifica">
+                Mangás
+            </p>
+            <p class="categoria_especifica">
+                Marvel
+            </p>
+            <p class="categoria_especifica">
+                DC
+            </p>
+            <p class="categoria_especifica">
+                Ziraldo
+            </p>
+            <p class="categoria_especifica">
+                Turma da mônica
+            </p>
+        </nav>
+    <!-- Fim categorias -->
         <!-- HQs em tela -->
         <section class="expositor">
             <% comics.forEach( elem => { %>
                 <% if(elem) { %>
-                <% console.log(elem) %>
                     <div class="base_apoio">
                         <div class="hq">
                             <img src="<%= elem.capa %>"  />
@@ -83,105 +66,15 @@
                     </div>
                 <% } %>
             <% }) %>
-
-            <div class="base_apoio">
-                <div class="hq">
-                    <img src="images/hq.png"  />
-                </div>
-
-                <div class="container">
-                    <div class="infomacoes_tecnicas">
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                    </div>
-                    <div class="interagir">
-                        <img src="images/favoritar.png"  />
-                        <img src="images/salvar.png"  />
-                    </div>
-                </div>
-            </div>
-
-            <div class="base_apoio">
-                <div class="hq">
-                    <img src="images/hq.png"  />
-                </div>
-
-                <div class="container">
-                    <div class="infomacoes_tecnicas">
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                    </div>
-                    <div class="interagir">
-                        <img src="images/favoritar.png"  />
-                        <img src="images/salvar.png"  />
-                    </div>
-                </div>
-            </div>
-
-            <div class="base_apoio">
-                <div class="hq">
-                    <img src="images/hq.png"  />
-                </div>
-
-                <div class="container">
-                    <div class="infomacoes_tecnicas">
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                    </div>
-                    <div class="interagir">
-                        <img src="images/favoritar.png"  />
-                        <img src="images/salvar.png"  />
-                    </div>
-                </div>
-            </div>
-
-            <div class="base_apoio">
-                <div class="hq">
-                    <img src="images/hq.png"  />
-                </div>
-
-                <div class="container">
-                    <div class="infomacoes_tecnicas">
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                    </div>
-                    <div class="interagir">
-                        <img src="images/favoritar.png"  />
-                        <img src="images/salvar.png"  />
-                    </div>
-                </div>
-            </div>
-
-            <div class="base_apoio">
-                <div class="hq">
-                    <img src="images/hq.png"  />
-                </div>
-
-                <div class="container">
-                    <div class="infomacoes_tecnicas">
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                        <p>Informações técnicas</p>
-                    </div>
-                    <div class="interagir">
-                        <img src="images/favoritar.png"  />
-                        <img src="images/salvar.png"  />
-                    </div>
-                </div>
-            </div>
         </section>
         <!-- Fim HQs em tela -->
     </main>
+
     <!-- FIM CORPO -->
+
+    <!-- Botão colapsar -->
+    
+<!-- Fim botão colapsar -->
 
     <!-- FOOTER -->
     <%- include('./global/footer2.ejs') %>

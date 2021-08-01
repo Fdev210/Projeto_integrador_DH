@@ -17,19 +17,19 @@
             <img src='/<%= comic.capa %>' />
             <img src='/<%= comic.capa %>' />
             <img src='/<%= comic.capa %>' />
+
+            <button onclick="window.location.href='http://localhost:3000/comicpage/comicpdf/<%= comic.id %>';" 
+                    class="interagir"   
+                    type="button" > Ler
+            </button>
         </div>
-        <button class="interagir" type="button" >Ler</button>
-        <button class="interagir" type="button">Download</button>
-        
-        <button class="interagir" type="button">curtir</button>
-        <button class="interagir" type="button">compartilhar</button>
         <!-- Fim Capa da HQ e botões de ação -->
 
         <!-- Sinópse -->
         <section>
             <h1>Nesta edição</h1>
             <p id="sinopse">
-                <%= comic.sinopse%>
+                <%= comic.sinopse %>
             </p>
             <p id="ano-edicao">Ano de edição - <%= comic.ano %></p>
         </section>

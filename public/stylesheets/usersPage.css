@@ -45,50 +45,49 @@ header nav {
 
 /* -- MAIN -------------------------------------------------------------------------------------------*/
 
+main {
+    display: flex;
+}
+
 .categorias {
-    width: 100vw;
-    display: none;
     border-bottom: 3px solid #969FAA;
-    justify-content: space-between;
-    align-items: center;
     padding: 8px;
+    overflow: auto;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 2em;
 }
 
 .categoria_especifica {
     background-color: gray;
     border-radius: 500px;
-    width: 10%;
-    height: 40px;
+    height: 30px;
     padding: 10px 0px;
+    margin: 3px;
     text-align: center;
     font-size: 90%;
 
 }
 
+.categoria_especifica:hover {
+    background-color: black;
+    color: white;
+}
+
 #navegacao {
     width: 100%;
-    height: 80vh;
+    height: 100%;
     position: absolute;
-    top: 60px;
+    top: 169px;
     left: -100%;
-	z-index: 10;
     background-color: blue;
     color: #fff;
     display: flex;
     flex-direction: column;
+    text-align: center;
 	transition: all 0.3s ease;
 	-webkit-transition: all 0.3s ease;
-}
-
-
-#navegacao.active {
-    left: 0;
-    transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
 }
 
 .menu-toggle {
@@ -99,7 +98,15 @@ h1 {
 }
 
 .menu-toggle img {
-    width: 100%;
+    width: 18px;
+}
+
+.menu-toggle #fechar {
+    width: 16px;
+    transform: rotate(180deg);
+    position: absolute;
+    left: -876%;
+    top: 50px;
 }
 
 .selecao {
@@ -174,11 +181,13 @@ footer {
     width: 100%;
     background-color: #212121;
     color: #FFF;
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 20px 10px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
 }
 
 footer .logo {
@@ -213,10 +222,8 @@ footer .voltar img {
     }
 
     #navegacao {
-        width: 50%;
-        display: block;
-        position: fixed;
-        z-index: auto;
+        width: 30%;
+
     }
 
     footer .voltar {
@@ -227,11 +234,16 @@ footer .voltar img {
 @media(min-width: 550px) {
 
     #navegacao {
-        width: 33%;
+        width: 25%;
     }
 }
 
 @media(min-width: 650px) {
+
+
+    #navegacao {
+        width: 22%;
+    }
 
     .base_apoio {
         max-width: 360px;
@@ -239,20 +251,18 @@ footer .voltar img {
 }
     
 @media (min-width: 768px) {
-    .categorias {
-        display: flex;
+    main {
+        padding: 10px;
+        transition: margin-left 0.5s;
     }
 
     #navegacao {
-        width: 25%;
+        width: 20%;
+        left: 0;
     }
 
     .base_apoio {
        max-width: 330px;
-    }
-
-    header nav {
-        margin-right: 0px;
     }
 
     footer .voltar {
