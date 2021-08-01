@@ -1,0 +1,65 @@
+.top{
+    width: 100%;
+    height: 50px;
+    background-color: whitesmoke;
+    /** header style netflix**/
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Josefin Sans','sans-serif';
+    z-index: 999;
+}
+
+.topleft,.topright{
+    flex:3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topcenter{
+    flex:6;
+  
+}
+
+.toplist{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.toplistitem{
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.topicon{
+    font-size: 25px;
+    margin-right: 10px;
+    color: #444;
+    cursor: pointer;
+}
+
+.topimg{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: black;
+}
+
+.topsearchicon{
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
