@@ -48,7 +48,8 @@
                 <% if(elem) { %>
                     <div class="base_apoio">
                         <div class="hq">
-                            <img src="<%= elem.capa %>"  />
+                            <img src="<%= elem.capa %>" 
+                                 onclick="window.location.href='http://localhost:3000/comicpage/<%= elem.id %>';" />
                         </div>
                         
                         <div class="container">
