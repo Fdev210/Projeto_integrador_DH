@@ -23,8 +23,6 @@ const ComicController = {
             sinopse,
             preferenciasComic
         } = req.body;
-
-        console.log(preferenciasComic)
         
         const { endereço } = await ComicService.createComic(
             comicThings,
@@ -50,6 +48,11 @@ const ComicController = {
         })
     },
 
+    readAll: async (req, res) => {
+        const comicsList = await ComicService.getAllComics();
+        return res.render('comicsList', { comics: comicsList });
+    },
+
     readPdf: async (req, res) =>{
         const { id } = req.params;
         const [comic] = await ComicService.getComic(id);
@@ -62,13 +65,13 @@ const ComicController = {
         const { id } = req.params
 
         const comicThings = req.files
-        console.log(comicThings)
 
         const { 
             titulo,
             autor,
             ano,
             sinopse,
+            preferenciasComic
         } = req.body
 
         const comic = await ComicService.updateValues(
@@ -77,7 +80,8 @@ const ComicController = {
             titulo,
             autor,
             ano,
-            sinopse
+            sinopse,
+            preferenciasComic
         )
 
         if(comic === null) return res.status(400).render('not-found')

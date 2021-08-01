@@ -71,7 +71,15 @@ const ComicService = {
         const all = []
         all.push(comic, relacionados)
         return all
-    },  
+    },
+    
+    getAllComics : async () => {
+        comicsList = await database.Comic.findAll({
+            attributes: ['id', 'titulo', 'autor', 'ano', 'sinopse', 'capa', 'createdAt', 'updatedAt'] 
+        })
+
+        return comicsList
+    },
 
     updateValues: async(
         id,
@@ -79,7 +87,9 @@ const ComicService = {
         titulo,
         autor,
         ano,
-        sinopse) => {
+        sinopse,
+        preferenciasComic
+    ) => {
 
             const { antevisao } = comicThings
 
@@ -104,25 +114,43 @@ const ComicService = {
                 where: {
                     id
                 }
-            })        
+            })
+            
             const dataComic = await database.Comic.findByPk(id)
+
+            await database.ComicPreferencia.destroy({
+                where: { comics_id: id }
+            })
+
+            preferenciasComic.forEach(async (preferencia) => {
+                const novaPreferencia = await database.ComicPreferencia.create({
+                    comics_id: id,
+                    preferencia_id: preferencia
+                })
+            })
+
             return dataComic.dataValues
     },
 
     comicDestroyer: async (id) => {
 
-        const targetValues = await database.Comic.findByPk(id)
-        const target = await database.Comic.destroy({
+        const comic = await database.Comic.findByPk(id)
+
+        await database.ComicPreferencia.destroy({
+            where: { comics_id : id }
+        })
+        
+        await database.Comic.destroy({
             where: { id }
         });
         
-        return targetValues.dataValues    
+        return comic.dataValues    
         
     },
 
     relateTables: async (id) => {
         const joinTables = await database.Comic.findByPk(id, {
-            include: [{ model: database.ComicPreferencia}]
+            include: [{ model: database.Preferencia }]
         });
         return joinTables
     },

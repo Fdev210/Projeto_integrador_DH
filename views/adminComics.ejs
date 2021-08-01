@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de HQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+    <link href="/stylesheets/telaAdmin.css" rel="stylesheet"  />
+    <script src="/javascripts/manageComic.js"></script>
+</head>
+<body>
+    <header>
+        <%- include('./global/header.ejs') %>
+    </header>
+    <main>
+        <form class="formulario" id="formulario" enctype="multipart/form-data">
+            <div class="dados">
+                <input type="hidden" id="inputId" value="<%= comic.id %>">
+                <label for="titulo">Título</label>
+                <input type="text" name="titulo" id="titulo" value="<%= comic.titulo %>">
+                <span id="tituloError" class="error">Titulo inválido</span>
+                <label for="autor">Autor</label>
+                <input type="text" name="autor" id="autor" value="<%= comic.autor %>">
+                <span id="autorError" class="error">Autor inválido</span>
+                <label for="ano">Ano</label>
+                <input type="text" name="ano" id="ano" value="<%= comic.ano %>">
+                <span id="anoError" class="error">Ano inválido</span>
+                <div class="bloco2">
+
+                    <label>Selecione as preferências relacionadas ao gibi</label>
+                    <span id="preferenciaError" class="error">Selecione pelo menos uma preferência</span>
+                    <ul class="titulos">
+                        <% preferencias.forEach(function(preferencia, i) { %>
+                            <li>
+                                <input 
+                                    type="checkbox" 
+                                    name="preferencias"  
+                                    value=<%- preferencia.dataValues.preferencias %>
+                                    id=<%- preferencia.dataValues.id  %>
+                                    <% for (let elem of comic.Preferencia) { %>
+                                        <% if(preferencia.preferencias === elem.preferencias) { %>
+                                            checked
+                                        <% } %>
+                                    <% } %>  />
+                                <label 
+                                    for=id=<%- preferencia.dataValues.id  %>> 
+                                    <%= preferencia.dataValues.preferencias %>
+                                </label>
+                            </li>
+                        <% }) %>
+                    </ul>
+                    <!-- <label for="tag1">Tag 1</label>
+
+                    <input type="text" name="tag1" id="tag1">
+                    <label for="tag2">Tag 2</label>
+                    <input type="text" name="tag2" id="tag2">
+                    <label for="tag3">Tag 3</label>
+                    <input type="text" name="tag3" id="tag3"> -->
+                </div>
+            </div>
+            <div class="desktop">
+                <div class="sinopse">
+                    <label for="sinopse">Sinopse</label>
+                    <textarea name="sinopse" id="sinopse"><%= comic.sinopse %></textarea>
+                    <span id="sinopseError" class="error">Sinopse inválida</span>
+                </div>
+                <label for="pdf" class="arquivo">Selecione o gibi</label>
+                <input type="file" id="pdf" name="pdf" accept=".pdf" value="<%= comic.endereço %>">
+                <label for="capa" class="arquivo">Selecione a capa</label>
+                <input type="file" id="capa" name="capa" accept=".png, .jpg, .jpeg" value="<%= comic.capa %>">
+                <label for="antevisão" class="arquivo">Selecione a antevisão</label>
+                <input type="file" id="antevisão" name="antevisão" accept=".png, .jpg, .jpeg" multiple>                
+                <div class="botoes">
+                    <button class="botao" type="reset">Limpar</button>
+                    <button class="botao" type="submit">Update</button>
+                    <button class="botao" id="btnDelete" type="button">Delete</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <%- include('./global/footer.ejs') %>
+    </footer>
+    

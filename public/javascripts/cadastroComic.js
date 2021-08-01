@@ -14,7 +14,6 @@ async function onClickSubmit(event) {
     const preferenciaError = document.getElementById("preferenciaError")
     const preferencias = document.getElementsByName("preferencias")
 
-
     tituloError.classList.remove("show")
     autorError.classList.remove("show")
     anoError.classList.remove("show")
@@ -32,7 +31,7 @@ async function onClickSubmit(event) {
         return prefs
         }
 
-    const preferenciasComic = criaPreferencias(preferencias) 
+    const preferenciasComic = criaPreferencias(preferencias)
 
     const errors = []
 
@@ -93,7 +92,7 @@ async function onClickSubmit(event) {
     formdata.append("antevisao", antevisao.files[2]);
 
     for (let i = 0; i < preferenciasComic.length; i++) {
-        formdata.append("preferenciasComic", preferenciasComic[i])
+        formdata.append("preferenciasComic[]", preferenciasComic[i])
     }
 
     const requestOptions = {
@@ -122,8 +121,39 @@ async function onClickSubmit(event) {
 
 }
 
+function onClickpdf(event) {
+    if (event.target.files.length === 0) {
+        document.getElementById("upload_pdf").innerText = "Nenhum arquivo selecionado"
+    } else {
+        document.getElementById("upload_pdf").innerText = "Um arquivo selecionado"
+    }
+}
+
+function onClickcapa(event) {
+    if (event.target.files.length === 0) {
+        document.getElementById("upload_capa").innerText = "Nenhum arquivo selecionado"
+    } else {
+        document.getElementById("upload_capa").innerText = "Um arquivo selecionado"
+    }
+}
+
+function onClickantevisao(event) {
+    if (event.target.files.length === 0) {
+        document.getElementById("upload_antevisao").innerText = "Nenhum arquivo selecionado"
+    } else if (event.target.files.length === 1) {
+        document.getElementById("upload_antevisao").innerText = "Um arquivo selecionado"
+    } else if (event.target.files.length === 2) {
+        document.getElementById("upload_antevisao").innerText = "Dois arquivos selecionados"
+    } else {
+        document.getElementById("upload_antevisao").innerText = "Três arquivos selecionados"
+    }
+}
+
 window.onload = () => {
     const form = document.getElementById("formulario")
     form.addEventListener("submit", onClickSubmit)
+    document.getElementById("pdf").addEventListener("input", onClickpdf)
+    document.getElementById("antevisão").addEventListener("input", onClickantevisao)
+    document.getElementById("capa").addEventListener("input", onClickcapa)
 } 
 

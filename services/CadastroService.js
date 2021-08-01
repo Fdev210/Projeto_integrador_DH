@@ -53,7 +53,8 @@ const CadastroService = {
         email,  
         telefone,
         senha,
-        data_nascimento) => {
+        data_nascimento,
+        preferenciasCliente) => {
 
         const clienteAlterado = await database.Cliente.update({
             nome,
@@ -66,6 +67,15 @@ const CadastroService = {
                 id
             }
         })
+
+        await CadastroService.apagaPreferenciasCliente(id)
+        preferenciasCliente.forEach(async (preferencia) => {
+            const novaPreferencia = await database.ClientePreferencia.create({
+                clientes_id: id,
+                preferencia_id: preferencia
+            })
+        })
+
         return clienteAlterado 
         
     },
@@ -77,6 +87,15 @@ const CadastroService = {
             }
         })
         return id
+
+    },
+
+    apagaPreferenciasCliente: async (id) => {
+        await database.ClientePreferencia.destroy({
+            where: {
+                clientes_id: id
+            }
+        })
 
     },
 

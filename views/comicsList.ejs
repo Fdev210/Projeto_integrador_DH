@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/comicsList.css" rel="stylesheet" />
+    <script src="/javascripts/comicsList.js"></script>
+    <title>Comics List</title>
+</head>
+<body>
+    <% comics.forEach(elem => { %>
+        <% if(elem) { %>
+            <div class="base">
+                <div class="comic">
+                    <div class="moldura">
+                        <img src="/<%= elem.capa %>">
+                    </div>
+                    <div class="informacoes_tecnicas">
+                        <ul>
+                            <li> <strong>id:</strong> <%= elem.id %> </li>
+                            <li> <strong>titulo:</strong> <%= elem.titulo %> </li>
+                            <li> <strong>autor:</strong> <%= elem.autor %> </li>
+                            <li> <strong>ano:</strong> <%= elem.ano %> </li>
+                            <li> <strong>sinopse:</strong> <%= elem.sinopse %> </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="base_botao">
+                    <button class="botao" 
+                            onclick="window.location.href='http://localhost:3000/admin/<%=elem.id %>';" 
+                            type="button"> Gerenciar </button>
+                </div>
+            </div>
+        <% } %>
+    <% }) %>
+    
+</body>
+</html>

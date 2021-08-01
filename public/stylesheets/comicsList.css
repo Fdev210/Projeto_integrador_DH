@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0
+}
+
+body {
+    background-color: teal;
+}
+
+.base {
+    background-color: thistle;
+    margin: 3px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.moldura {
+    width: auto;
+}
+
+.moldura img {
+    width: 100%;
+
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.base_botao {
+    align-self: flex-end;
+}
+
+button {
+    height: 40px;
+    width: 75px;
+    color:white;
+    font-weight: 700;
+    background-color: rgba(13, 87, 172, 0.925);
+    cursor: pointer;
+}
+
+button:hover {
+    color: rgb(0, 0, 0)
+}
+
+@media (min-width: 481px) {
+
+    .base {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    } 
+
+    .moldura {
+        border: 1px solid red;
+        width: 120px;
+        height: 150px;
+        align-self: center;
+    }
+
+    .comic {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .informacoes_tecnicas {
+        margin: 20px;
+    
+    }
+
+    .moldura img {
+
+        max-height: 150px;
+        min-width: 120px;
+    }
+
+
+    
+}
