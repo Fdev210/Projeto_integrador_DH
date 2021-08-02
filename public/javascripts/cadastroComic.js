@@ -149,11 +149,18 @@ function onClickantevisao(event) {
     }
 }
 
+function onClickDropDown() {
+    const menu = document.querySelector('.dropdown-content')
+    menu.classList.toggle('show')
+}
+
 window.onload = () => {
     const form = document.getElementById("formulario")
     form.addEventListener("submit", onClickSubmit)
     document.getElementById("pdf").addEventListener("input", onClickpdf)
     document.getElementById("antevisão").addEventListener("input", onClickantevisao)
     document.getElementById("capa").addEventListener("input", onClickcapa)
-} 
-
+    
+    const dropDownBtn = document.getElementById('dropdownbtn')
+    dropDownBtn.addEventListener('click', onClickDropDown)
+}

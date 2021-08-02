@@ -14,81 +14,82 @@ html, body {
 
 /* -- FIM BODY -------------------------------------------------------------------------------------- */
 
-
-/* -- HEADER -----------------------------------------------------------------------------------------*/
-/* header {
-    width: 100%;
-    margin-top: -8;
-} 
-
-   header span {
-    align-self: center;
-    margin-left: 10px;
-}
-
-header nav {
-    height: 100%;
-    width: 100px;
-    margin-right: 10px;
+main {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-self: center;
 }
 
-.crtl_user {
-    width: 50%;
-    height: 60%px;
-    
-} */
-/*-- FIM HEADER --------------------------------------------------------------------------------------*/
+.usuario {
+    display: flex;
+}
 
-/* -- MAIN -------------------------------------------------------------------------------------------*/
+.botoes {
+    margin: 0px 15px 0px 15px;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+#botao_minha_conta {
+    font-family: 'Knewave';
+    font-size: 17px;
+    padding: 2px 10px 2px 10px;
+    margin: 7px 15px 0px 15px;
+    border-radius: 20px;
+    background-color: #203A43;
+    color: white;
+    cursor: pointer;
+}
+
+#botao_logout {
+    font-family: 'Knewave';
+    font-size: 17px;
+    padding: 2px 10px 2px 10px;
+    margin: 7px 15px 0px 15px;
+    border-radius: 20px;
+    background-color: #203A43;
+    color: white;
+    cursor: pointer;
+}
 
 .categorias {
-    width: 100vw;
-    display: none;
-    border-bottom: 3px solid #969FAA;
-    justify-content: space-between;
-    align-items: center;
     padding: 8px;
+    overflow: auto;
 }
 
-h1 {
-    font-size: 2rem;
+h2 {
+    font-size: 2em;
 }
 
 .categoria_especifica {
-    background-color: gray;
+    background-color: blanchedalmond;
+    color: black;
     border-radius: 500px;
-    width: 10%;
-    height: 40px;
+    height: 30px;
     padding: 10px 0px;
+    margin: 3px;
     text-align: center;
     font-size: 90%;
+    cursor: pointer;
 
+}
+
+.categoria_especifica:hover {
+    background-color: black;
+    color: white;
 }
 
 #navegacao {
     width: 100%;
-    height: 80vh;
+    height: 100%;
     position: absolute;
-    top: 60px;
+    top: 169px;
     left: -100%;
-	z-index: 10;
-    background-color: blue;
+    background-color: #203A43;
     color: #fff;
     display: flex;
     flex-direction: column;
+    text-align: center;
 	transition: all 0.3s ease;
 	-webkit-transition: all 0.3s ease;
-}
-
-
-#navegacao.active {
-    left: 0;
-    transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
 }
 
 .menu-toggle {
@@ -99,7 +100,15 @@ h1 {
 }
 
 .menu-toggle img {
-    width: 100%;
+    width: 18px;
+}
+
+.menu-toggle #fechar {
+    width: 16px;
+    transform: rotate(180deg);
+    position: absolute;
+    left: -876%;
+    top: 50px;
 }
 
 .selecao {
@@ -139,6 +148,7 @@ h1 {
 
 .base_apoio .hq img {
     width: 90%;
+    cursor: pointer;
 
 }
 
@@ -167,22 +177,15 @@ h1 {
 /* -- FIM MAIN ---------------------------------------------------------------------------------------*/
 
 
-
 /* -- FOOTER -----------------------------------------------------------------------------------------*/
 
 footer {
     width: 100%;
-    background-color: #212121;
-    color: #FFF;
-    margin-top: 30px;
-    padding: 20px 10px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-footer .logo {
-    border: 1px solid red;
+    position: absolute;
 }
 
 footer .copyright {
@@ -213,10 +216,8 @@ footer .voltar img {
     }
 
     #navegacao {
-        width: 50%;
-        display: block;
-        position: fixed;
-        z-index: auto;
+        width: 30%;
+
     }
 
     footer .voltar {
@@ -227,11 +228,16 @@ footer .voltar img {
 @media(min-width: 550px) {
 
     #navegacao {
-        width: 33%;
+        width: 25%;
     }
 }
 
 @media(min-width: 650px) {
+
+
+    #navegacao {
+        width: 22%;
+    }
 
     .base_apoio {
         max-width: 360px;
@@ -239,20 +245,18 @@ footer .voltar img {
 }
     
 @media (min-width: 768px) {
-    .categorias {
-        display: flex;
+    main {
+        padding: 10px;
+        transition: margin-left 0.5s;
     }
 
     #navegacao {
-        width: 25%;
+        width: 20%;
+        left: -100%;
     }
 
     .base_apoio {
        max-width: 330px;
-    }
-
-    header nav {
-        margin-right: 0px;
     }
 
     footer .voltar {

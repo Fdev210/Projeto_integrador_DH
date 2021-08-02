@@ -141,11 +141,19 @@ async function onClick(event) {
 //---- fim botão DELETE -----------------------------------------------------------------------
 
 
+function onClickDropDown() {
+    const menu = document.querySelector('.dropdown-content')
+    menu.classList.toggle('show')
+}
+
 window.onload = () => {
     const form = document.getElementById("formulario")
     form.addEventListener("submit", onClickSubmit)
 
     const btnDelete = document.getElementById("btnDelete")
     btnDelete.addEventListener("click", onClick)
+
+    const dropDownBtn = document.getElementById('dropdownbtn')
+    dropDownBtn.addEventListener('click', onClickDropDown)
 } 
 

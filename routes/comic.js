@@ -13,9 +13,9 @@ router.get('/', ComicController.index)
 router.get('/comicslist', ComicController.readAll);
 router.get('/comicpdf/:id', ComicController.readPdf)
 router.get('/:id', ComicController.readComic);
-router.get('/preferencias/:id', /*auth, authO,*/ ComicController.findAssociation);
-router.post('/', /*auth, authO,*/ validador.validador_comic, ComicController.storeComic)
-router.put('/:id', /*auth, authO,*/ ComicController.updateComic);
-router.delete('/:id', /*auth, authO,*/ ComicController.deleteComic);
+router.get('/preferencias/:id', auth, authO, ComicController.findAssociation);
+router.post('/', auth, authO, validador.validador_comic, ComicController.storeComic)
+router.put('/:id', auth, authO, ComicController.updateComic);
+router.delete('/:id', auth, authO, ComicController.deleteComic);
 
 module.exports = router;  
