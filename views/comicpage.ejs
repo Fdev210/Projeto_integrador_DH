@@ -1,96 +1,89 @@
-<%- include('./global/header.ejs') %>
-    <link href="/stylesheets/comicpage.css" rel="stylesheet"/>
-    <!-- CABEÇALHO -->
-    <header>
-        <!-- <span src="">Logo</span>
-        <nav>
-            <img id="hamburguer" class="crtl_user"src="/images/hamburguer.png"/>
-            <img id="profile" class="crtl_user"src="/images/profile.png"/>
-        </nav> -->
-    </header>
-     <!-- FIM CABEÇALHO -->
+<link href="/stylesheets/comicpage.css" rel="stylesheet"/>
+<!-- CABEÇALHO -->
+<header>
+    <%- include('./global/header.ejs') %>
+</header>
+<!-- FIM CABEÇALHO -->
 
-    <!-- CORPO -->
-    <main>
-        <!-- Capa da HQ e botões de ação -->
-        <div class="exibicao">
-            <img src='/<%= comic.capa %>' />
-            <img src='/<%= comic.capa %>' />
-            <img src='/<%= comic.capa %>' />
+<!-- CORPO -->
+<main>
+    <!-- Capa da HQ e botões de ação -->
+    <div class="exibicao">
+        <img src='/<%= comic.capa %>' />
+        <img src='/<%= comic.capa %>' />
+        <img src='/<%= comic.capa %>' />
 
-            <button onclick="window.location.href='http://localhost:3000/comicpage/comicpdf/<%= comic.id %>';" 
-                    class="interagir"   
-                    type="button" > Ler
-            </button>
-        </div>
-        <!-- Fim Capa da HQ e botões de ação -->
+        <button onclick="window.location.href='http://localhost:3000/comicpage/comicpdf/<%= comic.id %>';" 
+                class="interagir"   
+                type="button" > Ler
+        </button>
+    </div>
+    <!-- Fim Capa da HQ e botões de ação -->
 
-        <!-- Sinópse -->
-        <section>
-            <h1>Nesta edição</h1>
-            <p id="sinopse">
-                <%= comic.sinopse %>
-            </p>
-            <p id="ano-edicao">Ano de edição - <%= comic.ano %></p>
-        </section>
-        <!-- Fim Sinópse -->
+    <!-- Sinópse -->
+    <section>
+        <h1>Nesta edição</h1>
+        <p id="sinopse">
+            <%= comic.sinopse %>
+        </p>
+        <p id="ano-edicao">Ano de edição - <%= comic.ano %></p>
+    </section>
+    <!-- Fim Sinópse -->
 
-        <!-- Informações técnicas -->    
-        <section class="informacoes-tecnicas">
-            <h2>Informações técnicas</h2>
-            <table>
-                <th>
-                    <tr>
-                        <td>autor</td>
-                        <td><%= comic.autor%></td>
-                    </tr>
-                </th>
-                <tr>
-                    <td>ano de edição</td>
-                    <td><%= comic.ano %></td>
-                </tr>
+    <!-- Informações técnicas -->    
+    <section class="informacoes-tecnicas">
+        <h2>Informações técnicas</h2>
+        <table>
+            <th>
                 <tr>
                     <td>autor</td>
                     <td><%= comic.autor%></td>
                 </tr>
-                <tr>
-                    <td>ano de edição</td>
-                    <td><%= comic.ano%></td>
-                </tr>
-            </table>
-        </section>
-        <!-- Fim informações técnicas -->
+            </th>
+            <tr>
+                <td>ano de edição</td>
+                <td><%= comic.ano %></td>
+            </tr>
+            <tr>
+                <td>autor</td>
+                <td><%= comic.autor%></td>
+            </tr>
+            <tr>
+                <td>ano de edição</td>
+                <td><%= comic.ano%></td>
+            </tr>
+        </table>
+    </section>
+    <!-- Fim informações técnicas -->
 
-        <!-- Antevisão -->
-        <section class="antevisao">
-            <h2>Antevisão</h2>
-            <div>
-            <% const antevisao = JSON.parse(comic.antevisao) %>
-            <% antevisao.forEach(elem => { %>
-                <img src=<%= elem %> />
+    <!-- Antevisão -->
+    <section class="antevisao">
+        <h2>Antevisão</h2>
+        <div>
+        <% const antevisao = JSON.parse(comic.antevisao) %>
+        <% antevisao.forEach(elem => { %>
+            <img src=<%= elem %> />
+        <% }) %>
+        </div>
+    </section>
+    <!-- Fim antevisão-->
+
+    <!-- Títulos semelhantes-->
+    <section class="titulos-semelhantes">
+        <h2>Títulos semelhantes</h2>
+        <div>
+            <% relacionados.forEach (elem => { %>
+                <% if(elem.id != comic.id) { %>
+                    <img src="/<%= elem.capa %>"/>
+                <% } %>
             <% }) %>
-                <!-- <img src=<%= comic.antevisao[1] %> />
-                <img src=<%= comic.antevisao[2] %> /> -->
-            </div>
-        </section>
-        <!-- Fim antevisão-->
+        </div>
+    </section>
+    <!-- Fim títulos semelhantes -->
+</main>
+<!-- FIM CORPO -->
 
-        <!-- Títulos semelhantes-->
-        <section class="titulos-semelhantes">
-            <h2>Títulos semelhantes</h2>
-            <div>
-                <% relacionados.forEach (elem => { %>
-                    <% if(elem.id != comic.id) { %>
-                        <img src="/<%= elem.capa %>"/>
-                    <% } %>
-                <% }) %>
-            </div>
-        </section>
-        <!-- Fim títulos semelhantes -->
-    </main>
-    <!-- FIM CORPO -->
-
-    <!-- FOOTER -->
-    <%- include('./global/footer.ejs') %>
-    <!-- FIM FOOTER -->
+<!-- FOOTER -->
+<%- include('./global/footer.ejs') %>
+<!-- FIM FOOTER -->
 

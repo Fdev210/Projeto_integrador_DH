@@ -16,9 +16,7 @@ html, body {
 }
 
 body {
-    background: rgba(140, 188, 224, 0.3); /*url("../imagens/superherois.png"),
-                                              url("../imagens/fundo-ruidoso.png"),
-                                              linear-gradient(60deg, rgb(177, 173, 173), #eee7e7);*/
+    background: rgba(140, 188, 224, 0.3);
     overflow-x: hidden;
                    
 }

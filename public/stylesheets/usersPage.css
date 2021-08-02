@@ -14,37 +14,6 @@ html, body {
 
 /* -- FIM BODY -------------------------------------------------------------------------------------- */
 
-
-/* -- HEADER -----------------------------------------------------------------------------------------*/
-/* header {
-    width: 100%;
-    margin-top: -8;
-} 
-
-   header span {
-    align-self: center;
-    margin-left: 10px;
-}
-
-header nav {
-    height: 100%;
-    width: 100px;
-    margin-right: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-self: center;
-}
-
-.crtl_user {
-    width: 50%;
-    height: 60%px;
-    
-} */
-/*-- FIM HEADER --------------------------------------------------------------------------------------*/
-
-/* -- MAIN -------------------------------------------------------------------------------------------*/
-
 main {
     display: flex;
 }
@@ -67,6 +36,7 @@ main {
     border-radius: 20px;
     background-color: #203A43;
     color: white;
+    cursor: pointer;
 }
 
 #botao_logout {
@@ -77,28 +47,28 @@ main {
     border-radius: 20px;
     background-color: #203A43;
     color: white;
+    cursor: pointer;
 }
 
-
-
 .categorias {
-    border-bottom: 3px solid #969FAA;
     padding: 8px;
     overflow: auto;
 }
 
-h1 {
+h2 {
     font-size: 2em;
 }
 
 .categoria_especifica {
-    background-color: gray;
+    background-color: blanchedalmond;
+    color: black;
     border-radius: 500px;
     height: 30px;
     padding: 10px 0px;
     margin: 3px;
     text-align: center;
     font-size: 90%;
+    cursor: pointer;
 
 }
 
@@ -113,7 +83,7 @@ h1 {
     position: absolute;
     top: 169px;
     left: -100%;
-    background-color: blue;
+    background-color: #203A43;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -207,24 +177,15 @@ h1 {
 /* -- FIM MAIN ---------------------------------------------------------------------------------------*/
 
 
-
 /* -- FOOTER -----------------------------------------------------------------------------------------*/
 
 footer {
     width: 100%;
-    background-color: #212121;
-    color: #FFF;
-    margin-top: 10px;
-    padding: 20px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: absolute;
-}
-
-footer .logo {
-    border: 1px solid red;
 }
 
 footer .copyright {
@@ -291,7 +252,7 @@ footer .voltar img {
 
     #navegacao {
         width: 20%;
-        left: 0;
+        left: -100%;
     }
 
     .base_apoio {

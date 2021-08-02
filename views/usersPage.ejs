@@ -1,97 +1,92 @@
-<%- include('./global/header.ejs') %>
-    <link href="stylesheets/usersPage.css" type="text/css" rel="stylesheet" /> 
-        <!-- CABEÇALHO -->
-        <header>
-            <!-- <span src="">Logo</span>
-                <nav>
-                    <img class="crtl_user"src="images/hamburguer.png"  ./>
-                    <img class="crtl_user"src="images/profile.png"  ./>
-                </nav> -->
-        </header>
-            <!-- FIM CABEÇALHO -->
+
+<link href="stylesheets/usersPage.css" type="text/css" rel="stylesheet" /> 
+<!-- CABEÇALHO -->
+<header>
+    <%- include('./global/header.ejs') %>   
+</header>
+<!-- FIM CABEÇALHO -->
             
-            <!-- CORPO -->
-            <!-- Categorias -->
-        <div class="menu-toggle"><img id="fechar" src="images/colapsar.png" onclick="abrirMenu()"/></div>
-        <div class="usuario">
-            <div><h1>Olá, <%= usuario.nome %></h1></div>
-            <div class="botoes">
-                <button
-                    id="botao_minha_conta"
-                    onclick="window.location.href='http://localhost:3000/cadastro/<%=usuario.id %>';"  
-                    type="button">Minha Conta</button>
-                <button
-                    id="botao_logout"
-                    onclick="window.location.href='http://localhost:3000/cadastro/logout';"
-                    type="button">Logout</button>
-            </div>
-        </div>
-    
-    <main>
-        <nav id="navegacao" class="categorias">
-            <div class="menu-toggle"><img src="images/colapsar.png" onclick="fecharMenu()"/></div>
-            <h2>categorias: </h2>
-            <p class="categoria_especifica">
-                Lançamentos
-            </p>
-            <p class="categoria_especifica">
-                Em alta
-            </p>
-            <p class="categoria_especifica">
-                Mangás
-            </p>
-            <p class="categoria_especifica">
-                Marvel
-            </p>
-            <p class="categoria_especifica">
-                DC
-            </p>
-            <p class="categoria_especifica">
-                Ziraldo
-            </p>
-            <p class="categoria_especifica">
-                Turma da mônica
-            </p>
-        </nav>
-    <!-- Fim categorias -->
-        <!-- HQs em tela -->
-        <section class="expositor">
-            <% comics.forEach( elem => { %>
-                <% if(elem) { %>
-                    <div class="base_apoio">
-                        <div class="hq">
-                            <img src="<%= elem.capa %>" 
-                                 onclick="window.location.href='http://localhost:3000/comicpage/<%= elem.id %>';" />
-                        </div>
-                        
-                        <div class="container">
-                            
-                            <div class="infomacoes_tecnicas">
-                                <p><%= elem.titulo %></p>
-                                <p>autor: <%= elem.autor %></p>
-                                <p>ano: <%= elem.ano %></p>
-                            </div>
-                            <div class="interagir">
-                                <img src="images/favoritar.png"  />
-                                <img src="images/salvar.png"  />
-                            </div>
-                        </div>
+<!-- CORPO -->
+<!-- Categorias -->
+<div class="menu-toggle"><img id="fechar" src="images/colapsar.png" onclick="abrirMenu()"/></div>
+<div class="usuario">
+    <div><h2>Olá, <%= usuario.nome %></h2></div>
+    <div class="botoes">
+        <button
+            id="botao_minha_conta"
+            onclick="window.location.href='http://localhost:3000/cadastro/<%=usuario.id %>';"  
+            type="button">Minha Conta
+        </button>
+        <button
+            id="botao_logout"
+            onclick="window.location.href='http://localhost:3000/cadastro/logout';"
+            type="button">Logout
+        </button>
+    </div>
+</div>
+
+<main>
+<nav id="navegacao" class="categorias">
+    <div class="menu-toggle"><img src="images/colapsar.png" onclick="fecharMenu()"/></div>
+    <h2>categorias: </h2>
+    <p class="categoria_especifica">
+        Lançamentos
+    </p>
+    <p class="categoria_especifica">
+        Em alta
+    </p>
+    <p class="categoria_especifica">
+        Mangás
+    </p>
+    <p class="categoria_especifica">
+        Marvel
+    </p>
+    <p class="categoria_especifica">
+        DC
+    </p>
+    <p class="categoria_especifica">
+        Ziraldo
+    </p>
+    <p class="categoria_especifica">
+        Turma da mônica
+    </p>
+</nav>
+<!-- Fim categorias -->
+
+<!-- HQs em tela -->
+<section class="expositor">
+    <% comics.forEach( elem => { %>
+        <% if(elem) { %>
+            <div class="base_apoio">
+                <div class="hq">
+                    <img src="<%= elem.capa %>" 
+                            onclick="window.location.href='http://localhost:3000/comicpage/<%= elem.id %>';" />
+                </div>
+                
+                <div class="container">
+                    
+                    <div class="infomacoes_tecnicas">
+                        <p><%= elem.titulo %></p>
+                        <p>autor: <%= elem.autor %></p>
+                        <p>ano: <%= elem.ano %></p>
                     </div>
-                <% } %>
-            <% }) %>
-        </section>
-        <!-- Fim HQs em tela -->
-    </main>
+                    <div class="interagir">
+                        <img src="images/favoritar.png"  />
+                        <img src="images/salvar.png"  />
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    <% }) %>
+</section>
+<!-- Fim HQs em tela -->
+</main>
 
-    <!-- FIM CORPO -->
+<!-- FIM CORPO -->
 
-    <!-- Botão colapsar -->
-    
-<!-- Fim botão colapsar -->
-
-    <!-- FOOTER -->
-    <%- include('./global/footer2.ejs') %>
-    <!-- FIM FOOTER -->
+<!-- FOOTER -->
+<%- include('./global/footer2.ejs') %>
+<!-- FIM FOOTER -->
 
 
 
