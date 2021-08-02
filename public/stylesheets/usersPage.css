@@ -49,6 +49,38 @@ main {
     display: flex;
 }
 
+.usuario {
+    display: flex;
+}
+
+.botoes {
+    margin: 0px 15px 0px 15px;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+#botao_minha_conta {
+    font-family: 'Knewave';
+    font-size: 17px;
+    padding: 2px 10px 2px 10px;
+    margin: 7px 15px 0px 15px;
+    border-radius: 20px;
+    background-color: #203A43;
+    color: white;
+}
+
+#botao_logout {
+    font-family: 'Knewave';
+    font-size: 17px;
+    padding: 2px 10px 2px 10px;
+    margin: 7px 15px 0px 15px;
+    border-radius: 20px;
+    background-color: #203A43;
+    color: white;
+}
+
+
+
 .categorias {
     border-bottom: 3px solid #969FAA;
     padding: 8px;

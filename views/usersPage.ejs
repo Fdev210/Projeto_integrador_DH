@@ -13,7 +13,19 @@
             <!-- CORPO -->
             <!-- Categorias -->
         <div class="menu-toggle"><img id="fechar" src="images/colapsar.png" onclick="abrirMenu()"/></div>
-        <div><h1>Olá, <%= usuario.nome %></h1></div>
+        <div class="usuario">
+            <div><h1>Olá, <%= usuario.nome %></h1></div>
+            <div class="botoes">
+                <button
+                    id="botao_minha_conta"
+                    onclick="window.location.href='http://localhost:3000/cadastro/<%=usuario.id %>';"  
+                    type="button">Minha Conta</button>
+                <button
+                    id="botao_logout"
+                    onclick="window.location.href='http://localhost:3000/cadastro/logout';"
+                    type="button">Logout</button>
+            </div>
+        </div>
     
     <main>
         <nav id="navegacao" class="categorias">

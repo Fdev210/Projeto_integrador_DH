@@ -8,6 +8,10 @@ const authO = require('../middlewares/authO')
 const CadastroController = require('../controller/CadastroController');
 
 /* register page. */
+router.get('/logout', (req,res) => {
+    req.session.destroy()
+    res.redirect("/")
+})
 router.get('/', CadastroController.index)
 router.post('/', /*auth, authO,*/ validador.validador_cadastro, CadastroController.create)
 router.get('/all', auth, authO, CadastroController.indexAll)
